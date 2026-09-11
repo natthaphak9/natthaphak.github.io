@@ -2,80 +2,644 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Tahoma,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#eef6ff;
+    background:#080808;
+    color:#f5f5f5;
+    font-family:Tahoma,sans-serif;
 }
 
-.container{
-    width:90%;
-    max-width:900px;
-    margin:50px auto;
-    background:white;
-    padding:40px;
-    border-radius:20px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+
+/* =========================
+   HOME
+========================= */
+
+.home-container{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:30px 20px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            #222 0%,
+            #080808 45%
+        );
+}
+
+.home-card{
+    width:100%;
+    max-width:800px;
+
     text-align:center;
+
+    padding:70px 40px;
+
+    background:#111;
+
+    border:1px solid #292929;
+
+    border-radius:24px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6);
 }
 
-h1{
-    color:#1565c0;
-    margin-bottom:20px;
+
+/* รูปโปรไฟล์ */
+
+.profile-wrapper{
+    margin-bottom:30px;
 }
 
-h2{
-    margin-bottom:20px;
+.profile-img{
+    width:170px;
+    height:170px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:3px solid #fff;
+
+    padding:5px;
+
+    background:#111;
 }
 
-p{
-    margin:15px 0;
+
+/* ตัวหนังสือ */
+
+.small-title{
+    color:#888;
+
+    font-size:13px;
+
+    letter-spacing:4px;
+
+    margin-bottom:15px;
+}
+
+.home-card h1{
+    font-size:42px;
+
+    margin-bottom:8px;
+
+    color:#fff;
+}
+
+.home-card h2{
+    font-size:20px;
+
+    font-weight:normal;
+
+    color:#999;
+}
+
+.line{
+    width:60px;
+    height:2px;
+
+    background:#fff;
+
+    margin:30px auto;
+}
+
+.description{
+    max-width:650px;
+
+    margin:15px auto;
+
     line-height:1.8;
+
+    color:#aaa;
+
+    font-size:17px;
 }
 
-.btn{
-    display:inline-block;
+.description strong{
+    color:#fff;
+}
+
+
+/* ปุ่ม */
+
+.main-btn{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:15px;
+
     margin-top:30px;
+
     padding:15px 30px;
-    background:#2196f3;
-    color:white;
-    text-decoration:none;
+
+    color:#000;
+
+    background:#fff;
+
     border-radius:10px;
+
+    text-decoration:none;
+
     font-weight:bold;
+
+    transition:0.3s;
 }
 
-.btn:hover{
-    background:#1976d2;
+.main-btn:hover{
+    background:#ccc;
+
+    transform:translateY(-3px);
 }
 
-.card{
-    background:#f8fbff;
+.main-btn span{
+    font-size:22px;
+}
+
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.portfolio-container{
+    width:90%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:60px 0;
+}
+
+
+/* Header */
+
+.portfolio-header{
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+.portfolio-header h1{
+    font-size:42px;
+
+    margin-bottom:15px;
+}
+
+.portfolio-header > p:last-child{
+    color:#888;
+
+    font-size:17px;
+}
+
+
+/* Profile */
+
+.profile-section{
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
     padding:25px;
-    margin:20px 0;
-    border-radius:15px;
+
+    margin-bottom:50px;
+
+    background:#111;
+
+    border:1px solid #292929;
+
+    border-radius:18px;
+}
+
+.portfolio-profile{
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #555;
+}
+
+.profile-section h2{
+    margin-bottom:8px;
+}
+
+.profile-section p{
+    color:#888;
+}
+
+
+/* Section */
+
+.section-title{
+    font-size:24px;
+
+    margin:40px 0 20px;
+
+    color:#fff;
+}
+
+
+/* Work Card */
+
+.work-card{
+    display:grid;
+
+    grid-template-columns:42% 58%;
+
+    min-height:280px;
+
+    overflow:hidden;
+
+    margin-bottom:30px;
+
+    background:#111;
+
+    border:1px solid #292929;
+
+    border-radius:20px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    transition:0.35s;
+}
+
+.work-card:hover{
+    transform:translateY(-6px);
+
+    border-color:#666;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.5);
+}
+
+
+/* รูป */
+
+.work-image{
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    background:#1a1a1a;
+}
+
+.work-image img{
+    width:100%;
+    height:100%;
+
+    min-height:280px;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:0.4s;
+}
+
+.work-card:hover .work-image img{
+    transform:scale(1.05);
+}
+
+
+/* เนื้อหา */
+
+.work-content{
+    padding:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
     text-align:left;
 }
 
-.card h3{
+.work-number{
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    color:#777;
+
+    margin-bottom:12px;
+}
+
+.work-content h2{
+    font-size:28px;
+
     margin-bottom:15px;
-    color:#1565c0;
 }
 
-.card ul{
-    padding-left:20px;
+.work-content p{
+    color:#999;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
 }
 
-.card li{
-    margin:10px 0;
+.view-project{
+    color:#fff;
+
+    font-weight:bold;
 }
 
-.btn-dark{
+.view-project span{
+    margin-left:8px;
+
+    font-size:20px;
+
+    transition:0.3s;
+}
+
+.work-card:hover .view-project span{
+    margin-left:15px;
+}
+
+
+/* กลับหน้า */
+
+.back-section{
+    text-align:center;
+
+    margin-top:50px;
+}
+
+.back-btn{
     display:inline-block;
-    margin-top:20px;
-    padding:15px 30px;
-    background:#34495e;
-    color:white;
-    text-decoration:none;
+
+    padding:13px 25px;
+
+    border:1px solid #444;
+
     border-radius:10px;
+
+    color:#aaa;
+
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+
+    color:#000;
+}
+
+
+/* =========================
+   DETAIL PAGE
+========================= */
+
+.detail-container{
+    width:90%;
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:40px 0 70px;
+}
+
+.back-link{
+    display:inline-block;
+
+    margin-bottom:40px;
+
+    color:#888;
+
+    text-decoration:none;
+
+    transition:0.3s;
+}
+
+.back-link:hover{
+    color:#fff;
+}
+
+
+/* หัวข้อ */
+
+.detail-header{
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.detail-header h1{
+    font-size:46px;
+
+    margin:10px 0 15px;
+}
+
+.detail-header > p:last-child{
+    color:#888;
+
+    font-size:18px;
+}
+
+
+/* รูปใหญ่ */
+
+.hero-image{
+    width:100%;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    margin-bottom:30px;
+
+    background:#111;
+
+    border:1px solid #292929;
+}
+
+.hero-image img{
+    width:100%;
+
+    max-height:600px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+
+/* กล่องข้อมูล */
+
+.detail-box{
+    background:#111;
+
+    border:1px solid #292929;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    margin-bottom:25px;
+}
+
+.detail-box .label{
+    color:#666;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.detail-box h2{
+    margin-bottom:15px;
+
+    font-size:25px;
+}
+
+.detail-box > p:last-child{
+    color:#aaa;
+
+    line-height:1.9;
+
+    font-size:17px;
+}
+
+
+/* Grid */
+
+.detail-grid{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+}
+
+
+/* Tags */
+
+.tags{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.tags span{
+    padding:9px 15px;
+
+    border:1px solid #444;
+
+    border-radius:30px;
+
+    color:#ccc;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .home-card{
+        padding:50px 25px;
+    }
+
+    .home-card h1{
+        font-size:30px;
+    }
+
+    .home-card h2{
+        font-size:17px;
+    }
+
+    .profile-img{
+        width:140px;
+        height:140px;
+    }
+
+    .portfolio-container{
+        width:92%;
+
+        padding:35px 0;
+    }
+
+    .portfolio-header h1{
+        font-size:32px;
+    }
+
+    .profile-section{
+        padding:20px;
+    }
+
+    .portfolio-profile{
+        width:70px;
+        height:70px;
+    }
+
+    .work-card{
+        display:block;
+    }
+
+    .work-image{
+        height:230px;
+    }
+
+    .work-image img{
+        min-height:230px;
+    }
+
+    .work-content{
+        padding:25px;
+    }
+
+    .work-content h2{
+        font-size:23px;
+    }
+
+    .detail-container{
+        width:92%;
+
+        padding-top:25px;
+    }
+
+    .detail-header h1{
+        font-size:32px;
+    }
+
+    .detail-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-image img{
+        max-height:400px;
+    }
+
 }
