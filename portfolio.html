@@ -2,159 +2,506 @@
 <html lang="th">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portfolio | Natthaphak</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Tahoma, sans-serif;
+        }
+
+        body {
+            background: #050505;
+            color: white;
+            padding: 30px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* =========================
+           ส่วนหัว
+        ========================= */
+
+        .header {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            color: #999;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* เส้นแบ่ง */
+
+        .line {
+            height: 1px;
+            background: #333;
+            margin: 20px 0 50px;
+        }
+
+        /* =========================
+           หัวข้อแต่ละส่วน
+        ========================= */
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .section-description {
+            color: #999;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           แกลเลอรี่รูป
+        ========================= */
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background: #111;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            border-color: #666;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.08);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        .caption {
+            padding: 15px;
+            text-align: center;
+            color: #ccc;
+        }
+
+        /* =========================
+           รูปรับรางวัล
+        ========================= */
+
+        .award-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .award-item {
+            background: #111;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .award-item:hover {
+            transform: translateY(-6px);
+            border-color: #777;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+        }
+
+        .award-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        /* =========================
+           ปุ่มกลับ
+        ========================= */
+
+        .back {
+            text-align: center;
+            margin: 60px 0 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #cccccc;
+            transform: scale(1.05);
+        }
+
+        /* =========================
+           มือถือ
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .award-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .section-title {
+                font-size: 25px;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .award-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img,
+            .award-item img {
+                height: auto;
+                max-height: 500px;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-<div class="portfolio-container">
+<div class="container">
 
-    <!-- HEADER -->
 
-    <div class="portfolio-header">
+    <!-- =========================
+         ส่วนหัว
+    ========================= -->
 
-        <p class="small-title">
-            MY PORTFOLIO
-        </p>
+    <div class="header">
 
-        <h1>
-            แฟ้มสะสมผลงาน
-        </h1>
+        <h1>📁 PORTFOLIO</h1>
 
         <p>
-            รวมผลงาน โครงงาน และกิจกรรมที่ผมได้ทำ
+            ณัทธ์ฐภัค บุญยามา
+        </p>
+
+        <p>
+            Computer Science & Engineering
         </p>
 
     </div>
 
 
-    <!-- PROFILE -->
+    <div class="line"></div>
 
-    <div class="profile-section">
 
-        <img src="images/profile.jpg"
-             alt="Profile"
-             class="portfolio-profile">
+    <!-- =========================
+         ส่วนที่ 1
+         ผลงานเข้าร่วมและรับรางวัล
+    ========================= -->
 
-        <div>
+    <section>
 
-            <h2>
-                ณัทธ์ฐภัค บุญยามา
-            </h2>
+        <h2 class="section-title">
+            🏆 ผลงานเข้าร่วมและรับรางวัล
+        </h2>
 
-            <p>
-                Computer Science & Engineering
-            </p>
+        <p class="section-description">
+            เกียรติบัตรและผลงานที่ได้รับจากการเข้าร่วมกิจกรรมต่าง ๆ
+        </p>
+
+
+        <div class="gallery">
+
+
+            <!-- เกียรติบัตร 1 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate1.jpg"
+                     alt="เกียรติบัตร 1">
+
+                <div class="caption">
+                    เกียรติบัตร 1
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 2 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate2.jpg"
+                     alt="เกียรติบัตร 2">
+
+                <div class="caption">
+                    เกียรติบัตร 2
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 3 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate3.jpg"
+                     alt="เกียรติบัตร 3">
+
+                <div class="caption">
+                    เกียรติบัตร 3
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 4 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate4.jpg"
+                     alt="เกียรติบัตร 4">
+
+                <div class="caption">
+                    เกียรติบัตร 4
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 5 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate5.jpg"
+                     alt="เกียรติบัตร 5">
+
+                <div class="caption">
+                    เกียรติบัตร 5
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 6 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate6.jpg"
+                     alt="เกียรติบัตร 6">
+
+                <div class="caption">
+                    เกียรติบัตร 6
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 7 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate7.jpg"
+                     alt="เกียรติบัตร 7">
+
+                <div class="caption">
+                    เกียรติบัตร 7
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 8 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate8.jpg"
+                     alt="เกียรติบัตร 8">
+
+                <div class="caption">
+                    เกียรติบัตร 8
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 9 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate9.jpg"
+                     alt="เกียรติบัตร 9">
+
+                <div class="caption">
+                    เกียรติบัตร 9
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 10 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate10.jpg"
+                     alt="เกียรติบัตร 10">
+
+                <div class="caption">
+                    เกียรติบัตร 10
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 11 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate11.jpg"
+                     alt="เกียรติบัตร 11">
+
+                <div class="caption">
+                    เกียรติบัตร 11
+                </div>
+
+            </div>
+
+
+            <!-- เกียรติบัตร 12 -->
+
+            <div class="gallery-item">
+
+                <img src="images/certificate12.jpg"
+                     alt="เกียรติบัตร 12">
+
+                <div class="caption">
+                    เกียรติบัตร 12
+                </div>
+
+            </div>
+
 
         </div>
 
-    </div>
+    </section>
 
 
-    <!-- PROJECT -->
-
-    <h2 class="section-title">
-        01 — Projects
-    </h2>
+    <div class="line"></div>
 
 
-    <a href="project.html" class="work-card">
+    <!-- =========================
+         ส่วนที่ 2
+         รูปภาพการรับรางวัล
+    ========================= -->
 
-        <div class="work-image">
+    <section>
 
-            <img src="images/project.jpg"
-                 alt="Face Recognition Project">
+        <h2 class="section-title">
+            📸 รูปภาพการรับรางวัล
+        </h2>
+
+        <p class="section-description">
+            รูปภาพบรรยากาศและช่วงเวลาที่ได้รับรางวัล
+        </p>
+
+
+        <div class="award-gallery">
+
+
+            <!-- รูปรับรางวัล 1 -->
+
+            <div class="award-item">
+
+                <img src="images/award1.jpg"
+                     alt="รูปภาพการรับรางวัล 1">
+
+            </div>
+
+
+            <!-- รูปรับรางวัล 2 -->
+
+            <div class="award-item">
+
+                <img src="images/award2.jpg"
+                     alt="รูปภาพการรับรางวัล 2">
+
+            </div>
+
+
+            <!-- รูปรับรางวัล 3 -->
+
+            <div class="award-item">
+
+                <img src="images/award3.jpg"
+                     alt="รูปภาพการรับรางวัล 3">
+
+            </div>
+
 
         </div>
 
-        <div class="work-content">
-
-            <p class="work-number">
-                PROJECT 01
-            </p>
-
-            <h2>
-                ระบบการจดจำใบหน้า
-            </h2>
-
-            <p>
-                โครงงานเกี่ยวกับระบบการจดจำใบหน้า
-                และการบันทึกข้อมูล
-                เพื่อประยุกต์ใช้เทคโนโลยี
-                ในการจัดการข้อมูล
-            </p>
-
-            <span class="view-project">
-                ดูรายละเอียด
-                <span>→</span>
-            </span>
-
-        </div>
-
-    </a>
+    </section>
 
 
-    <!-- ACTIVITY -->
+    <!-- =========================
+         ปุ่มกลับหน้าแรก
+    ========================= -->
 
-    <h2 class="section-title">
-        02 — Activities
-    </h2>
+    <div class="back">
 
-
-    <a href="activity.html" class="work-card">
-
-        <div class="work-image">
-
-            <img src="images/activity.jpg"
-                 alt="Short Film Activity">
-
-        </div>
-
-        <div class="work-content">
-
-            <p class="work-number">
-                ACTIVITY 01
-            </p>
-
-            <h2>
-                การแข่งขันภาพยนตร์สั้น
-            </h2>
-
-            <p>
-                การเข้าร่วมการแข่งขันศิลปหัตถกรรม
-                ภาพยนตร์สั้นระดับมัธยมศึกษาตอนปลาย
-            </p>
-
-            <span class="view-project">
-                ดูรายละเอียด
-                <span>→</span>
-            </span>
-
-        </div>
-
-    </a>
-
-
-    <!-- BACK -->
-
-    <div class="back-section">
-
-        <a href="index.html" class="back-btn">
-            ← กลับหน้าแรก
+        <a href="index.html" class="btn">
+            🏠 กลับหน้าแรก
         </a>
 
     </div>
 
+
 </div>
 
 </body>
+
 </html>
