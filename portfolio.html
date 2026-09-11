@@ -1,90 +1,158 @@
 <!DOCTYPE html>
-
 <html lang="th">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
 
-<style>
-body{
-    background: linear-gradient(135deg, #1565c0, #42a5f5);
-    color:#333;
-    text-align:center;
-    padding:50px;
-    font-family:Tahoma,sans-serif;
-}
+    <meta charset="UTF-8">
 
-.card{
-    background:white;
-    border-radius:15px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.2);
-    max-width:800px;
-    margin:0 auto;
-    padding:30px;
-}
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-.profile-img{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    object-fit:cover;
-    border:5px solid #2196f3;
-    margin-bottom:20px;
-}
+    <title>Portfolio | Natthaphak</title>
 
-h1{
-    color:#1565c0;
-}
-
-.box{
-    background: linear-gradient(135deg, #1565c0, #42a5f5);
-    color:white;
-    border-radius:15px;
-    padding:25px;
-    margin:20px 0;
-    text-align:left;
-}
-
-.btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 24px;
-    background:#1565c0;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    font-weight:bold;
-}
-</style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="card">
+<div class="portfolio-container">
 
-<img src="images/profile.jpg" alt="Profile" class="profile-img">
+    <!-- HEADER -->
 
-<h1>📁 แฟ้มสะสมงาน (Portfolio)</h1>
+    <div class="portfolio-header">
 
-<p><strong>นายณัทธ์ฐภัค บุญยามา</strong></p>
+        <p class="small-title">
+            MY PORTFOLIO
+        </p>
 
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภาคภูมิใจครับ</p>
+        <h1>
+            แฟ้มสะสมผลงาน
+        </h1>
 
-<div class="box">
-<h3>🖥️ 1. โครงงาน/ชิ้นงาน</h3>
-<p>รายละเอียดชิ้นงาน : สร้างเว็บไซต์เกี่ยวกับระบบการจดจำใบหน้าและบันทึกข้อมูล</p>
-</div>
+        <p>
+            รวมผลงาน โครงงาน และกิจกรรมที่ผมได้ทำ
+        </p>
 
-<div class="box">
-<h3>🏆 2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดกิจกรรม : เข้าร่วมการแข่งขันศิลปหัตถกรรมภาพยนตร์สั้นระดับมัธยมศึกษาตอนปลาย</p>
-</div>
+    </div>
 
-<a href="index.html" class="btn">
-🏠 กลับหน้าแรก
-</a>
+
+    <!-- PROFILE -->
+
+    <div class="profile-section">
+
+        <img src="images/profile.jpg"
+             alt="Profile"
+             class="portfolio-profile">
+
+        <div>
+
+            <h2>
+                ณัทธ์ฐภัค บุญยามา
+            </h2>
+
+            <p>
+                Computer Science & Engineering
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PROJECT -->
+
+    <h2 class="section-title">
+        01 — Projects
+    </h2>
+
+
+    <a href="project.html" class="work-card">
+
+        <div class="work-image">
+
+            <img src="images/project.jpg"
+                 alt="Face Recognition Project">
+
+        </div>
+
+        <div class="work-content">
+
+            <p class="work-number">
+                PROJECT 01
+            </p>
+
+            <h2>
+                ระบบการจดจำใบหน้า
+            </h2>
+
+            <p>
+                โครงงานเกี่ยวกับระบบการจดจำใบหน้า
+                และการบันทึกข้อมูล
+                เพื่อประยุกต์ใช้เทคโนโลยี
+                ในการจัดการข้อมูล
+            </p>
+
+            <span class="view-project">
+                ดูรายละเอียด
+                <span>→</span>
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 class="section-title">
+        02 — Activities
+    </h2>
+
+
+    <a href="activity.html" class="work-card">
+
+        <div class="work-image">
+
+            <img src="images/activity.jpg"
+                 alt="Short Film Activity">
+
+        </div>
+
+        <div class="work-content">
+
+            <p class="work-number">
+                ACTIVITY 01
+            </p>
+
+            <h2>
+                การแข่งขันภาพยนตร์สั้น
+            </h2>
+
+            <p>
+                การเข้าร่วมการแข่งขันศิลปหัตถกรรม
+                ภาพยนตร์สั้นระดับมัธยมศึกษาตอนปลาย
+            </p>
+
+            <span class="view-project">
+                ดูรายละเอียด
+                <span>→</span>
+            </span>
+
+        </div>
+
+    </a>
+
+
+    <!-- BACK -->
+
+    <div class="back-section">
+
+        <a href="index.html" class="back-btn">
+            ← กลับหน้าแรก
+        </a>
+
+    </div>
 
 </div>
 
