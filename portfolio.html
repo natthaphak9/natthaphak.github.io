@@ -2,12 +2,19 @@
 <html lang="th">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portfolio | Natthaphak</title>
 
+
     <style>
+
+        /* =========================
+           ตั้งค่าพื้นฐาน
+        ========================= */
 
         * {
             margin: 0;
@@ -16,16 +23,20 @@
             font-family: Tahoma, sans-serif;
         }
 
+
         body {
             background: #050505;
-            color: white;
+            color: #ffffff;
             padding: 30px 20px;
         }
 
+
         .container {
+            width: 100%;
             max-width: 1100px;
             margin: auto;
         }
+
 
         /* =========================
            ส่วนหัว
@@ -36,42 +47,52 @@
             padding: 50px 20px;
         }
 
+
         .header h1 {
-            font-size: 42px;
+            font-size: 45px;
             margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
+
         .header p {
-            color: #999;
+            color: #999999;
             font-size: 18px;
             line-height: 1.8;
         }
 
-        /* เส้นแบ่ง */
-
-        .line {
-            height: 1px;
-            background: #333;
-            margin: 20px 0 50px;
-        }
 
         /* =========================
-           หัวข้อแต่ละส่วน
+           เส้นแบ่ง
+        ========================= */
+
+        .line {
+            width: 100%;
+            height: 1px;
+            background: #333333;
+            margin: 25px 0 55px;
+        }
+
+
+        /* =========================
+           หัวข้อ
         ========================= */
 
         .section-title {
             font-size: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
+
 
         .section-description {
-            color: #999;
+            color: #999999;
+            line-height: 1.8;
             margin-bottom: 30px;
-            line-height: 1.7;
         }
 
+
         /* =========================
-           แกลเลอรี่รูป
+           เกียรติบัตร
         ========================= */
 
         .gallery {
@@ -80,19 +101,22 @@
             gap: 20px;
         }
 
+
         .gallery-item {
-            background: #111;
+            background: #111111;
             border: 1px solid #292929;
             border-radius: 15px;
             overflow: hidden;
             transition: 0.3s;
         }
 
+
         .gallery-item:hover {
             transform: translateY(-6px);
-            border-color: #666;
+            border-color: #777777;
             box-shadow: 0 10px 30px rgba(255,255,255,0.08);
         }
+
 
         .gallery-item img {
             width: 100%;
@@ -102,14 +126,16 @@
             cursor: pointer;
         }
 
+
         .caption {
-            padding: 15px;
             text-align: center;
-            color: #ccc;
+            padding: 15px;
+            color: #cccccc;
         }
 
+
         /* =========================
-           รูปรับรางวัล
+           รูปภาพรับรางวัล
         ========================= */
 
         .award-gallery {
@@ -118,19 +144,22 @@
             gap: 20px;
         }
 
+
         .award-item {
-            background: #111;
+            background: #111111;
             border: 1px solid #292929;
             border-radius: 15px;
             overflow: hidden;
             transition: 0.3s;
         }
 
+
         .award-item:hover {
             transform: translateY(-6px);
-            border-color: #777;
-            box-shadow: 0 10px 30px rgba(255,255,255,0.1);
+            border-color: #777777;
+            box-shadow: 0 10px 30px rgba(255,255,255,0.08);
         }
+
 
         .award-item img {
             width: 100%;
@@ -140,8 +169,64 @@
             cursor: pointer;
         }
 
+
         /* =========================
-           ปุ่มกลับ
+           ความชอบด้านคอม
+        ========================= */
+
+        .about-box {
+            background: #111111;
+            border: 1px solid #292929;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+        }
+
+
+        .about-box:hover {
+            border-color: #666666;
+            transform: translateY(-3px);
+        }
+
+
+        .about-box p {
+            color: #bbbbbb;
+            line-height: 2;
+            font-size: 17px;
+            margin-bottom: 18px;
+        }
+
+
+        .about-box p:last-child {
+            margin-bottom: 0;
+        }
+
+
+        /* =========================
+           มหาวิทยาลัย
+        ========================= */
+
+        .university {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            color: #ffffff;
+            transition: 0.3s;
+        }
+
+
+        .university:hover {
+            background: #222222;
+            border-color: #777777;
+            transform: translateX(5px);
+        }
+
+
+        /* =========================
+           ปุ่มกลับหน้าแรก
         ========================= */
 
         .back {
@@ -149,21 +234,34 @@
             margin: 60px 0 30px;
         }
 
+
         .btn {
             display: inline-block;
-            padding: 14px 30px;
-            background: white;
-            color: black;
+            padding: 15px 32px;
+            background: #ffffff;
+            color: #000000;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
             transition: 0.3s;
         }
 
+
         .btn:hover {
             background: #cccccc;
             transform: scale(1.05);
         }
+
+
+        /* =========================
+           รูปขยายเมื่อกด
+        ========================= */
+
+        .gallery-item img:hover,
+        .award-item img:hover {
+            opacity: 0.85;
+        }
+
 
         /* =========================
            มือถือ
@@ -181,37 +279,69 @@
 
         }
 
+
         @media (max-width: 550px) {
+
+            body {
+                padding: 15px;
+            }
+
+
+            .header {
+                padding: 35px 10px;
+            }
+
 
             .header h1 {
                 font-size: 30px;
             }
 
+
+            .header p {
+                font-size: 16px;
+            }
+
+
             .section-title {
                 font-size: 25px;
             }
+
 
             .gallery {
                 grid-template-columns: 1fr;
             }
 
+
             .award-gallery {
                 grid-template-columns: 1fr;
             }
 
+
             .gallery-item img,
             .award-item img {
                 height: auto;
-                max-height: 500px;
+                max-height: 600px;
+            }
+
+
+            .about-box {
+                padding: 22px;
+            }
+
+
+            .about-box p {
+                font-size: 16px;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
+
 
 <div class="container">
 
@@ -235,11 +365,12 @@
     </div>
 
 
+
     <div class="line"></div>
 
 
+
     <!-- =========================
-         ส่วนที่ 1
          ผลงานเข้าร่วมและรับรางวัล
     ========================= -->
 
@@ -249,9 +380,11 @@
             🏆 ผลงานเข้าร่วมและรับรางวัล
         </h2>
 
+
         <p class="section-description">
             เกียรติบัตรและผลงานที่ได้รับจากการเข้าร่วมกิจกรรมต่าง ๆ
         </p>
+
 
 
         <div class="gallery">
@@ -271,6 +404,7 @@
             </div>
 
 
+
             <!-- เกียรติบัตร 2 -->
 
             <div class="gallery-item">
@@ -283,6 +417,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- เกียรติบัตร 3 -->
@@ -299,6 +434,7 @@
             </div>
 
 
+
             <!-- เกียรติบัตร 4 -->
 
             <div class="gallery-item">
@@ -311,6 +447,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- เกียรติบัตร 5 -->
@@ -327,6 +464,7 @@
             </div>
 
 
+
             <!-- เกียรติบัตร 6 -->
 
             <div class="gallery-item">
@@ -339,6 +477,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- เกียรติบัตร 7 -->
@@ -355,6 +494,7 @@
             </div>
 
 
+
             <!-- เกียรติบัตร 8 -->
 
             <div class="gallery-item">
@@ -367,6 +507,7 @@
                 </div>
 
             </div>
+
 
 
             <!-- เกียรติบัตร 9 -->
@@ -383,125 +524,9 @@
             </div>
 
 
+
             <!-- เกียรติบัตร 10 -->
 
             <div class="gallery-item">
 
-                <img src="images/certificate10.jpg"
-                     alt="เกียรติบัตร 10">
-
-                <div class="caption">
-                    เกียรติบัตร 10
-                </div>
-
-            </div>
-
-
-            <!-- เกียรติบัตร 11 -->
-
-            <div class="gallery-item">
-
-                <img src="images/certificate11.jpg"
-                     alt="เกียรติบัตร 11">
-
-                <div class="caption">
-                    เกียรติบัตร 11
-                </div>
-
-            </div>
-
-
-            <!-- เกียรติบัตร 12 -->
-
-            <div class="gallery-item">
-
-                <img src="images/certificate12.jpg"
-                     alt="เกียรติบัตร 12">
-
-                <div class="caption">
-                    เกียรติบัตร 12
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <div class="line"></div>
-
-
-    <!-- =========================
-         ส่วนที่ 2
-         รูปภาพการรับรางวัล
-    ========================= -->
-
-    <section>
-
-        <h2 class="section-title">
-            📸 รูปภาพการรับรางวัล
-        </h2>
-
-        <p class="section-description">
-            รูปภาพบรรยากาศและช่วงเวลาที่ได้รับรางวัล
-        </p>
-
-
-        <div class="award-gallery">
-
-
-            <!-- รูปรับรางวัล 1 -->
-
-            <div class="award-item">
-
-                <img src="images/award1.jpg"
-                     alt="รูปภาพการรับรางวัล 1">
-
-            </div>
-
-
-            <!-- รูปรับรางวัล 2 -->
-
-            <div class="award-item">
-
-                <img src="images/award2.jpg"
-                     alt="รูปภาพการรับรางวัล 2">
-
-            </div>
-
-
-            <!-- รูปรับรางวัล 3 -->
-
-            <div class="award-item">
-
-                <img src="images/award3.jpg"
-                     alt="รูปภาพการรับรางวัล 3">
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ปุ่มกลับหน้าแรก
-    ========================= -->
-
-    <div class="back">
-
-        <a href="index.html" class="btn">
-            🏠 กลับหน้าแรก
-        </a>
-
-    </div>
-
-
-</div>
-
-</body>
-
-</html>
+                <img src="images/
