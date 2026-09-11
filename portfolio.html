@@ -2,335 +2,214 @@
 <html lang="th">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio | Natthaphak</title>
-
+    <title>Portfolio - Natthaphak</title>
 
     <style>
 
-        /* =========================
-           ตั้งค่าพื้นฐาน
-        ========================= */
-
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
-            font-family: Tahoma, sans-serif;
         }
-
 
         body {
-            background: #050505;
-            color: #ffffff;
-            padding: 30px 20px;
+            margin: 0;
+            padding: 30px 15px;
+            font-family: Tahoma, sans-serif;
+            background: #000;
+            color: #fff;
         }
-
 
         .container {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1000px;
             margin: auto;
         }
 
-
-        /* =========================
-           ส่วนหัว
-        ========================= */
-
-        .header {
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-
-        .header h1 {
-            font-size: 45px;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-
-        .header p {
-            color: #999999;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           เส้นแบ่ง
-        ========================= */
-
-        .line {
-            width: 100%;
-            height: 1px;
-            background: #333333;
-            margin: 25px 0 55px;
-        }
-
-
-        /* =========================
-           หัวข้อ
-        ========================= */
+        /* หัวข้อ */
 
         .section-title {
-            font-size: 30px;
-            margin-bottom: 12px;
-        }
-
-
-        .section-description {
-            color: #999999;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-
-        /* =========================
-           เกียรติบัตร
-        ========================= */
-
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-
-        .gallery-item {
-            background: #111111;
-            border: 1px solid #292929;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-
-        .gallery-item:hover {
-            transform: translateY(-6px);
-            border-color: #777777;
-            box-shadow: 0 10px 30px rgba(255,255,255,0.08);
-        }
-
-
-        .gallery-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            cursor: pointer;
-        }
-
-
-        .caption {
             text-align: center;
-            padding: 15px;
-            color: #cccccc;
+            font-size: 30px;
+            margin: 50px 0 30px;
+            color: #fff;
         }
 
+        /* เส้นคั่น */
 
-        /* =========================
-           รูปภาพรับรางวัล
-        ========================= */
-
-        .award-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .line {
+            width: 80%;
+            height: 1px;
+            background: #444;
+            margin: 60px auto;
         }
 
-
-        .award-item {
-            background: #111111;
-            border: 1px solid #292929;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-
-        .award-item:hover {
-            transform: translateY(-6px);
-            border-color: #777777;
-            box-shadow: 0 10px 30px rgba(255,255,255,0.08);
-        }
-
-
-        .award-item img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-            cursor: pointer;
-        }
-
-
-        /* =========================
-           ความชอบด้านคอม
-        ========================= */
+        /* กล่องข้อความ */
 
         .about-box {
-            background: #111111;
-            border: 1px solid #292929;
-            border-radius: 18px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 15px;
             padding: 30px;
-            margin-bottom: 25px;
+            margin: 20px 0;
+            line-height: 1.9;
+        }
+
+        .about-box p {
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        /* รูปภาพใบประกาศ */
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .certificate {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 10px;
             transition: 0.3s;
         }
 
-
-        .about-box:hover {
-            border-color: #666666;
-            transform: translateY(-3px);
+        .certificate:hover {
+            transform: translateY(-5px);
+            border-color: #fff;
         }
 
-
-        .about-box p {
-            color: #bbbbbb;
-            line-height: 2;
-            font-size: 17px;
-            margin-bottom: 18px;
+        .certificate img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #fff;
         }
 
+        /* รูปรับรางวัล */
 
-        .about-box p:last-child {
-            margin-bottom: 0;
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
         }
 
+        .award {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 10px;
+            transition: 0.3s;
+        }
 
-        /* =========================
-           มหาวิทยาลัย
-        ========================= */
+        .award:hover {
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+
+        .award img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        /* มหาวิทยาลัย */
 
         .university {
             background: #1a1a1a;
-            border: 1px solid #333333;
-            border-radius: 12px;
+            border: 1px solid #444;
             padding: 20px;
             margin: 15px 0;
-            color: #ffffff;
-            transition: 0.3s;
+            border-radius: 10px;
+            font-size: 20px;
         }
 
-
-        .university:hover {
-            background: #222222;
-            border-color: #777777;
-            transform: translateX(5px);
-        }
-
-
-        /* =========================
-           ปุ่มกลับหน้าแรก
-        ========================= */
+        /* ปุ่ม */
 
         .back {
             text-align: center;
             margin: 60px 0 30px;
         }
 
-
         .btn {
             display: inline-block;
-            padding: 15px 32px;
-            background: #ffffff;
-            color: #000000;
+            padding: 15px 30px;
+            background: #fff;
+            color: #000;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
+            font-size: 18px;
             transition: 0.3s;
         }
 
-
         .btn:hover {
-            background: #cccccc;
+            background: #ccc;
             transform: scale(1.05);
         }
 
+        /* ชื่อ */
 
-        /* =========================
-           รูปขยายเมื่อกด
-        ========================= */
-
-        .gallery-item img:hover,
-        .award-item img:hover {
-            opacity: 0.85;
+        .name {
+            text-align: center;
+            font-size: 18px;
+            color: #aaa;
         }
 
 
-        /* =========================
-           มือถือ
-        ========================= */
+        /* สำหรับมือถือ */
 
         @media (max-width: 800px) {
 
-            .gallery {
+            .certificate-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
-            .award-gallery {
+            .award-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
 
         }
-
 
         @media (max-width: 550px) {
 
             body {
-                padding: 15px;
+                padding: 20px 10px;
             }
-
-
-            .header {
-                padding: 35px 10px;
-            }
-
-
-            .header h1 {
-                font-size: 30px;
-            }
-
-
-            .header p {
-                font-size: 16px;
-            }
-
 
             .section-title {
-                font-size: 25px;
+                font-size: 24px;
+                margin-top: 40px;
             }
 
-
-            .gallery {
+            .certificate-grid {
                 grid-template-columns: 1fr;
             }
 
-
-            .award-gallery {
+            .award-grid {
                 grid-template-columns: 1fr;
             }
 
-
-            .gallery-item img,
-            .award-item img {
+            .certificate img,
+            .award img {
                 height: auto;
-                max-height: 600px;
             }
-
 
             .about-box {
-                padding: 22px;
+                padding: 20px;
             }
-
 
             .about-box p {
                 font-size: 16px;
+            }
+
+            .university {
+                font-size: 17px;
             }
 
         }
@@ -342,37 +221,23 @@
 
 <body>
 
-
 <div class="container">
 
 
-    <!-- =========================
-         ส่วนหัว
-    ========================= -->
+    <!-- ชื่อ -->
 
-    <div class="header">
+    <h1 style="text-align:center;">
+        📁 แฟ้มสะสมงาน (Portfolio)
+    </h1>
 
-        <h1>📁 PORTFOLIO</h1>
-
-        <p>
-            ณัทธ์ฐภัค บุญยามา
-        </p>
-
-        <p>
-            Computer Science & Engineering
-        </p>
-
-    </div>
+    <p class="name">
+        นายณัทธ์ฐภัค บุญยามา
+    </p>
 
 
-
-    <div class="line"></div>
-
-
-
-    <!-- =========================
-         ผลงานเข้าร่วมและรับรางวัล
-    ========================= -->
+    <!-- ================================= -->
+    <!-- ผลงานและเกียรติบัตร -->
+    <!-- ================================= -->
 
     <section>
 
@@ -380,153 +245,208 @@
             🏆 ผลงานเข้าร่วมและรับรางวัล
         </h2>
 
-
-        <p class="section-description">
-            เกียรติบัตรและผลงานที่ได้รับจากการเข้าร่วมกิจกรรมต่าง ๆ
-        </p>
+        <div class="certificate-grid">
 
 
-
-        <div class="gallery">
-
-
-            <!-- เกียรติบัตร 1 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate1.jpg"
                      alt="เกียรติบัตร 1">
-
-                <div class="caption">
-                    เกียรติบัตร 1
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 2 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate2.jpg"
                      alt="เกียรติบัตร 2">
-
-                <div class="caption">
-                    เกียรติบัตร 2
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 3 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate3.jpg"
                      alt="เกียรติบัตร 3">
-
-                <div class="caption">
-                    เกียรติบัตร 3
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 4 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate4.jpg"
                      alt="เกียรติบัตร 4">
-
-                <div class="caption">
-                    เกียรติบัตร 4
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 5 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate5.jpg"
                      alt="เกียรติบัตร 5">
-
-                <div class="caption">
-                    เกียรติบัตร 5
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 6 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate6.jpg"
                      alt="เกียรติบัตร 6">
-
-                <div class="caption">
-                    เกียรติบัตร 6
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 7 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate7.jpg"
                      alt="เกียรติบัตร 7">
-
-                <div class="caption">
-                    เกียรติบัตร 7
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 8 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate8.jpg"
                      alt="เกียรติบัตร 8">
-
-                <div class="caption">
-                    เกียรติบัตร 8
-                </div>
-
             </div>
 
-
-
-            <!-- เกียรติบัตร 9 -->
-
-            <div class="gallery-item">
-
+            <div class="certificate">
                 <img src="images/certificate9.jpg"
                      alt="เกียรติบัตร 9">
+            </div>
 
-                <div class="caption">
-                    เกียรติบัตร 9
-                </div>
+            <div class="certificate">
+                <img src="images/certificate10.jpg"
+                     alt="เกียรติบัตร 10">
+            </div>
 
+            <div class="certificate">
+                <img src="images/certificate11.jpg"
+                     alt="เกียรติบัตร 11">
+            </div>
+
+            <div class="certificate">
+                <img src="images/certificate12.jpg"
+                     alt="เกียรติบัตร 12">
             </div>
 
 
+        </div>
 
-            <!-- เกียรติบัตร 10 -->
+    </section>
 
-            <div class="gallery-item">
 
-                <img src="images/
+    <!-- ================================= -->
+    <!-- รูปภาพรับรางวัล -->
+    <!-- ================================= -->
+
+    <div class="line"></div>
+
+    <section>
+
+        <h2 class="section-title">
+            📸 รูปภาพการรับรางวัล
+        </h2>
+
+        <div class="award-grid">
+
+
+            <div class="award">
+                <img src="images/award1.jpg"
+                     alt="รูปภาพรับรางวัล 1">
+            </div>
+
+            <div class="award">
+                <img src="images/award2.jpg"
+                     alt="รูปภาพรับรางวัล 2">
+            </div>
+
+            <div class="award">
+                <img src="images/award3.jpg"
+                     alt="รูปภาพรับรางวัล 3">
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- ความชอบและความสนใจ -->
+    <!-- ================================= -->
+
+    <div class="line"></div>
+
+    <section>
+
+        <h2 class="section-title">
+            💻 ความชอบและความสนใจ
+        </h2>
+
+        <div class="about-box">
+
+            <p>
+                ผมชอบคอมพิวเตอร์และมีความสนใจในด้านนี้
+                เพราะผมรู้สึกว่าคอมพิวเตอร์เป็นสิ่งที่อยู่ใกล้ตัว
+                และสามารถนำไปทำอะไรได้หลายอย่าง
+            </p>
+
+            <p>
+                ผมชอบการได้ลองทำสิ่งใหม่ ๆ
+                โดยเฉพาะการเขียนโปรแกรมและการสร้างเว็บไซต์
+                ถึงบางครั้งจะมีปัญหาหรือทำไม่ได้
+                แต่ผมก็รู้สึกสนุกกับการหาวิธีแก้ไข
+                และลองทำใหม่จนสำเร็จ
+            </p>
+
+            <p>
+                ผมจึงอยากเรียนต่อในด้านคอมพิวเตอร์
+                เพื่อพัฒนาความรู้และทักษะของตัวเองให้มากขึ้น
+                และในอนาคตอยากนำความรู้ที่เรียนมา
+                ใช้สร้างผลงานที่ตัวเองสนใจ
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- มหาวิทยาลัยที่สนใจ -->
+    <!-- ================================= -->
+
+    <div class="line"></div>
+
+    <section>
+
+        <h2 class="section-title">
+            🎓 มหาวิทยาลัยที่สนใจ
+        </h2>
+
+        <div class="about-box">
+
+            <p>
+                มหาวิทยาลัยที่ผมสนใจและอยากเข้าศึกษาต่อ ได้แก่
+            </p>
+
+
+            <div class="university">
+                🏫 <strong>มหาวิทยาลัยบูรพา</strong>
+            </div>
+
+
+            <div class="university">
+                🏫 <strong>
+                    สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+                </strong>
+            </div>
+
+
+            <p>
+                ผมหวังว่าจะได้มีโอกาสศึกษาต่อในสายคอมพิวเตอร์
+                และพัฒนาตัวเองให้มีความรู้และความสามารถมากขึ้น
+                เพื่อนำไปต่อยอดในการเรียนและการทำงานในอนาคต
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- กลับหน้าแรก -->
+    <!-- ================================= -->
+
+    <div class="back">
+
+        <a href="index.html" class="btn">
+            🏠 กลับหน้าแรก
+        </a>
+
+    </div>
+
+
+</div>
+
+</body>
+
+</html>
