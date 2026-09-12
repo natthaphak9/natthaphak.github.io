@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Natthaphak | Portfolio</title>
+<title>Natthaphak Boonyama | Portfolio</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -18,421 +21,1233 @@ html{
 }
 
 body{
-    font-family:Tahoma, Arial, sans-serif;
+    font-family:Tahoma,Arial,sans-serif;
     background:#050505;
-    color:#f5f5f5;
+    color:#fff;
     overflow-x:hidden;
 }
 
-/* พื้นหลัง */
+
+/* =================================================
+   BACKGROUND
+================================================= */
+
 body::before{
     content:"";
     position:fixed;
     inset:0;
+
     background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 25%),
-        radial-gradient(circle at 80% 70%, rgba(255,255,255,.05), transparent 30%);
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,255,255,.08),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,255,255,.06),
+            transparent 30%
+        );
+
     pointer-events:none;
-    z-index:-2;
+    z-index:-5;
 }
 
-/* จุดแสงพื้นหลัง */
-.bg-dot{
+
+/* moving light */
+
+.light{
     position:fixed;
-    width:5px;
-    height:5px;
-    background:white;
+    width:400px;
+    height:400px;
+
     border-radius:50%;
+
+    background:rgba(255,255,255,.025);
+
+    filter:blur(80px);
+
+    pointer-events:none;
+
+    animation:lightMove 15s infinite alternate ease-in-out;
+
+    z-index:-4;
+}
+
+.light1{
+    top:-150px;
+    left:-100px;
+}
+
+.light2{
+    bottom:-150px;
+    right:-100px;
+    animation-delay:4s;
+}
+
+@keyframes lightMove{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    100%{
+        transform:translate(150px,100px);
+    }
+
+}
+
+
+/* =================================================
+   PARTICLES
+================================================= */
+
+.particle{
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    background:#fff;
+
+    border-radius:50%;
+
     opacity:.25;
-    animation:float 8s infinite ease-in-out;
-    z-index:-1;
+
+    pointer-events:none;
+
+    animation:particleFloat 10s infinite ease-in-out;
+
+    z-index:-3;
 }
 
-.dot1{top:20%;left:10%;}
-.dot2{top:70%;left:80%;animation-delay:2s;}
-.dot3{top:40%;left:90%;animation-delay:4s;}
-.dot4{top:85%;left:20%;animation-delay:1s;}
-
-@keyframes float{
-    0%,100%{transform:translateY(0);opacity:.15;}
-    50%{transform:translateY(-40px);opacity:.5;}
+.p1{
+    top:20%;
+    left:10%;
 }
 
-/* HERO */
+.p2{
+    top:70%;
+    left:80%;
+    animation-delay:2s;
+}
+
+.p3{
+    top:40%;
+    left:90%;
+    animation-delay:4s;
+}
+
+.p4{
+    top:85%;
+    left:20%;
+    animation-delay:6s;
+}
+
+.p5{
+    top:10%;
+    left:70%;
+    animation-delay:3s;
+}
+
+@keyframes particleFloat{
+
+    0%,100%{
+        transform:translateY(0) scale(1);
+        opacity:.15;
+    }
+
+    50%{
+        transform:translateY(-60px) scale(1.5);
+        opacity:.5;
+    }
+
+}
+
+
+/* =================================================
+   SCROLL PROGRESS
+================================================= */
+
+.progress{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0%;
+    height:3px;
+
+    background:#fff;
+
+    z-index:9999;
+}
+
+
+/* =================================================
+   HERO
+================================================= */
+
 .hero{
+
     min-height:100vh;
+
     display:flex;
-    justify-content:center;
+
     align-items:center;
-    text-align:center;
-    padding:40px 20px;
+
+    justify-content:center;
+
+    padding:80px 30px;
+
     position:relative;
+
 }
 
-.hero-content{
-    max-width:850px;
-    animation:heroIn 1.5s ease;
+
+.hero-container{
+
+    width:100%;
+    max-width:1100px;
+
+    display:grid;
+
+    grid-template-columns:1fr 1.3fr;
+
+    gap:70px;
+
+    align-items:center;
+
 }
 
-@keyframes heroIn{
+
+/* profile */
+
+.hero-photo{
+
+    display:flex;
+
+    justify-content:center;
+
+    animation:photoIn 1.4s ease;
+
+}
+
+
+.photo-frame{
+
+    width:360px;
+    height:460px;
+
+    position:relative;
+
+}
+
+
+.photo-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-10px;
+
+    border:1px solid #333;
+
+    border-radius:25px;
+
+    animation:framePulse 4s infinite ease-in-out;
+
+}
+
+
+.photo-frame::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-20px;
+
+    border-radius:30px;
+
+    background:radial-gradient(
+        circle,
+        rgba(255,255,255,.12),
+        transparent 65%
+    );
+
+    filter:blur(20px);
+
+    z-index:-1;
+
+}
+
+
+.photo-frame img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    border:1px solid #333;
+
+    filter:grayscale(100%);
+
+    transition:1s;
+
+}
+
+
+.photo-frame:hover img{
+
+    filter:grayscale(0%);
+
+    transform:scale(1.02);
+
+}
+
+
+@keyframes photoIn{
+
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateX(-80px);
     }
+
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:translateX(0);
     }
+
 }
+
+
+@keyframes framePulse{
+
+    0%,100%{
+        transform:scale(1);
+        opacity:.4;
+    }
+
+    50%{
+        transform:scale(1.03);
+        opacity:.8;
+    }
+
+}
+
+
+/* hero text */
+
+.hero-text{
+
+    animation:textIn 1.4s ease .2s both;
+
+}
+
+
+.hero-label{
+
+    font-size:13px;
+
+    letter-spacing:5px;
+
+    color:#777;
+
+}
+
 
 .hero h1{
-    font-size:clamp(45px,8vw,90px);
-    letter-spacing:5px;
-    margin-bottom:20px;
+
+    font-size:clamp(50px,7vw,90px);
+
+    line-height:1;
+
+    margin:25px 0;
+
+    letter-spacing:4px;
+
 }
+
 
 .hero h1 span{
-    color:#888;
+
+    color:#666;
+
 }
 
-.hero p{
-    color:#aaa;
-    font-size:20px;
-    line-height:1.8;
-}
 
 .hero-line{
+
     width:100px;
-    height:2px;
-    background:white;
-    margin:30px auto;
-    animation:lineGrow 1.5s ease;
+
+    height:1px;
+
+    background:#fff;
+
+    margin:30px 0;
+
+    animation:lineGrow 1.5s ease 1s both;
+
 }
+
+
+.hero-description{
+
+    color:#aaa;
+
+    font-size:18px;
+
+    line-height:2;
+
+}
+
+
+.hero-description strong{
+
+    color:#fff;
+
+}
+
+
+@keyframes textIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(80px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
 
 @keyframes lineGrow{
-    from{width:0;}
-    to{width:100px;}
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100px;
+    }
+
 }
 
-.btn{
-    display:inline-block;
-    margin-top:35px;
-    padding:15px 35px;
-    border:1px solid #fff;
-    border-radius:50px;
-    color:white;
-    text-decoration:none;
-    transition:.4s;
-}
 
-.btn:hover{
-    background:white;
-    color:black;
-    transform:translateY(-5px);
-}
+/* button */
 
-/* SECTION */
-section{
-    max-width:1100px;
-    margin:auto;
-    padding:100px 25px;
-}
+.explore{
 
-.section-title{
-    text-align:center;
-    margin-bottom:60px;
-}
+    display:inline-flex;
 
-.section-title small{
-    color:#777;
-    letter-spacing:4px;
-}
-
-.section-title h2{
-    font-size:42px;
-    margin-top:12px;
-}
-
-/* INTRO */
-.intro{
-    display:grid;
-    grid-template-columns:300px 1fr;
-    gap:50px;
     align-items:center;
-}
 
-.profile{
-    width:100%;
-    aspect-ratio:1;
-    object-fit:cover;
-    border-radius:20px;
-    filter:grayscale(100%);
-    border:1px solid #333;
-    transition:.5s;
-}
+    gap:15px;
 
-.profile:hover{
-    filter:grayscale(0%);
-    transform:scale(1.03);
-}
+    margin-top:35px;
 
-.intro-text p{
-    color:#aaa;
-    line-height:2;
-    margin-bottom:20px;
-    font-size:17px;
-}
+    padding:15px 25px;
 
-/* INFO */
-.info-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
+    color:#fff;
 
-.info-card{
-    border:1px solid #222;
-    background:#0b0b0b;
-    padding:30px;
-    border-radius:18px;
+    text-decoration:none;
+
+    border:1px solid #444;
+
+    border-radius:50px;
+
     transition:.4s;
+
 }
 
-.info-card:hover{
-    transform:translateY(-8px);
-    border-color:#777;
+
+.explore:hover{
+
+    background:#fff;
+
+    color:#000;
+
+    transform:translateY(-5px);
+
 }
 
-.info-card h3{
-    margin-bottom:15px;
+
+.arrow{
+
+    animation:arrowMove 1.5s infinite;
+
 }
 
-.info-card p{
-    color:#999;
-    line-height:1.8;
+
+@keyframes arrowMove{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(5px);
+    }
+
 }
 
-/* FOOTER */
-footer{
+
+/* =================================================
+   SECTIONS
+================================================= */
+
+section{
+
+    width:90%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:120px 0;
+
+}
+
+
+.section-heading{
+
     text-align:center;
-    padding:60px 20px;
-    border-top:1px solid #222;
-    color:#666;
+
+    margin-bottom:60px;
+
 }
 
-/* MOBILE */
-@media(max-width:750px){
 
-    .intro{
+.section-heading small{
+
+    color:#666;
+
+    letter-spacing:5px;
+
+}
+
+
+.section-heading h2{
+
+    font-size:42px;
+
+    margin-top:10px;
+
+}
+
+
+.section-heading p{
+
+    color:#777;
+
+    margin-top:15px;
+
+}
+
+
+/* reveal */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:1s ease;
+
+}
+
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =================================================
+   ABOUT
+================================================= */
+
+.about{
+
+    display:grid;
+
+    grid-template-columns:280px 1fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+
+.about img{
+
+    width:100%;
+
+    border-radius:20px;
+
+    border:1px solid #333;
+
+    filter:grayscale(100%);
+
+    transition:.7s;
+
+}
+
+
+.about img:hover{
+
+    filter:grayscale(0%);
+
+    transform:scale(1.03);
+
+}
+
+
+.about-text p{
+
+    color:#aaa;
+
+    line-height:2;
+
+    margin-bottom:20px;
+
+}
+
+
+/* =================================================
+   INTEREST
+================================================= */
+
+.interest-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+}
+
+
+.interest-card{
+
+    padding:35px;
+
+    background:#090909;
+
+    border:1px solid #222;
+
+    border-radius:20px;
+
+    transition:.5s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.interest-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+
+    height:150px;
+
+    background:#fff;
+
+    opacity:.02;
+
+    border-radius:50%;
+
+    top:-70px;
+
+    right:-70px;
+
+    transition:.5s;
+
+}
+
+
+.interest-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#666;
+
+}
+
+
+.interest-card:hover::before{
+
+    transform:scale(2);
+
+}
+
+
+.interest-card h3{
+
+    margin-bottom:15px;
+
+}
+
+
+.interest-card p{
+
+    color:#888;
+
+    line-height:1.9;
+
+}
+
+
+/* =================================================
+   PORTFOLIO BUTTON
+================================================= */
+
+.portfolio-link{
+
+    text-align:center;
+
+}
+
+
+.main-btn{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border:1px solid #555;
+
+    border-radius:50px;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    transition:.4s;
+
+}
+
+
+.main-btn:hover{
+
+    background:#fff;
+
+    color:#000;
+
+    transform:translateY(-5px);
+
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
+
+footer{
+
+    border-top:1px solid #222;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+    color:#555;
+
+}
+
+
+/* =================================================
+   MOBILE
+================================================= */
+
+@media(max-width:800px){
+
+    .hero-container{
+
         grid-template-columns:1fr;
+
+        text-align:center;
+
     }
 
-    .profile{
+
+    .hero-photo{
+
+        order:1;
+
+    }
+
+
+    .hero-text{
+
+        order:2;
+
+    }
+
+
+    .photo-frame{
+
+        width:250px;
+
+        height:320px;
+
+    }
+
+
+    .hero-line{
+
+        margin:25px auto;
+
+    }
+
+
+    .interest-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .about{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .about img{
+
         max-width:280px;
+
         margin:auto;
+
     }
 
-    .info-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
 
     section{
-        padding:70px 20px;
+
+        padding:80px 0;
+
     }
+
+
+    .hero{
+
+        padding-top:60px;
+
+    }
+
+
+    .hero h1{
+
+        font-size:50px;
+
+    }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<div class="bg-dot dot1"></div>
-<div class="bg-dot dot2"></div>
-<div class="bg-dot dot3"></div>
-<div class="bg-dot dot4"></div>
 
-<!-- HERO -->
+<!-- background -->
+
+<div class="light light1"></div>
+<div class="light light2"></div>
+
+<div class="particle p1"></div>
+<div class="particle p2"></div>
+<div class="particle p3"></div>
+<div class="particle p4"></div>
+<div class="particle p5"></div>
+
+
+<!-- progress -->
+
+<div class="progress" id="progress"></div>
+
+
+<!-- =================================================
+     HERO
+================================================= -->
+
 <header class="hero">
 
-    <div class="hero-content">
+<div class="hero-container">
 
-        <p>MY PERSONAL PORTFOLIO</p>
 
-        <h1>
-            NATTHAPHAK<br>
-            <span>BOONYAMA</span>
-        </h1>
+<div class="hero-photo">
 
-        <div class="hero-line"></div>
+<div class="photo-frame">
 
-        <p>
-            Technology • Computer • Photography • Film • Digital Media
-        </p>
+<img src="images/profile.jpg"
+     alt="Natthaphak Boonyama">
 
-        <a href="#about" class="btn">
-            Explore My Portfolio ↓
-        </a>
+</div>
 
-    </div>
+</div>
+
+
+<div class="hero-text">
+
+<div class="hero-label">
+MY PERSONAL PORTFOLIO
+</div>
+
+
+<h1>
+
+NATTHAPHAK<br>
+
+<span>BOONYAMA</span>
+
+</h1>
+
+
+<div class="hero-line"></div>
+
+
+<div class="hero-description">
+
+<p>
+Portfolio ของ
+<strong>นายณัทธ์ฐภัค บุญยามา</strong>
+</p>
+
+<p>
+กำลังศึกษาอยู่ในแผนการเรียน
+<strong>วิทยาการคอมพิวเตอร์และวิศวกรรม</strong>
+</p>
+
+<p>
+ระดับชั้นมัธยมศึกษาปีที่ 6
+</p>
+
+<p>
+Computer • Technology • Photography • Film
+</p>
+
+</div>
+
+
+<a href="#about" class="explore">
+
+ดู Portfolio
+
+<span class="arrow">↓</span>
+
+</a>
+
+
+</div>
+
+
+</div>
 
 </header>
 
 
-<!-- ABOUT -->
+<!-- =================================================
+     ABOUT
+================================================= -->
+
 <section id="about">
 
-    <div class="section-title">
-        <small>01 — ABOUT ME</small>
-        <h2>เกี่ยวกับผม</h2>
-    </div>
+<div class="section-heading reveal">
 
-    <div class="intro">
+<small>01 — ABOUT ME</small>
 
-        <img src="images/profile.jpg"
-             class="profile"
-             alt="Profile">
+<h2>แนะนำตัว</h2>
 
-        <div class="intro-text">
-
-            <p>
-                สวัสดีครับ ผมชื่อ
-                <strong>นายณัทธ์ฐภัค บุญยามา</strong>
-                อายุ 18 ปี ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
-            </p>
-
-            <p>
-                ผมเป็นคนที่มีความสนใจด้านเทคโนโลยีและคอมพิวเตอร์
-                โดยเฉพาะการเขียนโปรแกรม การสร้างเว็บไซต์
-                และการแก้ไขปัญหาด้วยเทคโนโลยี
-            </p>
-
-            <p>
-                นอกจากด้านคอมพิวเตอร์แล้ว ผมยังสนใจด้านการถ่ายภาพ
-                การตัดต่อภาพและวิดีโอ รวมถึงการทำภาพยนตร์และสื่อดิจิทัล
-                เพราะผมชอบการเล่าเรื่องผ่านภาพและวิดีโอ
-            </p>
-
-            <p>
-                ผมจึงต้องการพัฒนาตัวเองให้มีทั้งทักษะด้านการคิดวิเคราะห์
-                การแก้ปัญหา ความคิดสร้างสรรค์ และการทำงานจริง
-                เพื่อนำไปต่อยอดในการเรียนระดับมหาวิทยาลัยและการทำงานในอนาคต
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
+</div>
 
 
-<!-- INTEREST -->
-<section>
+<div class="about reveal">
 
-    <div class="section-title">
-        <small>02 — MY INTERESTS</small>
-        <h2>สิ่งที่ผมสนใจ</h2>
-    </div>
 
-    <div class="info-grid">
+<img src="images/profile.jpg"
+     alt="Profile">
 
-        <div class="info-card">
-            <h3>💻 Computer & Programming</h3>
-            <p>
-                ผมสนใจการเขียนโปรแกรม การสร้างเว็บไซต์
-                และการทดลองสร้างสิ่งต่าง ๆ ด้วยเทคโนโลยี
-                เพราะชอบกระบวนการคิดและแก้ปัญหา
-                ตั้งแต่เริ่มต้นจนสามารถสร้างผลงานออกมาได้จริง
-            </p>
-        </div>
 
-        <div class="info-card">
-            <h3>📷 Photography</h3>
-            <p>
-                การถ่ายภาพทำให้ผมได้ฝึกมองสิ่งต่าง ๆ
-                ในมุมที่แตกต่างออกไป ทั้งเรื่ององค์ประกอบ
-                แสง มุมกล้อง และการสื่อความหมายผ่านภาพ
-            </p>
-        </div>
+<div class="about-text">
 
-        <div class="info-card">
-            <h3>🎬 Film & Digital Media</h3>
-            <p>
-                ผมสนใจการสร้างภาพยนตร์และวิดีโอ
-                ตั้งแต่การคิดเรื่อง การถ่ายทำ
-                ไปจนถึงการตัดต่อ เพื่อเปลี่ยนแนวคิด
-                ให้กลายเป็นเรื่องราวที่สามารถสื่อสารกับผู้ชมได้
-            </p>
-        </div>
+<p>
+สวัสดีครับ ผมชื่อ
+<strong>นายณัทธ์ฐภัค บุญยามา</strong>
+อายุ 18 ปี ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
+</p>
 
-    </div>
+
+<p>
+ผมเป็นคนที่มีความสนใจด้านเทคโนโลยีและคอมพิวเตอร์
+โดยเฉพาะการเขียนโปรแกรม การสร้างเว็บไซต์
+และการแก้ปัญหาด้วยเทคโนโลยี
+</p>
+
+
+<p>
+ผมชอบการได้ทดลองสร้างสิ่งต่าง ๆ ด้วยตัวเอง
+เพราะในระหว่างการทำงานผมได้ฝึกทั้งการวางแผน
+การคิดวิเคราะห์ และการแก้ไขปัญหาที่เกิดขึ้น
+</p>
+
+
+<p>
+นอกจากด้านคอมพิวเตอร์แล้ว
+ผมยังสนใจด้านการถ่ายภาพ
+การตัดต่อภาพและวิดีโอ
+รวมถึงการทำภาพยนตร์และสื่อดิจิทัล
+</p>
+
+
+<p>
+ผมมองว่าความสนใจทั้งสองด้านสามารถนำมาผสมผสานกันได้
+และสามารถต่อยอดไปสู่การสร้างผลงานที่มีทั้งเทคโนโลยี
+และความคิดสร้างสรรค์
+</p>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- WHY -->
+<!-- =================================================
+     INTEREST
+================================================= -->
+
 <section>
 
-    <div class="section-title">
-        <small>03 — WHY</small>
-        <h2>ทำไมผมถึงสนใจหลายด้าน?</h2>
-    </div>
+<div class="section-heading reveal">
 
-    <div class="intro-text">
+<small>02 — MY INTEREST</small>
 
-        <p>
-            สำหรับผม เทคโนโลยีและงานสร้างสรรค์ไม่ได้เป็นสิ่งที่แยกออกจากกัน
-            แต่สามารถนำมาทำงานร่วมกันได้
-        </p>
+<h2>สิ่งที่ผมสนใจ</h2>
 
-        <p>
-            ด้านคอมพิวเตอร์ช่วยให้ผมได้ฝึกคิดอย่างเป็นระบบ
-            วิเคราะห์ปัญหา และสร้างสิ่งต่าง ๆ ด้วยตัวเอง
-            ขณะที่การถ่ายภาพและภาพยนตร์ช่วยให้ผมได้ใช้ความคิดสร้างสรรค์
-            และฝึกการสื่อสารผ่านภาพ
-        </p>
+</div>
 
-        <p>
-            การมีความสนใจทั้งสองด้านทำให้ผมอยากเรียนรู้ว่า
-            เทคโนโลยีสามารถนำมาผสมกับความคิดสร้างสรรค์ได้อย่างไร
-            และสามารถนำความรู้เหล่านี้ไปสร้างผลงานที่มีประโยชน์ได้อย่างไร
-        </p>
 
-    </div>
+<div class="interest-grid">
+
+
+<div class="interest-card reveal">
+
+<h3>💻 Computer & Programming</h3>
+
+<p>
+ผมสนใจการเขียนโปรแกรม การสร้างเว็บไซต์
+และการใช้เทคโนโลยีในการแก้ปัญหา
+เพราะชอบกระบวนการคิดอย่างเป็นระบบ
+และการสร้างสิ่งที่สามารถใช้งานได้จริง
+</p>
+
+</div>
+
+
+<div class="interest-card reveal">
+
+<h3>📷 Photography</h3>
+
+<p>
+การถ่ายภาพทำให้ผมได้ฝึกเรื่ององค์ประกอบ
+มุมมอง แสง และการสื่อสารความรู้สึก
+ผ่านภาพเพียงภาพเดียว
+</p>
+
+</div>
+
+
+<div class="interest-card reveal">
+
+<h3>🎬 Film & Digital Media</h3>
+
+<p>
+ผมสนใจการเล่าเรื่องผ่านภาพและวิดีโอ
+ตั้งแต่การคิดแนวคิด การถ่ายทำ
+ไปจนถึงการตัดต่อและนำเสนอผลงาน
+</p>
+
+</div>
+
+
+</div>
 
 </section>
 
 
-<!-- PORTFOLIO -->
+<!-- =================================================
+     WHY
+================================================= -->
+
 <section>
 
-    <div class="section-title">
-        <small>04 — PORTFOLIO</small>
-        <h2>แฟ้มสะสมงาน</h2>
-    </div>
+<div class="section-heading reveal">
 
-    <div style="text-align:center">
+<small>03 — MY DIRECTION</small>
 
-        <p style="color:#999;line-height:2;">
-            ภายในแฟ้มสะสมงานนี้ได้รวบรวมประสบการณ์
-            กิจกรรม เกียรติบัตร และผลงานที่สะท้อนถึง
-            ความสนใจและการพัฒนาตนเองของผม
-        </p>
+<h2>สิ่งที่ผมต้องการพัฒนา</h2>
 
-        <a href="portfolio.html" class="btn">
-            ดู Portfolio ทั้งหมด →
-        </a>
+</div>
 
-    </div>
+
+<div class="about-text reveal">
+
+<p>
+สำหรับผม เทคโนโลยีและงานสร้างสรรค์ไม่ได้เป็นสิ่งที่แยกออกจากกัน
+แต่สามารถนำมาทำงานร่วมกันได้
+</p>
+
+
+<p>
+ด้านคอมพิวเตอร์ช่วยให้ผมได้ฝึกคิดอย่างเป็นระบบ
+วิเคราะห์ปัญหา และสร้างสิ่งต่าง ๆ ด้วยตัวเอง
+ขณะที่การถ่ายภาพและภาพยนตร์ช่วยให้ผมได้ใช้ความคิดสร้างสรรค์
+และฝึกการสื่อสารผ่านภาพ
+</p>
+
+
+<p>
+ดังนั้นผมจึงต้องการพัฒนาทั้งการคิดวิเคราะห์
+การแก้ปัญหา ความคิดสร้างสรรค์ และการสื่อสาร
+เพื่อให้สามารถนำความรู้หลายด้านมาสร้างผลงานของตัวเองได้
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =================================================
+     PORTFOLIO
+================================================= -->
+
+<section>
+
+<div class="section-heading reveal">
+
+<small>04 — PORTFOLIO</small>
+
+<h2>แฟ้มสะสมงาน</h2>
+
+<p>
+เกียรติบัตร กิจกรรม และผลงานต่าง ๆ
+</p>
+
+</div>
+
+
+<div class="portfolio-link reveal">
+
+<a href="portfolio.html" class="main-btn">
+
+เข้าสู่ Portfolio →
+
+</a>
+
+</div>
 
 </section>
 
 
 <footer>
-    © 2026 Natthaphak Boonyama — Personal Portfolio
+
+© 2026 Natthaphak Boonyama
+
 </footer>
 
+
+<script>
+
+/* scroll progress */
+
+window.addEventListener("scroll",function(){
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const percent =
+        (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress").style.width =
+        percent + "%";
+
+});
+
+
+/* reveal animation */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.15
+}
+
+);
+
+
+reveals.forEach(el=>{
+
+    observer.observe(el);
+
+});
+
+</script>
+
+
 </body>
+
 </html>
