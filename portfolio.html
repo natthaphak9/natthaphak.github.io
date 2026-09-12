@@ -2,11 +2,10 @@
 <html lang="th">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PORTFOLIO | Natthaphak Boonyama</title>
+<title>Portfolio</title>
 
 <style>
 
@@ -21,1393 +20,1086 @@ html{
 }
 
 body{
-    font-family:Tahoma,Arial,sans-serif;
     background:#050505;
-    color:#eee;
-    line-height:1.8;
+    color:#fff;
+    font-family:Arial, Tahoma, sans-serif;
     overflow-x:hidden;
 }
 
-
-/* ================= BACKGROUND ================= */
+/* =========================
+   BACKGROUND
+========================= */
 
 body::before{
     content:"";
     position:fixed;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 15% 15%,rgba(255,255,255,.07),transparent 25%),
-        radial-gradient(circle at 85% 75%,rgba(255,255,255,.05),transparent 30%);
-
-    pointer-events:none;
-    z-index:-10;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.035);
+    filter:blur(100px);
+    top:-200px;
+    left:-150px;
+    z-index:-2;
+    animation:floatGlow 8s ease-in-out infinite alternate;
 }
 
-
-.glow{
+body::after{
+    content:"";
     position:fixed;
     width:450px;
     height:450px;
     border-radius:50%;
-    background:rgba(255,255,255,.025);
+    background:rgba(255,255,255,0.025);
     filter:blur(100px);
-    pointer-events:none;
-    z-index:-5;
-    animation:moveGlow 18s infinite alternate ease-in-out;
-}
-
-.glow1{
-    top:-200px;
-    left:-150px;
-}
-
-.glow2{
-    bottom:-200px;
     right:-150px;
-    animation-delay:5s;
+    bottom:-150px;
+    z-index:-2;
+    animation:floatGlow 10s ease-in-out infinite alternate-reverse;
 }
 
-@keyframes moveGlow{
-
+@keyframes floatGlow{
     from{
         transform:translate(0,0);
     }
-
     to{
-        transform:translate(180px,120px);
+        transform:translate(60px,40px);
     }
-
 }
 
+/* =========================
+   TOP NAV
+========================= */
 
-/* ================= PARTICLES ================= */
-
-.particle{
+.nav{
     position:fixed;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:white;
-    opacity:.2;
-    pointer-events:none;
-    z-index:-3;
-    animation:float 10s infinite ease-in-out;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(5,5,5,0.75);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-.p1{top:15%;left:10%;}
-.p2{top:70%;left:85%;animation-delay:2s;}
-.p3{top:45%;left:92%;animation-delay:4s;}
-.p4{top:85%;left:15%;animation-delay:6s;}
-.p5{top:30%;left:70%;animation-delay:3s;}
+.nav-logo{
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:4px;
+}
 
-@keyframes float{
+.nav a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+}
 
-    0%,100%{
+.nav a:hover{
+    color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 80px;
+    position:relative;
+}
+
+.small-title{
+    color:#888;
+    font-size:14px;
+    letter-spacing:6px;
+    margin-bottom:20px;
+    animation:fadeDown 1s ease forwards;
+}
+
+.hero h1{
+    font-size:clamp(70px,15vw,190px);
+    line-height:0.85;
+    letter-spacing:-8px;
+    font-weight:900;
+    animation:heroIn 1.2s ease forwards;
+}
+
+.hero p{
+    margin-top:35px;
+    color:#999;
+    font-size:17px;
+    letter-spacing:2px;
+    animation:fadeUp 1.2s ease 0.3s both;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(60px) scale(.9);
+    }
+    to{
+        opacity:1;
         transform:translateY(0) scale(1);
-        opacity:.1;
     }
-
-    50%{
-        transform:translateY(-60px) scale(1.5);
-        opacity:.5;
-    }
-
 }
 
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-/* ================= PROGRESS ================= */
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:120px 0;
+}
+
+.section-number{
+    color:#666;
+    font-size:14px;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(40px,7vw,80px);
+    margin-bottom:50px;
+    letter-spacing:-3px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.07),
+        rgba(255,255,255,0.025)
+    );
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:22px;
+    padding:20px;
+    overflow:hidden;
+    transition:
+        transform .5s ease,
+        border-color .5s ease,
+        box-shadow .5s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,255,255,0.35);
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.card img{
+    width:100%;
+    display:block;
+    border-radius:14px;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+
+.card:hover img{
+    transform:scale(1.035);
+}
+
+.card-content{
+    padding:25px 8px 10px;
+}
+
+.card h3{
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#999;
+    line-height:1.8;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-box{
+    width:100%;
+    background:#0b0b0b;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    padding:15px;
+    overflow:hidden;
+}
+
+.video-box video{
+    width:100%;
+    display:block;
+    border-radius:16px;
+    background:#000;
+}
+
+.video-text{
+    padding:25px 10px 10px;
+}
+
+.video-text h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.video-text p{
+    color:#999;
+    line-height:1.8;
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    padding:100px 20px 60px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer h2{
+    font-size:clamp(55px,12vw,140px);
+    letter-spacing:-6px;
+    margin-bottom:35px;
+}
+
+.back-btn{
+    display:inline-block;
+    padding:16px 32px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50px;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-4px);
+}
+
+/* =========================
+   SCROLL BAR
+========================= */
 
 .progress{
     position:fixed;
     top:0;
     left:0;
-    width:0%;
     height:3px;
+    width:0%;
     background:#fff;
-    z-index:9999;
+    z-index:2000;
 }
 
-
-/* ================= NAV ================= */
-
-.nav{
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-
-    width:92%;
-    max-width:900px;
-
-    padding:13px 20px;
-
-    background:rgba(5,5,5,.75);
-    backdrop-filter:blur(15px);
-
-    border:1px solid #222;
-    border-radius:50px;
-
-    text-align:center;
-
-    z-index:1000;
-}
-
-.nav a{
-    color:#777;
-    text-decoration:none;
-    margin:0 10px;
-    font-size:12px;
-    transition:.3s;
-}
-
-.nav a:hover{
-    color:white;
-}
-
-
-/* ================= HERO ================= */
-
-.hero{
-
-    min-height:80vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:120px 20px 70px;
-}
-
-
-.hero-inner{
-
-    animation:heroIn 1.3s ease;
-
-}
-
-
-@keyframes heroIn{
-
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-
-}
-
-
-.hero small{
-
-    color:#666;
-
-    letter-spacing:7px;
-
-}
-
-
-.hero h1{
-
-    font-size:clamp(70px,12vw,150px);
-
-    line-height:.9;
-
-    letter-spacing:7px;
-
-    margin:30px 0;
-
-}
-
-
-.hero h1 span{
-
-    color:#555;
-
-}
-
-
-.hero-line{
-
-    width:120px;
-
-    height:1px;
-
-    background:white;
-
-    margin:35px auto;
-
-}
-
-
-.hero p{
-
-    color:#777;
-
-    letter-spacing:2px;
-
-}
-
-
-/* ================= SECTION ================= */
-
-section{
-
-    width:90%;
-
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:100px 0;
-
-}
-
-
-.section-title{
-
-    text-align:center;
-
-    margin-bottom:60px;
-
-}
-
-
-.section-title small{
-
-    color:#666;
-
-    letter-spacing:5px;
-
-}
-
-
-.section-title h2{
-
-    font-size:42px;
-
-    margin-top:10px;
-
-}
-
-
-.section-title p{
-
-    color:#777;
-
-    margin-top:15px;
-
-}
-
-
-/* ================= REVEAL ================= */
-
-.reveal{
-
-    opacity:0;
-
-    transform:translateY(50px);
-
-    transition:
-
-        opacity 1s ease,
-
-        transform 1s ease;
-
-}
-
-
-.reveal.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-
-
-/* ================= CERTIFICATES ================= */
-
-.cert-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:30px;
-
-}
-
-
-.cert{
-
-    background:#090909;
-
-    border:1px solid #222;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    transition:.5s;
-
-}
-
-
-.cert:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#666;
-
-    box-shadow:
-        0 25px 60px
-        rgba(0,0,0,.65);
-
-}
-
-
-.cert img{
-
-    width:100%;
-
-    aspect-ratio:1.414/1;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:.6s;
-
-}
-
-
-.cert:hover img{
-
-    transform:scale(1.03);
-
-}
-
-
-.cert-content{
-
-    padding:25px;
-
-}
-
-
-.tag{
-
-    display:inline-block;
-
-    border:1px solid #444;
-
-    border-radius:30px;
-
-    padding:3px 12px;
-
-    color:#777;
-
-    font-size:11px;
-
-}
-
-
-.cert-content h3{
-
-    margin:12px 0;
-
-}
-
-
-.cert-content p{
-
-    color:#888;
-
-    margin-bottom:12px;
-
-}
-
-
-/* ================= ACTIVITIES ================= */
-
-.activity-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:20px;
-
-}
-
-
-.activity{
-
-    background:#090909;
-
-    border:1px solid #222;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    transition:.5s;
-
-}
-
-
-.activity:hover{
-
-    transform:translateY(-8px);
-
-    border-color:#666;
-
-}
-
-
-.activity img{
-
-    width:100%;
-
-    aspect-ratio:4/3;
-
-    object-fit:cover;
-
-    display:block;
-
-    transition:.6s;
-
-}
-
-
-.activity:hover img{
-
-    transform:scale(1.05);
-
-}
-
-
-.activity-content{
-
-    padding:20px;
-
-}
-
-
-.activity-content h3{
-
-    margin-bottom:10px;
-
-}
-
-
-.activity-content p{
-
-    color:#888;
-
-}
-
-
-/* ================= VIDEO ================= */
-
-.video-box{
-
-    background:#090909;
-
-    border:1px solid #222;
-
-    border-radius:20px;
-
-    padding:25px;
-
-    transition:.5s;
-
-}
-
-
-.video-box:hover{
-
-    border-color:#666;
-
-}
-
-
-.video-box video{
-
-    width:100%;
-
-    max-height:650px;
-
-    border-radius:12px;
-
-    background:#000;
-
-}
-
-
-.video-box h3{
-
-    margin-top:20px;
-
-}
-
-
-.video-box p{
-
-    color:#888;
-
-}
-
-
-/* ================= BUTTON ================= */
-
-.btn{
-
-    display:inline-block;
-
-    margin-top:35px;
-
-    padding:14px 32px;
-
-    border:1px solid #555;
-
-    border-radius:50px;
-
-    color:white;
-
-    text-decoration:none;
-
-    transition:.4s;
-
-}
-
-
-.btn:hover{
-
-    background:white;
-
-    color:black;
-
-    transform:translateY(-5px);
-
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-
-    border-top:1px solid #222;
-
-    text-align:center;
-
-    padding:80px 20px;
-
-    color:#555;
-
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:800px){
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
 
     .nav{
+        padding:18px 20px;
+    }
+
+    .nav-logo{
+        font-size:14px;
+        letter-spacing:3px;
+    }
+
+    .nav a{
         display:none;
     }
 
+    .hero{
+        padding-top:100px;
+    }
+
     .hero h1{
-        font-size:60px;
+        font-size:21vw;
+        letter-spacing:-4px;
     }
 
-    .cert-grid{
-        grid-template-columns:1fr;
-    }
-
-    .activity-grid{
-        grid-template-columns:1fr;
+    .hero p{
+        font-size:13px;
     }
 
     section{
+        width:92%;
         padding:80px 0;
     }
 
-    .section-title h2{
-        font-size:34px;
+    .section-title{
+        font-size:50px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        border-radius:18px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .footer h2{
+        font-size:22vw;
+        letter-spacing:-4px;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
-
-<!-- BACKGROUND -->
-
-<div class="glow glow1"></div>
-<div class="glow glow2"></div>
-
-<div class="particle p1"></div>
-<div class="particle p2"></div>
-<div class="particle p3"></div>
-<div class="particle p4"></div>
-<div class="particle p5"></div>
-
-
 <div class="progress" id="progress"></div>
 
 
-<!-- ================= NAV ================= -->
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav class="nav">
 
-<a href="#certificates">
-CERTIFICATES
-</a>
+    <div class="nav-logo">
+        PORTFOLIO
+    </div>
 
-<a href="#activities">
-ACTIVITIES
-</a>
-
-<a href="#video">
-VIDEO
-</a>
-
-<a href="index.html">
-HOME
-</a>
+    <div>
+        <a href="#certificates">Certificates</a>
+        <a href="#activities">Activities</a>
+        <a href="#video">Video</a>
+    </div>
 
 </nav>
 
 
-<!-- =================================================
-     PORTFOLIO HERO
-================================================= -->
+<!-- =========================
+     HERO
+========================= -->
 
 <header class="hero">
 
-<div class="hero-inner">
+    <div class="small-title">
+        COLLECTION / 2026
+    </div>
 
-<small>
-MY COLLECTION
-</small>
+    <h1>
+        PORTFOLIO
+    </h1>
 
-
-<h1>
-
-PORTFOLIO
-
-</h1>
-
-
-<div class="hero-line"></div>
-
-
-<p>
-
-16 CERTIFICATES • 6 ACTIVITIES • VIDEO WORKS
-
-</p>
-
-</div>
+    <p>
+        CERTIFICATES • ACTIVITIES • VIDEO WORKS
+    </p>
 
 </header>
 
 
-<!-- =================================================
+<!-- =========================
      CERTIFICATES
-================================================= -->
+========================= -->
 
 <section id="certificates">
 
-<div class="section-title reveal">
+    <div class="section-number reveal">
+        01 / CERTIFICATES
+    </div>
 
-<small>01 — CERTIFICATES</small>
+    <h2 class="section-title reveal">
+        Certificates
+    </h2>
 
-<h2>
-เกียรติบัตร
-</h2>
 
-<p>
-รวมเกียรติบัตรทั้งหมด 16 ใบ
-</p>
+    <div class="grid">
 
-</div>
 
+        <!-- CERTIFICATE 1 -->
 
-<div class="cert-grid">
+        <div class="card reveal">
 
+            <img src="images/certificate1.jpg"
+                 alt="Certificate 1">
 
-<!-- ================= 01 ================= -->
+            <div class="card-content">
 
-<div class="cert reveal">
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 1
+                </h3>
 
-<img src="images/certificate1.jpg"
-     alt="Certificate 1">
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<div class="cert-content">
+            </div>
 
-<span class="tag">
-CERTIFICATE 01
-</span>
+        </div>
 
-<h3>
-เกียรติบัตรใบที่ 1
-</h3>
 
-<!-- ✏️ แก้ข้อความตรงนี้ -->
+        <!-- CERTIFICATE 2 -->
 
-<p>
-ใส่ชื่อกิจกรรม / ชื่อรางวัล / รายละเอียดของเกียรติบัตร
-</p>
+        <div class="card reveal">
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้ และความเกี่ยวข้องกับตัวเองหรือสาขาที่ต้องการเรียน
-</p>
+            <img src="images/certificate2.jpg"
+                 alt="Certificate 2">
 
-</div>
+            <div class="card-content">
 
-</div>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 2
+                </h3>
 
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<!-- ================= 02 ================= -->
+            </div>
 
-<div class="cert reveal">
+        </div>
 
-<img src="images/certificate2.jpg"
-     alt="Certificate 2">
 
-<div class="cert-content">
+        <!-- CERTIFICATE 3 -->
 
-<span class="tag">
-CERTIFICATE 02
-</span>
+        <div class="card reveal">
 
-<h3>
-เกียรติบัตรใบที่ 2
-</h3>
+            <img src="images/certificate3.jpg"
+                 alt="Certificate 3">
 
-<p>
-ใส่ชื่อกิจกรรม / ชื่อรางวัล / รายละเอียดของเกียรติบัตร
-</p>
+            <div class="card-content">
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้ และความเกี่ยวข้องกับตัวเองหรือสาขาที่ต้องการเรียน
-</p>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 3
+                </h3>
 
-</div>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-</div>
+            </div>
 
+        </div>
 
-<!-- ================= 03 ================= -->
 
-<div class="cert reveal">
+        <!-- CERTIFICATE 4 -->
 
-<img src="images/certificate3.jpg"
-     alt="Certificate 3">
+        <div class="card reveal">
 
-<div class="cert-content">
+            <img src="images/certificate4.jpg"
+                 alt="Certificate 4">
 
-<span class="tag">CERTIFICATE 03</span>
+            <div class="card-content">
 
-<h3>เกียรติบัตรใบที่ 3</h3>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 4
+                </h3>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 3
-</p>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+            </div>
 
-</div>
+        </div>
 
-</div>
 
+        <!-- CERTIFICATE 5 -->
 
-<!-- ================= 04 ================= -->
+        <div class="card reveal">
 
-<div class="cert reveal">
+            <img src="images/certificate5.jpg"
+                 alt="Certificate 5">
 
-<img src="images/certificate4.jpg"
-     alt="Certificate 4">
+            <div class="card-content">
 
-<div class="cert-content">
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 5
+                </h3>
 
-<span class="tag">CERTIFICATE 04</span>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<h3>เกียรติบัตรใบที่ 4</h3>
+            </div>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 4
-</p>
+        </div>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
 
-</div>
+        <!-- CERTIFICATE 6 -->
 
-</div>
+        <div class="card reveal">
 
+            <img src="images/certificate6.jpg"
+                 alt="Certificate 6">
 
-<!-- ================= 05 ================= -->
+            <div class="card-content">
 
-<div class="cert reveal">
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 6
+                </h3>
 
-<img src="images/certificate5.jpg"
-     alt="Certificate 5">
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<div class="cert-content">
+            </div>
 
-<span class="tag">CERTIFICATE 05</span>
+        </div>
 
-<h3>เกียรติบัตรใบที่ 5</h3>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 5
-</p>
+        <!-- CERTIFICATE 7 -->
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+        <div class="card reveal">
 
-</div>
+            <img src="images/certificate7.jpg"
+                 alt="Certificate 7">
 
-</div>
+            <div class="card-content">
 
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 7
+                </h3>
 
-<!-- ================= 06 ================= -->
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<div class="cert reveal">
+            </div>
 
-<img src="images/certificate6.jpg"
-     alt="Certificate 6">
+        </div>
 
-<div class="cert-content">
 
-<span class="tag">CERTIFICATE 06</span>
+        <!-- CERTIFICATE 8 -->
 
-<h3>เกียรติบัตรใบที่ 6</h3>
+        <div class="card reveal">
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 6
-</p>
+            <img src="images/certificate8.jpg"
+                 alt="Certificate 8">
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+            <div class="card-content">
 
-</div>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 8
+                </h3>
 
-</div>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
+            </div>
 
-<!-- ================= 07 ================= -->
+        </div>
 
-<div class="cert reveal">
 
-<img src="images/certificate7.jpg"
-     alt="Certificate 7">
+        <!-- CERTIFICATE 9 -->
 
-<div class="cert-content">
+        <div class="card reveal">
 
-<span class="tag">CERTIFICATE 07</span>
+            <img src="images/certificate9.jpg"
+                 alt="Certificate 9">
 
-<h3>เกียรติบัตรใบที่ 7</h3>
+            <div class="card-content">
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 7
-</p>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 9
+                </h3>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
 
-<!-- ================= 08 ================= -->
+        <!-- CERTIFICATE 10 -->
 
-<div class="cert reveal">
+        <div class="card reveal">
 
-<img src="images/certificate8.jpg"
-     alt="Certificate 8">
+            <img src="images/certificate10.jpg"
+                 alt="Certificate 10">
 
-<div class="cert-content">
+            <div class="card-content">
 
-<span class="tag">CERTIFICATE 08</span>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 10
+                </h3>
 
-<h3>เกียรติบัตรใบที่ 8</h3>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 8
-</p>
+            </div>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+        </div>
 
-</div>
 
-</div>
+        <!-- CERTIFICATE 11 -->
 
+        <div class="card reveal">
 
-<!-- ================= 09 ================= -->
+            <img src="images/certificate11.jpg"
+                 alt="Certificate 11">
 
-<div class="cert reveal">
+            <div class="card-content">
 
-<img src="images/certificate9.jpg"
-     alt="Certificate 9">
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 11
+                </h3>
 
-<div class="cert-content">
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<span class="tag">CERTIFICATE 09</span>
+            </div>
 
-<h3>เกียรติบัตรใบที่ 9</h3>
+        </div>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 9
-</p>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+        <!-- CERTIFICATE 12 -->
 
-</div>
+        <div class="card reveal">
 
-</div>
+            <img src="images/certificate12.jpg"
+                 alt="Certificate 12">
 
+            <div class="card-content">
 
-<!-- ================= 10 ================= -->
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 12
+                </h3>
 
-<div class="cert reveal">
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<img src="images/certificate10.jpg"
-     alt="Certificate 10">
+            </div>
 
-<div class="cert-content">
+        </div>
 
-<span class="tag">CERTIFICATE 10</span>
 
-<h3>เกียรติบัตรใบที่ 10</h3>
+        <!-- CERTIFICATE 13 -->
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 10
-</p>
+        <div class="card reveal">
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+            <img src="images/certificate13.jpg"
+                 alt="Certificate 13">
 
-</div>
+            <div class="card-content">
 
-</div>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 13
+                </h3>
 
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<!-- ================= 11 ================= -->
+            </div>
 
-<div class="cert reveal">
+        </div>
 
-<img src="images/certificate11.jpg"
-     alt="Certificate 11">
 
-<div class="cert-content">
+        <!-- CERTIFICATE 14 -->
 
-<span class="tag">CERTIFICATE 11</span>
+        <div class="card reveal">
 
-<h3>เกียรติบัตรใบที่ 11</h3>
+            <img src="images/certificate14.jpg"
+                 alt="Certificate 14">
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 11
-</p>
+            <div class="card-content">
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 14
+                </h3>
 
-</div>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-</div>
+            </div>
 
+        </div>
 
-<!-- ================= 12 ================= -->
 
-<div class="cert reveal">
+        <!-- CERTIFICATE 15 -->
 
-<img src="images/certificate12.jpg"
-     alt="Certificate 12">
+        <div class="card reveal">
 
-<div class="cert-content">
+            <img src="images/certificate15.jpg"
+                 alt="Certificate 15">
 
-<span class="tag">CERTIFICATE 12</span>
+            <div class="card-content">
 
-<h3>เกียรติบัตรใบที่ 12</h3>
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 15
+                </h3>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 12
-</p>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
+            </div>
 
-</div>
+        </div>
 
-</div>
 
+        <!-- CERTIFICATE 16 -->
 
-<!-- ================= 13 ================= -->
+        <div class="card reveal">
 
-<div class="cert reveal">
+            <img src="images/certificate16.jpg"
+                 alt="Certificate 16">
 
-<img src="images/certificate13.jpg"
-     alt="Certificate 13">
+            <div class="card-content">
 
-<div class="cert-content">
+                <h3>
+                    ใส่ชื่อเกียรติบัตรที่ 16
+                </h3>
 
-<span class="tag">CERTIFICATE 13</span>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดเกียรติบัตร
+                </p>
 
-<h3>เกียรติบัตรใบที่ 13</h3>
+            </div>
 
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 13
-</p>
+        </div>
 
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
 
-</div>
-
-</div>
-
-
-<!-- ================= 14 ================= -->
-
-<div class="cert reveal">
-
-<img src="images/certificate14.jpg"
-     alt="Certificate 14">
-
-<div class="cert-content">
-
-<span class="tag">CERTIFICATE 14</span>
-
-<h3>เกียรติบัตรใบที่ 14</h3>
-
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 14
-</p>
-
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ================= 15 ================= -->
-
-<div class="cert reveal">
-
-<img src="images/certificate15.jpg"
-     alt="Certificate 15">
-
-<div class="cert-content">
-
-<span class="tag">CERTIFICATE 15</span>
-
-<h3>เกียรติบัตรใบที่ 15</h3>
-
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 15
-</p>
-
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
-
-</div>
-
-</div>
-
-
-<!-- ================= 16 ================= -->
-
-<div class="cert reveal">
-
-<img src="images/certificate16.jpg"
-     alt="Certificate 16">
-
-<div class="cert-content">
-
-<span class="tag">CERTIFICATE 16</span>
-
-<h3>เกียรติบัตรใบที่ 16</h3>
-
-<p>
-ใส่รายละเอียดของเกียรติบัตรใบที่ 16
-</p>
-
-<p>
-ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
-</p>
-
-</div>
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
+<!-- =========================
      ACTIVITIES
-================================================= -->
+========================= -->
 
 <section id="activities">
 
-<div class="section-title reveal">
+    <div class="section-number reveal">
+        02 / ACTIVITIES
+    </div>
 
-<small>02 — ACTIVITIES</small>
-
-<h2>
-กิจกรรม
-</h2>
-
-<p>
-รวมภาพกิจกรรมทั้งหมด 6 รูป
-</p>
-
-</div>
+    <h2 class="section-title reveal">
+        Activities
+    </h2>
 
 
-<div class="activity-grid">
+    <div class="grid">
 
 
-<div class="activity reveal">
+        <!-- ACTIVITY 1 -->
 
-<img src="images/activity1.jpg"
-     alt="Activity 1">
+        <div class="card reveal">
 
-<div class="activity-content">
+            <img src="images/activity1.jpg"
+                 alt="Activity 1">
 
-<h3>กิจกรรมที่ 1</h3>
+            <div class="card-content">
 
-<p>
-ใส่รายละเอียดกิจกรรมและบทบาทของผม
-</p>
+                <h3>
+                    กิจกรรมที่ 1
+                </h3>
 
-</div>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดกิจกรรม
+                </p>
 
-</div>
+            </div>
 
-
-<div class="activity reveal">
-
-<img src="images/activity2.jpg"
-     alt="Activity 2">
-
-<div class="activity-content">
-
-<h3>กิจกรรมที่ 2</h3>
-
-<p>
-ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
-</p>
-
-</div>
-
-</div>
+        </div>
 
 
-<div class="activity reveal">
+        <!-- ACTIVITY 2 -->
 
-<img src="images/activity3.jpg"
-     alt="Activity 3">
+        <div class="card reveal">
 
-<div class="activity-content">
+            <img src="images/activity2.jpg"
+                 alt="Activity 2">
 
-<h3>กิจกรรมที่ 3</h3>
+            <div class="card-content">
 
-<p>
-ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
-</p>
+                <h3>
+                    กิจกรรมที่ 2
+                </h3>
 
-</div>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดกิจกรรม
+                </p>
 
-</div>
+            </div>
 
-
-<div class="activity reveal">
-
-<img src="images/activity4.jpg"
-     alt="Activity 4">
-
-<div class="activity-content">
-
-<h3>กิจกรรมที่ 4</h3>
-
-<p>
-ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
-</p>
-
-</div>
-
-</div>
+        </div>
 
 
-<div class="activity reveal">
+        <!-- ACTIVITY 3 -->
 
-<img src="images/activity5.jpg"
-     alt="Activity 5">
+        <div class="card reveal">
 
-<div class="activity-content">
+            <img src="images/activity3.jpg"
+                 alt="Activity 3">
 
-<h3>กิจกรรมที่ 5</h3>
+            <div class="card-content">
 
-<p>
-ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
-</p>
+                <h3>
+                    กิจกรรมที่ 3
+                </h3>
 
-</div>
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดกิจกรรม
+                </p>
 
-</div>
+            </div>
 
-
-<div class="activity reveal">
-
-<img src="images/activity6.jpg"
-     alt="Activity 6">
-
-<div class="activity-content">
-
-<h3>กิจกรรมที่ 6</h3>
-
-<p>
-ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
-</p>
-
-</div>
-
-</div>
+        </div>
 
 
-</div>
+        <!-- ACTIVITY 4 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity4.jpg"
+                 alt="Activity 4">
+
+            <div class="card-content">
+
+                <h3>
+                    กิจกรรมที่ 4
+                </h3>
+
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดกิจกรรม
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 5 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity5.jpg"
+                 alt="Activity 5">
+
+            <div class="card-content">
+
+                <h3>
+                    กิจกรรมที่ 5
+                </h3>
+
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดกิจกรรม
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 6 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity6.jpg"
+                 alt="Activity 6">
+
+            <div class="card-content">
+
+                <h3>
+                    กิจกรรมที่ 6
+                </h3>
+
+                <p>
+                    ✏️ แก้ข้อความตรงนี้เป็นรายละเอียดกิจกรรม
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </section>
 
 
-<!-- =================================================
+<!-- =========================
      VIDEO
-================================================= -->
+========================= -->
 
 <section id="video">
 
-<div class="section-title reveal">
+    <div class="section-number reveal">
+        03 / VIDEO WORK
+    </div>
 
-<small>03 — VIDEO WORKS</small>
-
-<h2>
-ผลงานวิดีโอ
-</h2>
-
-<p>
-ผลงานด้านการถ่ายทำและตัดต่อ
-</p>
-
-</div>
+    <h2 class="section-title reveal">
+        Video
+    </h2>
 
 
-<div class="video-box reveal">
+    <div class="video-box reveal">
+
+        <!-- สำคัญ: วิดีโออยู่ใน images -->
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="images/video1.mp4"
+                type="video/mp4">
+
+            เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+
+        </video>
 
 
-<video
-controls
-playsinline
-preload="metadata">
+        <div class="video-text">
 
-<source
-src="videos/video1.mp4"
-type="video/mp4">
+            <h3>
+                ผลงานวิดีโอ
+            </h3>
 
-เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+            <p>
+                ✏️ แก้ข้อความตรงนี้เป็นชื่อผลงาน รายละเอียด
+                บทบาทที่ทำ และสิ่งที่ได้เรียนรู้จากการทำวิดีโอ
+            </p>
 
-</video>
+        </div>
 
-
-<h3>
-ผลงานวิดีโอชิ้นที่ 1
-</h3>
-
-
-<p>
-ใส่รายละเอียดผลงาน เช่น
-บทบาทในการถ่ายทำ การตัดต่อ
-การเขียนบท หรือสิ่งที่ได้เรียนรู้
-</p>
-
-
-</div>
+    </div>
 
 </section>
 
 
-<!-- =================================================
-     END
-================================================= -->
+<!-- =========================
+     FOOTER
+========================= -->
 
-<section style="text-align:center;padding:140px 20px;">
+<footer class="footer">
 
-<h2 style="font-size:clamp(45px,8vw,90px);">
-THANK YOU
-</h2>
+    <div class="reveal">
 
-<p style="color:#666;">
-Thank you for visiting my portfolio.
-</p>
+        <h2>
+            THANK YOU
+        </h2>
 
+        <a href="index.html" class="back-btn">
+            ← BACK TO HOME
+        </a>
 
-<a href="index.html" class="btn">
-
-← BACK TO HOME
-
-</a>
-
-</section>
-
-
-<footer>
-
-© 2026 Natthaphak Boonyama
+    </div>
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-/* ================= PROGRESS ================= */
+/* Scroll reveal */
 
-window.addEventListener("scroll",function(){
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+reveals.forEach(el => observer.observe(el));
+
+
+/* Scroll progress */
+
+window.addEventListener("scroll", () => {
 
     const scrollTop =
         document.documentElement.scrollTop;
@@ -1416,46 +1108,11 @@ window.addEventListener("scroll",function(){
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
 
-    const percent =
+    const progress =
         (scrollTop / scrollHeight) * 100;
 
-    document.getElementById("progress")
-        .style.width = percent + "%";
-
-});
-
-
-/* ================= REVEAL ================= */
-
-const reveals =
-document.querySelectorAll(".reveal");
-
-
-const observer =
-new IntersectionObserver(
-
-(entries)=>{
-
-    entries.forEach(entry=>{
-
-        if(entry.isIntersecting){
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-},
-{
-    threshold:.12
-}
-);
-
-
-reveals.forEach(el=>{
-
-    observer.observe(el);
+    document.getElementById("progress").style.width =
+        progress + "%";
 
 });
 
@@ -1463,5 +1120,4 @@ reveals.forEach(el=>{
 
 
 </body>
-
 </html>
