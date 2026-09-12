@@ -4,18 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<title>Portfolio | Natthaphak Boonyama</title>
-
+<title>PORTFOLIO | Natthaphak Boonyama</title>
 
 <style>
-
-/* =================================================
-   RESET
-================================================= */
 
 *{
     margin:0;
@@ -28,294 +21,170 @@ html{
 }
 
 body{
-
     font-family:Tahoma,Arial,sans-serif;
-
     background:#050505;
-
     color:#eee;
-
     line-height:1.8;
-
     overflow-x:hidden;
-
 }
 
 
-/* =================================================
-   BACKGROUND
-================================================= */
+/* ================= BACKGROUND ================= */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
     inset:0;
 
     background:
-
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(255,255,255,.07),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 90% 80%,
-            rgba(255,255,255,.05),
-            transparent 30%
-        );
+        radial-gradient(circle at 15% 15%,rgba(255,255,255,.07),transparent 25%),
+        radial-gradient(circle at 85% 75%,rgba(255,255,255,.05),transparent 30%);
 
     pointer-events:none;
-
-    z-index:-5;
-
+    z-index:-10;
 }
 
 
 .glow{
-
     position:fixed;
-
     width:450px;
-
     height:450px;
-
     border-radius:50%;
-
     background:rgba(255,255,255,.025);
-
     filter:blur(100px);
-
     pointer-events:none;
-
-    animation:glowMove 18s infinite alternate ease-in-out;
-
-    z-index:-4;
-
+    z-index:-5;
+    animation:moveGlow 18s infinite alternate ease-in-out;
 }
 
 .glow1{
-
     top:-200px;
-
     left:-150px;
-
 }
 
 .glow2{
-
     bottom:-200px;
-
     right:-150px;
-
     animation-delay:5s;
-
 }
 
+@keyframes moveGlow{
 
-@keyframes glowMove{
-
-    0%{
+    from{
         transform:translate(0,0);
     }
 
-    100%{
+    to{
         transform:translate(180px,120px);
     }
 
 }
 
 
-/* =================================================
-   PARTICLES
-================================================= */
+/* ================= PARTICLES ================= */
 
 .particle{
-
     position:fixed;
-
     width:3px;
-
     height:3px;
-
     border-radius:50%;
-
     background:white;
-
     opacity:.2;
-
     pointer-events:none;
-
-    animation:float 10s infinite ease-in-out;
-
     z-index:-3;
-
+    animation:float 10s infinite ease-in-out;
 }
 
-.p1{
-    top:15%;
-    left:10%;
-}
-
-.p2{
-    top:70%;
-    left:85%;
-    animation-delay:2s;
-}
-
-.p3{
-    top:45%;
-    left:92%;
-    animation-delay:4s;
-}
-
-.p4{
-    top:85%;
-    left:15%;
-    animation-delay:6s;
-}
-
-.p5{
-    top:30%;
-    left:70%;
-    animation-delay:3s;
-}
-
+.p1{top:15%;left:10%;}
+.p2{top:70%;left:85%;animation-delay:2s;}
+.p3{top:45%;left:92%;animation-delay:4s;}
+.p4{top:85%;left:15%;animation-delay:6s;}
+.p5{top:30%;left:70%;animation-delay:3s;}
 
 @keyframes float{
 
     0%,100%{
-
-        transform:
-        translateY(0)
-        scale(1);
-
+        transform:translateY(0) scale(1);
         opacity:.1;
-
     }
 
     50%{
-
-        transform:
-        translateY(-60px)
-        scale(1.5);
-
+        transform:translateY(-60px) scale(1.5);
         opacity:.5;
-
     }
 
 }
 
 
-/* =================================================
-   PROGRESS
-================================================= */
+/* ================= PROGRESS ================= */
 
 .progress{
-
     position:fixed;
-
     top:0;
-
     left:0;
-
     width:0%;
-
     height:3px;
-
     background:#fff;
-
     z-index:9999;
-
 }
 
 
-/* =================================================
-   NAVIGATION
-================================================= */
+/* ================= NAV ================= */
 
 .nav{
-
     position:fixed;
-
     top:20px;
-
     left:50%;
-
     transform:translateX(-50%);
 
     width:92%;
-
-    max-width:1050px;
+    max-width:900px;
 
     padding:13px 20px;
 
     background:rgba(5,5,5,.75);
-
     backdrop-filter:blur(15px);
 
     border:1px solid #222;
-
     border-radius:50px;
 
     text-align:center;
 
-    z-index:999;
-
+    z-index:1000;
 }
-
 
 .nav a{
-
     color:#777;
-
     text-decoration:none;
-
-    margin:0 9px;
-
+    margin:0 10px;
     font-size:12px;
-
     transition:.3s;
-
 }
-
 
 .nav a:hover{
-
-    color:#fff;
-
+    color:white;
 }
 
 
-/* =================================================
-   HERO
-================================================= */
+/* ================= HERO ================= */
 
 .hero{
 
-    min-height:100vh;
+    min-height:80vh;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     text-align:center;
 
-    padding:100px 20px;
-
+    padding:120px 20px 70px;
 }
 
 
 .hero-inner{
 
-    max-width:900px;
-
-    animation:heroIn 1.4s ease;
+    animation:heroIn 1.3s ease;
 
 }
 
@@ -323,19 +192,13 @@ body::before{
 @keyframes heroIn{
 
     from{
-
         opacity:0;
-
         transform:translateY(50px);
-
     }
 
     to{
-
         opacity:1;
-
         transform:translateY(0);
-
     }
 
 }
@@ -345,20 +208,20 @@ body::before{
 
     color:#666;
 
-    letter-spacing:6px;
+    letter-spacing:7px;
 
 }
 
 
 .hero h1{
 
-    font-size:clamp(55px,9vw,100px);
+    font-size:clamp(70px,12vw,150px);
 
-    line-height:1;
+    line-height:.9;
 
-    letter-spacing:5px;
+    letter-spacing:7px;
 
-    margin:25px 0;
+    margin:30px 0;
 
 }
 
@@ -372,42 +235,27 @@ body::before{
 
 .hero-line{
 
-    width:100px;
+    width:120px;
 
     height:1px;
 
-    background:#fff;
+    background:white;
 
-    margin:30px auto;
-
-    animation:line 1.5s ease;
-
-}
-
-
-@keyframes line{
-
-    from{
-        width:0;
-    }
-
-    to{
-        width:100px;
-    }
+    margin:35px auto;
 
 }
 
 
 .hero p{
 
-    color:#888;
+    color:#777;
+
+    letter-spacing:2px;
 
 }
 
 
-/* =================================================
-   SECTION
-================================================= */
+/* ================= SECTION ================= */
 
 section{
 
@@ -417,7 +265,7 @@ section{
 
     margin:auto;
 
-    padding:110px 0;
+    padding:100px 0;
 
 }
 
@@ -458,9 +306,7 @@ section{
 }
 
 
-/* =================================================
-   REVEAL
-================================================= */
+/* ================= REVEAL ================= */
 
 .reveal{
 
@@ -486,66 +332,13 @@ section{
 }
 
 
-/* =================================================
-   ABOUT
-================================================= */
-
-.about{
-
-    display:grid;
-
-    grid-template-columns:300px 1fr;
-
-    gap:60px;
-
-    align-items:center;
-
-}
-
-
-.profile{
-
-    width:100%;
-
-    border-radius:20px;
-
-    border:1px solid #333;
-
-    filter:grayscale(100%);
-
-    transition:.7s;
-
-}
-
-
-.profile:hover{
-
-    filter:grayscale(0%);
-
-    transform:scale(1.03);
-
-}
-
-
-.text p{
-
-    color:#aaa;
-
-    margin-bottom:20px;
-
-}
-
-
-/* =================================================
-   CERTIFICATE
-================================================= */
+/* ================= CERTIFICATES ================= */
 
 .cert-grid{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
 
     gap:30px;
 
@@ -574,8 +367,8 @@ section{
     border-color:#666;
 
     box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.6);
+        0 25px 60px
+        rgba(0,0,0,.65);
 
 }
 
@@ -609,6 +402,23 @@ section{
 }
 
 
+.tag{
+
+    display:inline-block;
+
+    border:1px solid #444;
+
+    border-radius:30px;
+
+    padding:3px 12px;
+
+    color:#777;
+
+    font-size:11px;
+
+}
+
+
 .cert-content h3{
 
     margin:12px 0;
@@ -625,33 +435,13 @@ section{
 }
 
 
-.tag{
-
-    display:inline-block;
-
-    padding:3px 12px;
-
-    border:1px solid #444;
-
-    border-radius:30px;
-
-    font-size:11px;
-
-    color:#777;
-
-}
-
-
-/* =================================================
-   ACTIVITY
-================================================= */
+/* ================= ACTIVITIES ================= */
 
 .activity-grid{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
     gap:20px;
 
@@ -711,6 +501,13 @@ section{
 }
 
 
+.activity-content h3{
+
+    margin-bottom:10px;
+
+}
+
+
 .activity-content p{
 
     color:#888;
@@ -718,9 +515,7 @@ section{
 }
 
 
-/* =================================================
-   VIDEO
-================================================= */
+/* ================= VIDEO ================= */
 
 .video-box{
 
@@ -731,8 +526,6 @@ section{
     border-radius:20px;
 
     padding:25px;
-
-    margin-bottom:30px;
 
     transition:.5s;
 
@@ -773,110 +566,13 @@ section{
 }
 
 
-/* =================================================
-   UNIVERSITY
-================================================= */
-
-.university{
-
-    background:#090909;
-
-    border:1px solid #222;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    margin-bottom:25px;
-
-    transition:.5s;
-
-}
-
-
-.university:hover{
-
-    transform:translateY(-7px);
-
-    border-color:#666;
-
-}
-
-
-.university > h3{
-
-    font-size:25px;
-
-    margin-bottom:10px;
-
-}
-
-
-.university > p{
-
-    color:#777;
-
-}
-
-
-.major{
-
-    border-left:2px solid #444;
-
-    padding-left:20px;
-
-    margin-top:25px;
-
-}
-
-
-.major h4{
-
-    font-size:18px;
-
-}
-
-
-.major p{
-
-    color:#888;
-
-}
-
-
-/* =================================================
-   FUTURE
-================================================= */
-
-.future{
-
-    max-width:850px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-
-.future p{
-
-    color:#999;
-
-    margin-bottom:20px;
-
-}
-
-
-/* =================================================
-   BUTTON
-================================================= */
+/* ================= BUTTON ================= */
 
 .btn{
 
     display:inline-block;
 
-    margin-top:30px;
+    margin-top:35px;
 
     padding:14px 32px;
 
@@ -884,7 +580,7 @@ section{
 
     border-radius:50px;
 
-    color:#fff;
+    color:white;
 
     text-decoration:none;
 
@@ -895,79 +591,16 @@ section{
 
 .btn:hover{
 
-    background:#fff;
+    background:white;
 
-    color:#000;
+    color:black;
 
     transform:translateY(-5px);
 
 }
 
 
-/* =================================================
-   TOP BUTTON
-================================================= */
-
-.top{
-
-    position:fixed;
-
-    bottom:25px;
-
-    right:25px;
-
-    width:45px;
-
-    height:45px;
-
-    border-radius:50%;
-
-    border:1px solid #444;
-
-    background:#080808;
-
-    color:#fff;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-decoration:none;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.4s;
-
-    z-index:1000;
-
-}
-
-
-.top.show{
-
-    opacity:1;
-
-    pointer-events:auto;
-
-}
-
-
-.top:hover{
-
-    background:#fff;
-
-    color:#000;
-
-}
-
-
-/* =================================================
-   FOOTER
-================================================= */
+/* ================= FOOTER ================= */
 
 footer{
 
@@ -975,74 +608,39 @@ footer{
 
     text-align:center;
 
-    padding:70px 20px;
+    padding:80px 20px;
 
     color:#555;
 
 }
 
 
-/* =================================================
-   MOBILE
-================================================= */
+/* ================= MOBILE ================= */
 
 @media(max-width:800px){
 
     .nav{
-
         display:none;
-
     }
-
-
-    .about{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .profile{
-
-        max-width:280px;
-
-        margin:auto;
-
-    }
-
-
-    .cert-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    .activity-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-
-    section{
-
-        padding:80px 0;
-
-    }
-
 
     .hero h1{
-
-        font-size:52px;
-
+        font-size:60px;
     }
 
+    .cert-grid{
+        grid-template-columns:1fr;
+    }
+
+    .activity-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:80px 0;
+    }
 
     .section-title h2{
-
         font-size:34px;
-
     }
 
 }
@@ -1058,48 +656,43 @@ footer{
 <!-- BACKGROUND -->
 
 <div class="glow glow1"></div>
-
 <div class="glow glow2"></div>
 
 <div class="particle p1"></div>
-
 <div class="particle p2"></div>
-
 <div class="particle p3"></div>
-
 <div class="particle p4"></div>
-
 <div class="particle p5"></div>
 
-
-<!-- PROGRESS -->
 
 <div class="progress" id="progress"></div>
 
 
-<!-- NAV -->
+<!-- ================= NAV ================= -->
 
 <nav class="nav">
 
-<a href="#about">ABOUT</a>
+<a href="#certificates">
+CERTIFICATES
+</a>
 
-<a href="#interest">INTEREST</a>
+<a href="#activities">
+ACTIVITIES
+</a>
 
-<a href="#certificates">CERTIFICATES</a>
+<a href="#video">
+VIDEO
+</a>
 
-<a href="#activities">ACTIVITIES</a>
-
-<a href="#video">VIDEO</a>
-
-<a href="#university">UNIVERSITY</a>
-
-<a href="#future">FUTURE</a>
+<a href="index.html">
+HOME
+</a>
 
 </nav>
 
 
 <!-- =================================================
-     HERO
+     PORTFOLIO HERO
 ================================================= -->
 
 <header class="hero">
@@ -1107,17 +700,13 @@ footer{
 <div class="hero-inner">
 
 <small>
-PORTFOLIO COLLECTION
+MY COLLECTION
 </small>
 
 
 <h1>
 
-NATTHAPHAK
-
-<br>
-
-<span>BOONYAMA</span>
+PORTFOLIO
 
 </h1>
 
@@ -1127,158 +716,13 @@ NATTHAPHAK
 
 <p>
 
-แฟ้มสะสมงานที่รวบรวมประสบการณ์
-กิจกรรม และผลงานของผม
+16 CERTIFICATES • 6 ACTIVITIES • VIDEO WORKS
 
 </p>
 
 </div>
 
 </header>
-
-
-<!-- =================================================
-     ABOUT
-================================================= -->
-
-<section id="about">
-
-<div class="section-title reveal">
-
-<small>01 — ABOUT ME</small>
-
-<h2>แนะนำตัว</h2>
-
-</div>
-
-
-<div class="about reveal">
-
-
-<img
-src="images/profile.jpg"
-class="profile"
-alt="Profile">
-
-
-<div class="text">
-
-<p>
-สวัสดีครับ ผมชื่อ
-<strong>นายณัทธ์ฐภัค บุญยามา</strong>
-อายุ 18 ปี ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
-</p>
-
-
-<p>
-ผมเป็นคนที่มีความสนใจด้านเทคโนโลยีและคอมพิวเตอร์
-โดยเฉพาะการเขียนโปรแกรม การสร้างเว็บไซต์
-และการแก้ปัญหาด้วยเทคโนโลยี
-</p>
-
-
-<p>
-ผมชอบการได้ทดลองสร้างสิ่งต่าง ๆ ด้วยตัวเอง
-เพราะในระหว่างการทำงานจะได้ฝึกทั้งการวางแผน
-การคิดวิเคราะห์ และการแก้ไขปัญหา
-</p>
-
-
-<p>
-นอกจากด้านคอมพิวเตอร์แล้ว
-ผมยังสนใจด้านการถ่ายภาพ
-การตัดต่อภาพและวิดีโอ
-รวมถึงการทำภาพยนตร์และสื่อดิจิทัล
-</p>
-
-
-<p>
-ความสนใจทั้งด้านเทคโนโลยีและงานสร้างสรรค์
-ทำให้ผมต้องการพัฒนาตัวเองให้มีทั้ง
-ทักษะด้านการคิด วิเคราะห์ การแก้ปัญหา
-และความคิดสร้างสรรค์
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =================================================
-     INTEREST
-================================================= -->
-
-<section id="interest">
-
-<div class="section-title reveal">
-
-<small>02 — MY INTEREST</small>
-
-<h2>สิ่งที่ผมสนใจ</h2>
-
-</div>
-
-
-<div class="activity-grid">
-
-
-<div class="activity reveal">
-
-<div class="activity-content">
-
-<h3>💻 Computer & Programming</h3>
-
-<p>
-ผมสนใจการเขียนโปรแกรม การสร้างเว็บไซต์
-และการใช้เทคโนโลยีในการแก้ปัญหา
-เพราะชอบกระบวนการคิดอย่างเป็นระบบ
-และการสร้างสิ่งที่สามารถใช้งานได้จริง
-</p>
-
-</div>
-
-</div>
-
-
-<div class="activity reveal">
-
-<div class="activity-content">
-
-<h3>📷 Photography</h3>
-
-<p>
-การถ่ายภาพทำให้ผมได้ฝึกเรื่ององค์ประกอบ
-มุมมอง แสง และการสื่อสารความรู้สึก
-ผ่านภาพ
-</p>
-
-</div>
-
-</div>
-
-
-<div class="activity reveal">
-
-<div class="activity-content">
-
-<h3>🎬 Film & Digital Media</h3>
-
-<p>
-ผมสนใจการเล่าเรื่องผ่านภาพและวิดีโอ
-ตั้งแต่การคิดแนวคิด การถ่ายทำ
-ไปจนถึงการตัดต่อ
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</section>
 
 
 <!-- =================================================
@@ -1289,9 +733,11 @@ alt="Profile">
 
 <div class="section-title reveal">
 
-<small>03 — CERTIFICATES</small>
+<small>01 — CERTIFICATES</small>
 
-<h2>เกียรติบัตร</h2>
+<h2>
+เกียรติบัตร
+</h2>
 
 <p>
 รวมเกียรติบัตรทั้งหมด 16 ใบ
@@ -1303,7 +749,7 @@ alt="Profile">
 <div class="cert-grid">
 
 
-<!-- CERTIFICATE 01 -->
+<!-- ================= 01 ================= -->
 
 <div class="cert reveal">
 
@@ -1335,7 +781,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 02 -->
+<!-- ================= 02 ================= -->
 
 <div class="cert reveal">
 
@@ -1344,9 +790,13 @@ CERTIFICATE 01
 
 <div class="cert-content">
 
-<span class="tag">CERTIFICATE 02</span>
+<span class="tag">
+CERTIFICATE 02
+</span>
 
-<h3>เกียรติบัตรใบที่ 2</h3>
+<h3>
+เกียรติบัตรใบที่ 2
+</h3>
 
 <p>
 ใส่ชื่อกิจกรรม / ชื่อรางวัล / รายละเอียดของเกียรติบัตร
@@ -1361,7 +811,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 03 -->
+<!-- ================= 03 ================= -->
 
 <div class="cert reveal">
 
@@ -1387,7 +837,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 04 -->
+<!-- ================= 04 ================= -->
 
 <div class="cert reveal">
 
@@ -1413,7 +863,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 05 -->
+<!-- ================= 05 ================= -->
 
 <div class="cert reveal">
 
@@ -1439,7 +889,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 06 -->
+<!-- ================= 06 ================= -->
 
 <div class="cert reveal">
 
@@ -1465,7 +915,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 07 -->
+<!-- ================= 07 ================= -->
 
 <div class="cert reveal">
 
@@ -1491,7 +941,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 08 -->
+<!-- ================= 08 ================= -->
 
 <div class="cert reveal">
 
@@ -1517,7 +967,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 09 -->
+<!-- ================= 09 ================= -->
 
 <div class="cert reveal">
 
@@ -1543,7 +993,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 10 -->
+<!-- ================= 10 ================= -->
 
 <div class="cert reveal">
 
@@ -1569,7 +1019,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 11 -->
+<!-- ================= 11 ================= -->
 
 <div class="cert reveal">
 
@@ -1595,7 +1045,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 12 -->
+<!-- ================= 12 ================= -->
 
 <div class="cert reveal">
 
@@ -1621,7 +1071,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 13 -->
+<!-- ================= 13 ================= -->
 
 <div class="cert reveal">
 
@@ -1647,7 +1097,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 14 -->
+<!-- ================= 14 ================= -->
 
 <div class="cert reveal">
 
@@ -1673,7 +1123,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 15 -->
+<!-- ================= 15 ================= -->
 
 <div class="cert reveal">
 
@@ -1699,7 +1149,7 @@ CERTIFICATE 01
 </div>
 
 
-<!-- CERTIFICATE 16 -->
+<!-- ================= 16 ================= -->
 
 <div class="cert reveal">
 
@@ -1738,12 +1188,14 @@ CERTIFICATE 01
 
 <div class="section-title reveal">
 
-<small>04 — ACTIVITIES</small>
+<small>02 — ACTIVITIES</small>
 
-<h2>กิจกรรม</h2>
+<h2>
+กิจกรรม
+</h2>
 
 <p>
-รวมภาพกิจกรรม 6 ภาพ
+รวมภาพกิจกรรมทั้งหมด 6 รูป
 </p>
 
 </div>
@@ -1873,9 +1325,11 @@ CERTIFICATE 01
 
 <div class="section-title reveal">
 
-<small>05 — VIDEO</small>
+<small>03 — VIDEO WORKS</small>
 
-<h2>ผลงานวิดีโอ</h2>
+<h2>
+ผลงานวิดีโอ
+</h2>
 
 <p>
 ผลงานด้านการถ่ายทำและตัดต่อ
@@ -1887,13 +1341,16 @@ CERTIFICATE 01
 <div class="video-box reveal">
 
 
-<video controls playsinline preload="metadata">
+<video
+controls
+playsinline
+preload="metadata">
 
 <source
 src="videos/video1.mp4"
 type="video/mp4">
 
-เบราว์เซอร์ของคุณไม่รองรับวิดีโอ
+เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
 
 </video>
 
@@ -1904,9 +1361,9 @@ type="video/mp4">
 
 
 <p>
-ใส่ชื่อผลงาน บทบาทของผม
-เช่น ถ่ายทำ ตัดต่อ เขียนบท
-หรือดูแลส่วนใดของผลงาน
+ใส่รายละเอียดผลงาน เช่น
+บทบาทในการถ่ายทำ การตัดต่อ
+การเขียนบท หรือสิ่งที่ได้เรียนรู้
 </p>
 
 
@@ -1916,204 +1373,39 @@ type="video/mp4">
 
 
 <!-- =================================================
-     UNIVERSITY
+     END
 ================================================= -->
 
-<section id="university">
+<section style="text-align:center;padding:140px 20px;">
 
-<div class="section-title reveal">
+<h2 style="font-size:clamp(45px,8vw,90px);">
+THANK YOU
+</h2>
 
-<small>06 — UNIVERSITY</small>
-
-<h2>มหาวิทยาลัยและสาขาที่สนใจ</h2>
-
-</div>
-
-
-<!-- KMITL -->
-
-<div class="university reveal">
-
-<h3>
-🎓 สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
-</h3>
-
-<p>
-คณะวิศวกรรมศาสตร์
-</p>
-
-
-<div class="major">
-
-<h4>
-Computer Engineering
-</h4>
-
-<p>
-ผมสนใจสาขานี้เพราะต้องการพัฒนาความรู้ด้านคอมพิวเตอร์
-การเขียนโปรแกรม ระบบคอมพิวเตอร์
-และการสร้างซอฟต์แวร์ที่สามารถนำไปใช้งานจริง
-</p>
-
-</div>
-
-
-<div class="major">
-
-<h4>
-Information Engineering
-</h4>
-
-<p>
-ผมสนใจการจัดการข้อมูล ระบบสารสนเทศ
-และการนำเทคโนโลยีมาใช้แก้ปัญหา
-ซึ่งสอดคล้องกับความสนใจด้านคอมพิวเตอร์ของผม
-</p>
-
-</div>
-
-
-<div class="major">
-
-<h4>
-Robotics and Automation Engineering
-</h4>
-
-<p>
-ผมสนใจการผสมผสานระหว่างคอมพิวเตอร์
-ระบบควบคุม และเทคโนโลยีอัตโนมัติ
-ซึ่งเป็นอีกด้านที่ผมต้องการเรียนรู้เพิ่มเติม
-</p>
-
-</div>
-
-</div>
-
-
-<!-- BUU -->
-
-<div class="university reveal">
-
-<h3>
-🎓 มหาวิทยาลัยบูรพา
-</h3>
-
-
-<div class="major">
-
-<h4>
-วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ
-</h4>
-
-<p>
-ผมสนใจเพราะเป็นสาขาที่เกี่ยวข้องกับเทคโนโลยี
-ระบบอัตโนมัติ หุ่นยนต์ และการแก้ปัญหา
-โดยสามารถนำความรู้ด้านคอมพิวเตอร์มาต่อยอดได้
-</p>
-
-</div>
-
-
-<div class="major">
-
-<h4>
-ภาพยนตร์และดิจิทัลมีเดีย
-</h4>
-
-<p>
-ผมสนใจสาขานี้จากความชอบด้านการถ่ายภาพ
-การทำวิดีโอ การตัดต่อ และการเล่าเรื่อง
-และต้องการพัฒนาความสามารถด้านสื่อ
-ให้เป็นทักษะที่จริงจังมากขึ้น
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =================================================
-     FUTURE
-================================================= -->
-
-<section id="future">
-
-<div class="section-title reveal">
-
-<small>07 — MY FUTURE</small>
-
-<h2>เป้าหมายในอนาคต</h2>
-
-</div>
-
-
-<div class="future reveal">
-
-<p>
-ในอนาคตผมต้องการศึกษาต่อในสาขาที่สามารถนำความสนใจ
-ด้านเทคโนโลยี คอมพิวเตอร์ และงานสร้างสรรค์
-มาต่อยอดให้เกิดเป็นความสามารถที่ใช้ได้จริง
-</p>
-
-
-<p>
-ผมต้องการพัฒนาตัวเองให้สามารถสร้างผลงานได้ตั้งแต่
-การคิดแนวทาง การออกแบบ การเขียนโปรแกรม
-การสร้างระบบ ไปจนถึงการนำเสนอผลงานผ่านภาพและวิดีโอ
-</p>
-
-
-<p>
-ประสบการณ์จากกิจกรรม เกียรติบัตร และผลงานต่าง ๆ
-เป็นจุดเริ่มต้นที่ทำให้ผมได้เรียนรู้ว่า
-ตัวเองสนใจอะไร และต้องพัฒนาตัวเองด้านใดต่อไป
-</p>
-
-
-<p>
-ผมเชื่อว่าการเรียนรู้ไม่ได้เกิดขึ้นเพียงในห้องเรียน
-แต่เกิดจากการลงมือทำ ทดลอง และเรียนรู้จากข้อผิดพลาด
+<p style="color:#666;">
+Thank you for visiting my portfolio.
 </p>
 
 
 <a href="index.html" class="btn">
 
-← กลับหน้าแรก
+← BACK TO HOME
 
 </a>
-
-</div>
 
 </section>
 
 
-<!-- TOP -->
-
-<a href="#" class="top" id="top">
-↑
-</a>
-
-
 <footer>
 
-<p>
 © 2026 Natthaphak Boonyama
-</p>
-
-<p>
-Personal Portfolio
-</p>
 
 </footer>
 
 
 <script>
 
-/* =================================================
-   SCROLL PROGRESS
-================================================= */
+/* ================= PROGRESS ================= */
 
 window.addEventListener("scroll",function(){
 
@@ -2133,9 +1425,7 @@ window.addEventListener("scroll",function(){
 });
 
 
-/* =================================================
-   REVEAL ANIMATION
-================================================= */
+/* ================= REVEAL ================= */
 
 const reveals =
 document.querySelectorAll(".reveal");
@@ -2157,40 +1447,15 @@ new IntersectionObserver(
     });
 
 },
-
 {
     threshold:.12
 }
-
 );
 
 
 reveals.forEach(el=>{
 
     observer.observe(el);
-
-});
-
-
-/* =================================================
-   BACK TO TOP
-================================================= */
-
-const topButton =
-document.getElementById("top");
-
-
-window.addEventListener("scroll",function(){
-
-    if(window.scrollY > 600){
-
-        topButton.classList.add("show");
-
-    }else{
-
-        topButton.classList.remove("show");
-
-    }
 
 });
 
