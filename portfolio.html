@@ -2,451 +2,1388 @@
 <html lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Portfolio - Natthaphak</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
+<title>Portfolio | Natthaphak</title>
 
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            margin: 0;
-            padding: 30px 15px;
-            font-family: Tahoma, sans-serif;
-            background: #000;
-            color: #fff;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: auto;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        /* หัวข้อ */
+body{
+    background:#050505;
+    color:#eee;
+    font-family:Tahoma,Arial,sans-serif;
+    line-height:1.8;
+    overflow-x:hidden;
+}
 
-        .section-title {
-            text-align: center;
-            font-size: 30px;
-            margin: 50px 0 30px;
-            color: #fff;
-        }
+/* ================= BACKGROUND ================= */
 
-        /* เส้นคั่น */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 10% 10%,rgba(255,255,255,.06),transparent 25%),
+        radial-gradient(circle at 90% 80%,rgba(255,255,255,.05),transparent 25%);
+    pointer-events:none;
+    z-index:-2;
+}
 
-        .line {
-            width: 80%;
-            height: 1px;
-            background: #444;
-            margin: 60px auto;
-        }
+/* ================= NAV ================= */
 
-        /* กล่องข้อความ */
+.nav{
+    position:fixed;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:1000px;
+    padding:14px 22px;
+    border:1px solid #222;
+    background:rgba(5,5,5,.8);
+    backdrop-filter:blur(15px);
+    border-radius:50px;
+    z-index:1000;
+    text-align:center;
+}
 
-        .about-box {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 15px;
-            padding: 30px;
-            margin: 20px 0;
-            line-height: 1.9;
-        }
+.nav a{
+    color:#aaa;
+    text-decoration:none;
+    margin:0 10px;
+    font-size:13px;
+    transition:.3s;
+}
 
-        .about-box p {
-            font-size: 18px;
-            margin: 15px 0;
-        }
+.nav a:hover{
+    color:white;
+}
 
-        /* รูปภาพใบประกาศ */
+/* ================= HERO ================= */
 
-        .certificate-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:100px 20px;
+}
 
-        .certificate {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 10px;
-            transition: 0.3s;
-        }
+.hero-inner{
+    max-width:900px;
+    animation:appear 1.4s ease;
+}
 
-        .certificate:hover {
-            transform: translateY(-5px);
-            border-color: #fff;
-        }
+@keyframes appear{
 
-        .certificate img {
-            width: 100%;
-            height: 300px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: #fff;
-        }
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
 
-        /* รูปรับรางวัล */
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 
-        .award-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
+}
 
-        .award {
-            background: #111;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 10px;
-            transition: 0.3s;
-        }
+.hero small{
+    letter-spacing:5px;
+    color:#777;
+}
 
-        .award:hover {
-            transform: translateY(-5px);
-            border-color: #fff;
-        }
+.hero h1{
+    font-size:clamp(50px,9vw,100px);
+    line-height:1.05;
+    margin:25px 0;
+    letter-spacing:4px;
+}
 
-        .award img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
+.hero h1 span{
+    color:#666;
+}
 
-        /* มหาวิทยาลัย */
+.hero p{
+    color:#999;
+    font-size:18px;
+}
 
-        .university {
-            background: #1a1a1a;
-            border: 1px solid #444;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            font-size: 20px;
-        }
+.line{
+    width:100px;
+    height:1px;
+    background:#777;
+    margin:30px auto;
+}
 
-        /* ปุ่ม */
+/* ================= SECTION ================= */
 
-        .back {
-            text-align: center;
-            margin: 60px 0 30px;
-        }
+section{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:110px 0;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            background: #fff;
-            color: #000;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.3s;
-        }
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
 
-        .btn:hover {
-            background: #ccc;
-            transform: scale(1.05);
-        }
+.section-title small{
+    color:#666;
+    letter-spacing:4px;
+}
 
-        /* ชื่อ */
+.section-title h2{
+    font-size:42px;
+    margin-top:10px;
+}
 
-        .name {
-            text-align: center;
-            font-size: 18px;
-            color: #aaa;
-        }
+.section-title p{
+    color:#888;
+    max-width:700px;
+    margin:20px auto 0;
+}
 
+/* ================= ABOUT ================= */
 
-        /* สำหรับมือถือ */
+.about{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    gap:60px;
+    align-items:center;
+}
 
-        @media (max-width: 800px) {
+.profile{
+    width:100%;
+    border-radius:20px;
+    border:1px solid #333;
+    filter:grayscale(100%);
+    transition:.5s;
+}
 
-            .certificate-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.profile:hover{
+    filter:grayscale(0%);
+    transform:scale(1.03);
+}
 
-            .award-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+.text p{
+    color:#aaa;
+    margin-bottom:20px;
+}
 
-        }
+/* ================= INFO CARDS ================= */
 
-        @media (max-width: 550px) {
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
 
-            body {
-                padding: 20px 10px;
-            }
+.card{
+    background:#0a0a0a;
+    border:1px solid #222;
+    border-radius:20px;
+    padding:30px;
+    transition:.4s;
+}
 
-            .section-title {
-                font-size: 24px;
-                margin-top: 40px;
-            }
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#666;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
 
-            .certificate-grid {
-                grid-template-columns: 1fr;
-            }
+.card h3{
+    margin-bottom:15px;
+}
 
-            .award-grid {
-                grid-template-columns: 1fr;
-            }
+.card p{
+    color:#999;
+}
 
-            .certificate img,
-            .award img {
-                height: auto;
-            }
+/* ================= CERTIFICATES ================= */
 
-            .about-box {
-                padding: 20px;
-            }
+.cert-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:30px;
+}
 
-            .about-box p {
-                font-size: 16px;
-            }
+.cert{
+    background:#0a0a0a;
+    border:1px solid #222;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.5s;
+}
 
-            .university {
-                font-size: 17px;
-            }
+.cert:hover{
+    transform:translateY(-8px);
+    border-color:#777;
+}
 
-        }
+.cert img{
+    width:100%;
+    display:block;
+    aspect-ratio:1.414/1;
+    object-fit:cover;
+    background:#111;
+    transition:.5s;
+}
 
-    </style>
+.cert:hover img{
+    transform:scale(1.02);
+}
+
+.cert-content{
+    padding:25px;
+}
+
+.cert-content h3{
+    margin-bottom:12px;
+}
+
+.cert-content p{
+    color:#999;
+    margin-bottom:12px;
+}
+
+.tag{
+    display:inline-block;
+    border:1px solid #444;
+    border-radius:30px;
+    padding:4px 12px;
+    font-size:12px;
+    color:#aaa;
+}
+
+/* ================= ACTIVITIES ================= */
+
+.activity-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.activity{
+    border:1px solid #222;
+    border-radius:18px;
+    overflow:hidden;
+    background:#0a0a0a;
+    transition:.5s;
+}
+
+.activity:hover{
+    transform:translateY(-8px);
+}
+
+.activity img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+    display:block;
+    transition:.5s;
+}
+
+.activity:hover img{
+    transform:scale(1.04);
+}
+
+.activity-content{
+    padding:20px;
+}
+
+.activity-content h3{
+    margin-bottom:10px;
+}
+
+.activity-content p{
+    color:#999;
+}
+
+/* ================= VIDEO ================= */
+
+.video-box{
+    background:#0a0a0a;
+    border:1px solid #222;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:30px;
+}
+
+.video-box video{
+    width:100%;
+    max-height:600px;
+    border-radius:12px;
+    background:#000;
+}
+
+.video-box h3{
+    margin-top:20px;
+}
+
+.video-box p{
+    color:#999;
+}
+
+/* ================= UNIVERSITY ================= */
+
+.university{
+    border:1px solid #222;
+    background:#0a0a0a;
+    padding:35px;
+    border-radius:20px;
+    margin-bottom:25px;
+    transition:.4s;
+}
+
+.university:hover{
+    border-color:#666;
+    transform:translateY(-5px);
+}
+
+.university h3{
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.major{
+    border-left:2px solid #555;
+    padding-left:20px;
+    margin:20px 0;
+}
+
+.major h4{
+    font-size:18px;
+}
+
+.major p{
+    color:#999;
+}
+
+/* ================= FUTURE ================= */
+
+.future{
+    text-align:center;
+    max-width:850px;
+    margin:auto;
+}
+
+.future p{
+    color:#999;
+    margin-bottom:20px;
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:13px 30px;
+    border:1px solid #fff;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    transition:.4s;
+}
+
+.btn:hover{
+    background:white;
+    color:black;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    border-top:1px solid #222;
+    text-align:center;
+    padding:70px 20px;
+    color:#555;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .nav{
+        display:none;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .profile{
+        max-width:300px;
+        margin:auto;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .cert-grid{
+        grid-template-columns:1fr;
+    }
+
+    .activity-grid{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .section-title h2{
+        font-size:34px;
+    }
+
+}
+
+</style>
 
 </head>
 
 
 <body>
 
-<div class="container">
 
+<!-- ================= NAVIGATION ================= -->
 
-    <!-- ชื่อ -->
+<nav class="nav">
 
-    <h1 style="text-align:center;">
-        📁 แฟ้มสะสมงาน (Portfolio)
-    </h1>
+<a href="#about">ABOUT</a>
+<a href="#interest">INTEREST</a>
+<a href="#certificates">CERTIFICATES</a>
+<a href="#activities">ACTIVITIES</a>
+<a href="#video">VIDEO</a>
+<a href="#university">UNIVERSITY</a>
+<a href="#future">FUTURE</a>
 
-    <p class="name">
-        นายณัทธ์ฐภัค บุญยามา
-    </p>
+</nav>
 
 
-    <!-- ================================= -->
-    <!-- ผลงานและเกียรติบัตร -->
-    <!-- ================================= -->
+<!-- ================= HERO ================= -->
 
-    <section>
+<header class="hero">
 
-        <h2 class="section-title">
-            🏆 ผลงานเข้าร่วมและรับรางวัล
-        </h2>
+<div class="hero-inner">
 
-        <div class="certificate-grid">
+<small>PORTFOLIO COLLECTION</small>
 
+<h1>
+NATTHAPHAK<br>
+<span>BOONYAMA</span>
+</h1>
 
-            <div class="certificate">
-                <img src="images/certificate1.jpg"
-                     alt="เกียรติบัตร 1">
-            </div>
+<div class="line"></div>
 
-            <div class="certificate">
-                <img src="images/certificate2.jpg"
-                     alt="เกียรติบัตร 2">
-            </div>
+<p>
+Computer • Technology • Photography • Film • Digital Media
+</p>
 
-            <div class="certificate">
-                <img src="images/certificate3.jpg"
-                     alt="เกียรติบัตร 3">
-            </div>
+</div>
 
-            <div class="certificate">
-                <img src="images/certificate4.jpg"
-                     alt="เกียรติบัตร 4">
-            </div>
+</header>
 
-            <div class="certificate">
-                <img src="images/certificate5.jpg"
-                     alt="เกียรติบัตร 5">
-            </div>
 
-            <div class="certificate">
-                <img src="images/certificate6.jpg"
-                     alt="เกียรติบัตร 6">
-            </div>
+<!-- ================= ABOUT ================= -->
 
-            <div class="certificate">
-                <img src="images/certificate7.jpg"
-                     alt="เกียรติบัตร 7">
-            </div>
+<section id="about">
 
-            <div class="certificate">
-                <img src="images/certificate8.jpg"
-                     alt="เกียรติบัตร 8">
-            </div>
+<div class="section-title">
 
-            <div class="certificate">
-                <img src="images/certificate9.jpg"
-                     alt="เกียรติบัตร 9">
-            </div>
+<small>01 — ABOUT ME</small>
 
-            <div class="certificate">
-                <img src="images/certificate10.jpg"
-                     alt="เกียรติบัตร 10">
-            </div>
+<h2>แนะนำตัว</h2>
 
-            <div class="certificate">
-                <img src="images/certificate11.jpg"
-                     alt="เกียรติบัตร 11">
-            </div>
+</div>
 
-            <div class="certificate">
-                <img src="images/certificate12.jpg"
-                     alt="เกียรติบัตร 12">
-            </div>
 
+<div class="about">
 
-        </div>
+<img src="images/profile.jpg"
+     class="profile"
+     alt="Natthaphak">
 
-    </section>
 
+<div class="text">
 
-    <!-- ================================= -->
-    <!-- รูปภาพรับรางวัล -->
-    <!-- ================================= -->
+<p>
+สวัสดีครับ ผมชื่อ <strong>นายณัทธ์ฐภัค บุญยามา</strong>
+อายุ 18 ปี ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
+</p>
 
-    <div class="line"></div>
+<p>
+ผมเป็นคนที่มีความสนใจด้านเทคโนโลยีและคอมพิวเตอร์
+โดยเฉพาะการเขียนโปรแกรม การสร้างเว็บไซต์
+และการแก้ปัญหาด้วยเทคโนโลยี
+</p>
 
-    <section>
+<p>
+ผมชอบการได้ทดลองสร้างสิ่งต่าง ๆ ด้วยตัวเอง
+เพราะในระหว่างการทำงานจะได้ฝึกทั้งการวางแผน
+การคิดวิเคราะห์ และการแก้ไขปัญหาที่เกิดขึ้น
+</p>
 
-        <h2 class="section-title">
-            📸 รูปภาพการรับรางวัล
-        </h2>
+<p>
+นอกจากด้านคอมพิวเตอร์แล้ว ผมยังสนใจด้านการถ่ายภาพ
+การตัดต่อภาพและวิดีโอ รวมถึงการทำภาพยนตร์และสื่อดิจิทัล
+</p>
 
-        <div class="award-grid">
+<p>
+ผมมองว่าความสนใจทั้งสองด้านสามารถนำมาผสมผสานกันได้
+และสามารถต่อยอดไปสู่การสร้างผลงานที่มีทั้งเทคโนโลยี
+และความคิดสร้างสรรค์
+</p>
 
+</div>
 
-            <div class="award">
-                <img src="images/award1.jpg"
-                     alt="รูปภาพรับรางวัล 1">
-            </div>
+</div>
 
-            <div class="award">
-                <img src="images/award2.jpg"
-                     alt="รูปภาพรับรางวัล 2">
-            </div>
+</section>
 
-            <div class="award">
-                <img src="images/award3.jpg"
-                     alt="รูปภาพรับรางวัล 3">
-            </div>
 
+<!-- ================= INTEREST ================= -->
 
-        </div>
+<section id="interest">
 
-    </section>
+<div class="section-title">
 
+<small>02 — MY INTEREST</small>
 
-    <!-- ================================= -->
-    <!-- ความชอบและความสนใจ -->
-    <!-- ================================= -->
+<h2>สิ่งที่ผมสนใจ</h2>
 
-    <div class="line"></div>
+<p>
+ความสนใจที่ผมต้องการพัฒนาต่อในระดับมหาวิทยาลัย
+</p>
 
-    <section>
+</div>
 
-        <h2 class="section-title">
-            💻 ความชอบและความสนใจ
-        </h2>
 
-        <div class="about-box">
+<div class="cards">
 
-            <p>
-                ผมชอบคอมพิวเตอร์และมีความสนใจในด้านนี้
-                เพราะผมรู้สึกว่าคอมพิวเตอร์เป็นสิ่งที่อยู่ใกล้ตัว
-                และสามารถนำไปทำอะไรได้หลายอย่าง
-            </p>
+<div class="card">
 
-            <p>
-                ผมชอบการได้ลองทำสิ่งใหม่ ๆ
-                โดยเฉพาะการเขียนโปรแกรมและการสร้างเว็บไซต์
-                ถึงบางครั้งจะมีปัญหาหรือทำไม่ได้
-                แต่ผมก็รู้สึกสนุกกับการหาวิธีแก้ไข
-                และลองทำใหม่จนสำเร็จ
-            </p>
+<h3>💻 Computer & Programming</h3>
 
-            <p>
-                ผมจึงอยากเรียนต่อในด้านคอมพิวเตอร์
-                เพื่อพัฒนาความรู้และทักษะของตัวเองให้มากขึ้น
-                และในอนาคตอยากนำความรู้ที่เรียนมา
-                ใช้สร้างผลงานที่ตัวเองสนใจ
-            </p>
+<p>
+ผมสนใจการเขียนโปรแกรม การสร้างเว็บไซต์
+และการใช้เทคโนโลยีในการแก้ปัญหา
+เพราะชอบกระบวนการคิดอย่างเป็นระบบ
+และการสร้างสิ่งที่สามารถใช้งานได้จริง
+</p>
 
-        </div>
+</div>
 
-    </section>
 
+<div class="card">
 
-    <!-- ================================= -->
-    <!-- มหาวิทยาลัยที่สนใจ -->
-    <!-- ================================= -->
+<h3>📷 Photography</h3>
 
-    <div class="line"></div>
+<p>
+การถ่ายภาพทำให้ผมได้ฝึกเรื่ององค์ประกอบ
+มุมมอง แสง และการสื่อสารความรู้สึก
+ผ่านภาพเพียงภาพเดียว
+</p>
 
-    <section>
+</div>
 
-        <h2 class="section-title">
-            🎓 มหาวิทยาลัยที่สนใจ
-        </h2>
 
-        <div class="about-box">
+<div class="card">
 
-            <p>
-                มหาวิทยาลัยที่ผมสนใจและอยากเข้าศึกษาต่อ ได้แก่
-            </p>
+<h3>🎬 Film & Digital Media</h3>
 
+<p>
+ผมสนใจการเล่าเรื่องผ่านภาพและวิดีโอ
+ตั้งแต่การคิดแนวคิด การถ่ายทำ
+ไปจนถึงการตัดต่อและนำเสนอผลงาน
+</p>
 
-            <div class="university">
-                🏫 <strong>มหาวิทยาลัยบูรพา</strong>
-            </div>
+</div>
 
+</div>
 
-            <div class="university">
-                🏫 <strong>
-                    สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
-                </strong>
-            </div>
+</section>
 
 
-            <p>
-                ผมหวังว่าจะได้มีโอกาสศึกษาต่อในสายคอมพิวเตอร์
-                และพัฒนาตัวเองให้มีความรู้และความสามารถมากขึ้น
-                เพื่อนำไปต่อยอดในการเรียนและการทำงานในอนาคต
-            </p>
+<!-- ================= WHY ================= -->
 
-        </div>
+<section>
 
-    </section>
+<div class="section-title">
 
+<small>03 — MY DIRECTION</small>
 
-    <!-- ================================= -->
-    <!-- กลับหน้าแรก -->
-    <!-- ================================= -->
+<h2>ทำไมผมถึงสนใจด้านเหล่านี้?</h2>
 
-    <div class="back">
+</div>
 
-        <a href="index.html" class="btn">
-            🏠 กลับหน้าแรก
-        </a>
 
-    </div>
+<div class="future">
+
+<p>
+ผมมองว่าคอมพิวเตอร์และงานสร้างสรรค์สามารถทำงานร่วมกันได้
+เทคโนโลยีช่วยให้เราสร้างสิ่งใหม่ ๆ ได้
+ในขณะที่ภาพและวิดีโอช่วยให้เราสื่อสารแนวคิดเหล่านั้นออกมาได้อย่างน่าสนใจ
+</p>
+
+<p>
+ดังนั้นผมจึงต้องการพัฒนาทั้งการคิดวิเคราะห์
+การแก้ปัญหา ความคิดสร้างสรรค์ และการสื่อสาร
+เพื่อให้สามารถนำความรู้หลายด้านมาสร้างผลงานของตัวเองได้
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ================= CERTIFICATES ================= -->
+
+<section id="certificates">
+
+<div class="section-title">
+
+<small>04 — CERTIFICATES</small>
+
+<h2>เกียรติบัตร</h2>
+
+<p>
+เกียรติบัตรทั้ง 16 ใบที่สะท้อนถึงการเรียนรู้
+การเข้าร่วมกิจกรรม และการพัฒนาตนเอง
+</p>
+
+</div>
+
+
+<div class="cert-grid">
+
+
+<!-- 01 -->
+
+<div class="cert">
+
+<img src="images/certificate1.jpg" alt="Certificate 1">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 01</span>
+
+<h3>เกียรติบัตรใบที่ 1</h3>
+
+<p>
+รายละเอียดกิจกรรมสามารถใส่ข้อมูลจริงของเกียรติบัตรใบนี้ได้
+พร้อมอธิบายสิ่งที่ผมได้เรียนรู้จากการเข้าร่วมกิจกรรม
+</p>
+
+<p>
+ประสบการณ์นี้ช่วยให้ผมได้ฝึกการเรียนรู้และพัฒนาตัวเอง
+ซึ่งสามารถนำไปต่อยอดกับการเรียนในระดับมหาวิทยาลัย
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 02 -->
+
+<div class="cert">
+
+<img src="images/certificate2.jpg" alt="Certificate 2">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 02</span>
+
+<h3>เกียรติบัตรใบที่ 2</h3>
+
+<p>
+กิจกรรมนี้เป็นอีกหนึ่งประสบการณ์ที่ช่วยให้ผมได้เรียนรู้
+และฝึกทักษะจากการลงมือทำจริง
+</p>
+
+<p>
+สิ่งที่ได้รับจากกิจกรรมสามารถนำไปพัฒนาต่อยอด
+ด้านการเรียนและการทำงานในอนาคต
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 03 -->
+
+<div class="cert">
+
+<img src="images/certificate3.jpg" alt="Certificate 3">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 03</span>
+
+<h3>เกียรติบัตรใบที่ 3</h3>
+
+<p>
+กิจกรรมนี้ช่วยให้ผมได้เปิดประสบการณ์ใหม่
+และเรียนรู้ทักษะที่แตกต่างจากการเรียนในห้องเรียน
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 04 -->
+
+<div class="cert">
+
+<img src="images/certificate4.jpg" alt="Certificate 4">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 04</span>
+
+<h3>เกียรติบัตรใบที่ 4</h3>
+
+<p>
+ประสบการณ์จากกิจกรรมนี้ช่วยฝึกความรับผิดชอบ
+และการเรียนรู้จากสถานการณ์จริง
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 05 -->
+
+<div class="cert">
+
+<img src="images/certificate5.jpg" alt="Certificate 5">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 05</span>
+
+<h3>เกียรติบัตรใบที่ 5</h3>
+
+<p>
+กิจกรรมนี้ช่วยพัฒนาทักษะและประสบการณ์
+ที่สามารถนำไปใช้ในการเรียนต่อได้
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 06 -->
+
+<div class="cert">
+
+<img src="images/certificate6.jpg" alt="Certificate 6">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 06</span>
+
+<h3>เกียรติบัตรใบที่ 6</h3>
+
+<p>
+การเข้าร่วมกิจกรรมทำให้ผมได้ฝึกการทำงาน
+และเรียนรู้จากประสบการณ์จริง
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 07 -->
+
+<div class="cert">
+
+<img src="images/certificate7.jpg" alt="Certificate 7">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 07</span>
+
+<h3>เกียรติบัตรใบที่ 7</h3>
+
+<p>
+กิจกรรมนี้เป็นอีกหนึ่งประสบการณ์ที่ช่วยพัฒนาตัวเอง
+และเพิ่มความมั่นใจในการเรียนรู้สิ่งใหม่
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 08 -->
+
+<div class="cert">
+
+<img src="images/certificate8.jpg" alt="Certificate 8">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 08</span>
+
+<h3>เกียรติบัตรใบที่ 8</h3>
+
+<p>
+สิ่งที่ได้จากกิจกรรมนี้สามารถนำมาปรับใช้
+กับการเรียนและการทำงานร่วมกับผู้อื่น
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 09 -->
+
+<div class="cert">
+
+<img src="images/certificate9.jpg" alt="Certificate 9">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 09</span>
+
+<h3>เกียรติบัตรใบที่ 9</h3>
+
+<p>
+ประสบการณ์นี้ช่วยให้ผมได้เรียนรู้
+และเห็นความสำคัญของการพัฒนาทักษะอย่างต่อเนื่อง
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 10 -->
+
+<div class="cert">
+
+<img src="images/certificate10.jpg" alt="Certificate 10">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 10</span>
+
+<h3>เกียรติบัตรใบที่ 10</h3>
+
+<p>
+กิจกรรมนี้ช่วยเปิดมุมมองใหม่
+และทำให้ผมได้เรียนรู้จากการลงมือปฏิบัติจริง
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 11 -->
+
+<div class="cert">
+
+<img src="images/certificate11.jpg" alt="Certificate 11">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 11</span>
+
+<h3>เกียรติบัตรใบที่ 11</h3>
+
+<p>
+ประสบการณ์นี้ช่วยพัฒนาความสามารถ
+และทำให้ผมรู้จักการเรียนรู้ด้วยตัวเองมากขึ้น
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 12 -->
+
+<div class="cert">
+
+<img src="images/certificate12.jpg" alt="Certificate 12">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 12</span>
+
+<h3>เกียรติบัตรใบที่ 12</h3>
+
+<p>
+กิจกรรมนี้เป็นประสบการณ์ที่ช่วยให้ผมได้ฝึกทักษะ
+และนำความรู้ไปประยุกต์ใช้
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 13 -->
+
+<div class="cert">
+
+<img src="images/certificate13.jpg" alt="Certificate 13">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 13</span>
+
+<h3>เกียรติบัตรใบที่ 13</h3>
+
+<p>
+ประสบการณ์ใหม่ที่ช่วยให้ผมได้พัฒนาตนเอง
+และเรียนรู้สิ่งที่ไม่เคยทำมาก่อน
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 14 -->
+
+<div class="cert">
+
+<img src="images/certificate14.jpg" alt="Certificate 14">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 14</span>
+
+<h3>เกียรติบัตรใบที่ 14</h3>
+
+<p>
+กิจกรรมนี้ช่วยเพิ่มประสบการณ์
+และเป็นส่วนหนึ่งของการเตรียมตัวสำหรับการเรียนต่อ
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 15 -->
+
+<div class="cert">
+
+<img src="images/certificate15.jpg" alt="Certificate 15">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 15</span>
+
+<h3>เกียรติบัตรใบที่ 15</h3>
+
+<p>
+กิจกรรมนี้ช่วยให้ผมได้เรียนรู้
+และพัฒนาทักษะที่สามารถนำไปต่อยอดในอนาคต
+</p>
+
+</div>
+
+</div>
+
+
+<!-- 16 -->
+
+<div class="cert">
+
+<img src="images/certificate16.jpg" alt="Certificate 16">
+
+<div class="cert-content">
+
+<span class="tag">CERTIFICATE 16</span>
+
+<h3>เกียรติบัตรใบที่ 16</h3>
+
+<p>
+อีกหนึ่งประสบการณ์สำคัญที่ช่วยสะท้อน
+ความตั้งใจในการเรียนรู้และพัฒนาตัวเอง
+</p>
+
+</div>
+
+</div>
 
 
 </div>
 
-</body>
+</section>
 
+
+<!-- ================= ACTIVITIES ================= -->
+
+<section id="activities">
+
+<div class="section-title">
+
+<small>05 — ACTIVITIES</small>
+
+<h2>กิจกรรม</h2>
+
+<p>
+ภาพกิจกรรมที่แสดงถึงการลงมือทำและประสบการณ์จริง
+</p>
+
+</div>
+
+
+<div class="activity-grid">
+
+
+<div class="activity">
+
+<img src="images/activity1.jpg" alt="Activity 1">
+
+<div class="activity-content">
+
+<h3>กิจกรรมที่ 1</h3>
+
+<p>
+รายละเอียดกิจกรรมและบทบาทของผม
+สามารถใส่เพิ่มเติมจากกิจกรรมจริงได้
+</p>
+
+</div>
+
+</div>
+
+
+<div class="activity">
+
+<img src="images/activity2.jpg" alt="Activity 2">
+
+<div class="activity-content">
+
+<h3>กิจกรรมที่ 2</h3>
+
+<p>
+กิจกรรมนี้ทำให้ผมได้ฝึกการทำงาน
+และเรียนรู้จากประสบการณ์จริง
+</p>
+
+</div>
+
+</div>
+
+
+<div class="activity">
+
+<img src="images/activity3.jpg" alt="Activity 3">
+
+<div class="activity-content">
+
+<h3>กิจกรรมที่ 3</h3>
+
+<p>
+ประสบการณ์นี้ช่วยพัฒนาทักษะ
+และทำให้ผมได้เรียนรู้การทำงานร่วมกับผู้อื่น
+</p>
+
+</div>
+
+</div>
+
+
+<div class="activity">
+
+<img src="images/activity4.jpg" alt="Activity 4">
+
+<div class="activity-content">
+
+<h3>กิจกรรมที่ 4</h3>
+
+<p>
+กิจกรรมที่ช่วยเปิดประสบการณ์ใหม่
+และฝึกทักษะจากการลงมือทำจริง
+</p>
+
+</div>
+
+</div>
+
+
+<div class="activity">
+
+<img src="images/activity5.jpg" alt="Activity 5">
+
+<div class="activity-content">
+
+<h3>กิจกรรมที่ 5</h3>
+
+<p>
+ประสบการณ์ที่ช่วยพัฒนาความรับผิดชอบ
+และการทำงานเป็นทีม
+</p>
+
+</div>
+
+</div>
+
+
+<div class="activity">
+
+<img src="images/activity6.jpg" alt="Activity 6">
+
+<div class="activity-content">
+
+<h3>กิจกรรมที่ 6</h3>
+
+<p>
+อีกหนึ่งกิจกรรมที่ช่วยให้ผมได้เรียนรู้
+และนำประสบการณ์ไปต่อยอดในอนาคต
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ================= VIDEO ================= -->
+
+<section id="video">
+
+<div class="section-title">
+
+<small>06 — VIDEO</small>
+
+<h2>ผลงานวิดีโอ</h2>
+
+<p>
+พื้นที่สำหรับนำเสนอผลงานด้านการถ่ายทำและตัดต่อ
+</p>
+
+</div>
+
+
+<div class="video-box">
+
+<video controls playsinline preload="metadata">
+
+<source src="videos/video1.mp4" type="video/mp4">
+
+เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+
+</video>
+
+<h3>ผลงานวิดีโอชิ้นที่ 1</h3>
+
+<p>
+สามารถอธิบายบทบาทของผม เช่น ผู้ถ่ายทำ
+ผู้ตัดต่อ ผู้เขียนบท หรือผู้จัดทำผลงาน
+รวมถึงสิ่งที่ได้เรียนรู้จากการทำงานชิ้นนี้
+</p>
+
+</div>
+
+
+</section>
+
+
+<!-- ================= UNIVERSITY ================= -->
+
+<section id="university">
+
+<div class="section-title">
+
+<small>07 — UNIVERSITY</small>
+
+<h2>มหาวิทยาลัยและสาขาที่สนใจ</h2>
+
+</div>
+
+
+<!-- KMITL -->
+
+<div class="university">
+
+<h3>🎓 สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h3>
+
+<p style="color:#888;">
+คณะวิศวกรรมศาสตร์
+</p>
+
+
+<div class="major">
+
+<h4>Computer Engineering</h4>
+
+<p>
+ผมสนใจสาขานี้เพราะต้องการพัฒนาความรู้ด้านคอมพิวเตอร์
+การเขียนโปรแกรม ระบบคอมพิวเตอร์ และเทคโนโลยี
+เพื่อนำไปสร้างระบบหรือซอฟต์แวร์ที่สามารถใช้งานได้จริง
+</p>
+
+</div>
+
+
+<div class="major">
+
+<h4>Information Engineering</h4>
+
+<p>
+ผมสนใจด้านการจัดการข้อมูล ระบบสารสนเทศ
+และการนำเทคโนโลยีมาใช้ในการแก้ปัญหา
+ซึ่งสอดคล้องกับความสนใจด้านคอมพิวเตอร์ของผม
+</p>
+
+</div>
+
+
+<div class="major">
+
+<h4>Robotics and Automation Engineering</h4>
+
+<p>
+สาขานี้ทำให้ผมได้เรียนรู้การผสมผสานระหว่าง
+คอมพิวเตอร์ ระบบควบคุม และเทคโนโลยีอัตโนมัติ
+ซึ่งเป็นอีกด้านที่ผมสนใจและต้องการทดลองเรียนรู้เพิ่มเติม
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BUU -->
+
+<div class="university">
+
+<h3>🎓 มหาวิทยาลัยบูรพา</h3>
+
+
+<div class="major">
+
+<h4>วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ</h4>
+
+<p>
+ผมสนใจเพราะเป็นสาขาที่เกี่ยวข้องกับเทคโนโลยี
+ระบบอัตโนมัติ หุ่นยนต์ และการแก้ปัญหา
+โดยสามารถนำความรู้ด้านคอมพิวเตอร์มาต่อยอดได้
+</p>
+
+</div>
+
+
+<div class="major">
+
+<h4>ภาพยนตร์และดิจิทัลมีเดีย</h4>
+
+<p>
+ผมสนใจสาขานี้จากความชอบด้านการถ่ายภาพ
+การทำวิดีโอ การตัดต่อ และการเล่าเรื่อง
+เพราะต้องการพัฒนาความสามารถด้านสื่อให้เป็นทักษะที่จริงจังมากขึ้น
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FUTURE ================= -->
+
+<section id="future">
+
+<div class="section-title">
+
+<small>08 — MY FUTURE</small>
+
+<h2>เป้าหมายในอนาคต</h2>
+
+</div>
+
+
+<div class="future">
+
+<p>
+ในอนาคตผมต้องการศึกษาต่อในสาขาที่สามารถนำความสนใจ
+ด้านเทคโนโลยี คอมพิวเตอร์ และงานสร้างสรรค์
+มาต่อยอดให้เกิดเป็นความสามารถที่ใช้ได้จริง
+</p>
+
+<p>
+ผมต้องการพัฒนาตัวเองให้สามารถสร้างผลงานได้ตั้งแต่
+การคิดแนวทาง การออกแบบ การเขียนโปรแกรม
+การสร้างระบบ ไปจนถึงการนำเสนอผลงานผ่านภาพและวิดีโอ
+</p>
+
+<p>
+ประสบการณ์จากกิจกรรม เกียรติบัตร และผลงานต่าง ๆ
+จึงเป็นจุดเริ่มต้นที่ทำให้ผมได้เรียนรู้ว่า
+ตัวเองชอบอะไร มีความถนัดด้านไหน
+และต้องพัฒนาตัวเองในด้านใดต่อไป
+</p>
+
+<p>
+ผมเชื่อว่าการเรียนรู้ไม่ได้จบอยู่แค่ในห้องเรียน
+แต่เกิดขึ้นจากการลงมือทำ ทดลอง และเรียนรู้จากข้อผิดพลาด
+และผมต้องการนำแนวคิดนี้ไปใช้ในการเรียนระดับมหาวิทยาลัยต่อไป
+</p>
+
+
+<a href="index.html" class="btn">
+← กลับหน้าแรก
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 Natthaphak Boonyama
+</p>
+
+<p>
+Personal Portfolio
+</p>
+
+</footer>
+
+
+</body>
 </html>
