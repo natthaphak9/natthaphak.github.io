@@ -4,11 +4,18 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Portfolio | Natthaphak</title>
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio | Natthaphak Boonyama</title>
+
 
 <style>
+
+/* =================================================
+   RESET
+================================================= */
 
 *{
     margin:0;
@@ -21,440 +28,1021 @@ html{
 }
 
 body{
-    background:#050505;
-    color:#eee;
+
     font-family:Tahoma,Arial,sans-serif;
+
+    background:#050505;
+
+    color:#eee;
+
     line-height:1.8;
+
     overflow-x:hidden;
+
 }
 
-/* ================= BACKGROUND ================= */
+
+/* =================================================
+   BACKGROUND
+================================================= */
 
 body::before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     background:
-        radial-gradient(circle at 10% 10%,rgba(255,255,255,.06),transparent 25%),
-        radial-gradient(circle at 90% 80%,rgba(255,255,255,.05),transparent 25%);
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255,255,255,.07),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(255,255,255,.05),
+            transparent 30%
+        );
+
     pointer-events:none;
-    z-index:-2;
+
+    z-index:-5;
+
 }
 
-/* ================= NAV ================= */
+
+.glow{
+
+    position:fixed;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.025);
+
+    filter:blur(100px);
+
+    pointer-events:none;
+
+    animation:glowMove 18s infinite alternate ease-in-out;
+
+    z-index:-4;
+
+}
+
+.glow1{
+
+    top:-200px;
+
+    left:-150px;
+
+}
+
+.glow2{
+
+    bottom:-200px;
+
+    right:-150px;
+
+    animation-delay:5s;
+
+}
+
+
+@keyframes glowMove{
+
+    0%{
+        transform:translate(0,0);
+    }
+
+    100%{
+        transform:translate(180px,120px);
+    }
+
+}
+
+
+/* =================================================
+   PARTICLES
+================================================= */
+
+.particle{
+
+    position:fixed;
+
+    width:3px;
+
+    height:3px;
+
+    border-radius:50%;
+
+    background:white;
+
+    opacity:.2;
+
+    pointer-events:none;
+
+    animation:float 10s infinite ease-in-out;
+
+    z-index:-3;
+
+}
+
+.p1{
+    top:15%;
+    left:10%;
+}
+
+.p2{
+    top:70%;
+    left:85%;
+    animation-delay:2s;
+}
+
+.p3{
+    top:45%;
+    left:92%;
+    animation-delay:4s;
+}
+
+.p4{
+    top:85%;
+    left:15%;
+    animation-delay:6s;
+}
+
+.p5{
+    top:30%;
+    left:70%;
+    animation-delay:3s;
+}
+
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:
+        translateY(0)
+        scale(1);
+
+        opacity:.1;
+
+    }
+
+    50%{
+
+        transform:
+        translateY(-60px)
+        scale(1.5);
+
+        opacity:.5;
+
+    }
+
+}
+
+
+/* =================================================
+   PROGRESS
+================================================= */
+
+.progress{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:0%;
+
+    height:3px;
+
+    background:#fff;
+
+    z-index:9999;
+
+}
+
+
+/* =================================================
+   NAVIGATION
+================================================= */
 
 .nav{
+
     position:fixed;
+
     top:20px;
+
     left:50%;
+
     transform:translateX(-50%);
-    width:90%;
-    max-width:1000px;
-    padding:14px 22px;
-    border:1px solid #222;
-    background:rgba(5,5,5,.8);
+
+    width:92%;
+
+    max-width:1050px;
+
+    padding:13px 20px;
+
+    background:rgba(5,5,5,.75);
+
     backdrop-filter:blur(15px);
+
+    border:1px solid #222;
+
     border-radius:50px;
-    z-index:1000;
+
     text-align:center;
+
+    z-index:999;
+
 }
+
 
 .nav a{
-    color:#aaa;
+
+    color:#777;
+
     text-decoration:none;
-    margin:0 10px;
-    font-size:13px;
+
+    margin:0 9px;
+
+    font-size:12px;
+
     transition:.3s;
+
 }
+
 
 .nav a:hover{
-    color:white;
+
+    color:#fff;
+
 }
 
-/* ================= HERO ================= */
+
+/* =================================================
+   HERO
+================================================= */
 
 .hero{
+
     min-height:100vh;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     text-align:center;
+
     padding:100px 20px;
+
 }
+
 
 .hero-inner{
+
     max-width:900px;
-    animation:appear 1.4s ease;
+
+    animation:heroIn 1.4s ease;
+
 }
 
-@keyframes appear{
+
+@keyframes heroIn{
 
     from{
+
         opacity:0;
+
         transform:translateY(50px);
+
     }
 
     to{
+
         opacity:1;
+
         transform:translateY(0);
+
     }
 
 }
 
+
 .hero small{
-    letter-spacing:5px;
-    color:#777;
+
+    color:#666;
+
+    letter-spacing:6px;
+
 }
+
 
 .hero h1{
-    font-size:clamp(50px,9vw,100px);
-    line-height:1.05;
+
+    font-size:clamp(55px,9vw,100px);
+
+    line-height:1;
+
+    letter-spacing:5px;
+
     margin:25px 0;
-    letter-spacing:4px;
+
 }
+
 
 .hero h1 span{
-    color:#666;
+
+    color:#555;
+
 }
+
+
+.hero-line{
+
+    width:100px;
+
+    height:1px;
+
+    background:#fff;
+
+    margin:30px auto;
+
+    animation:line 1.5s ease;
+
+}
+
+
+@keyframes line{
+
+    from{
+        width:0;
+    }
+
+    to{
+        width:100px;
+    }
+
+}
+
 
 .hero p{
-    color:#999;
-    font-size:18px;
+
+    color:#888;
+
 }
 
-.line{
-    width:100px;
-    height:1px;
-    background:#777;
-    margin:30px auto;
-}
 
-/* ================= SECTION ================= */
+/* =================================================
+   SECTION
+================================================= */
 
 section{
+
     width:90%;
+
     max-width:1100px;
+
     margin:auto;
+
     padding:110px 0;
+
 }
+
 
 .section-title{
+
     text-align:center;
+
     margin-bottom:60px;
+
 }
+
 
 .section-title small{
+
     color:#666;
-    letter-spacing:4px;
+
+    letter-spacing:5px;
+
 }
+
 
 .section-title h2{
+
     font-size:42px;
+
     margin-top:10px;
+
 }
+
 
 .section-title p{
-    color:#888;
-    max-width:700px;
-    margin:20px auto 0;
+
+    color:#777;
+
+    margin-top:15px;
+
 }
 
-/* ================= ABOUT ================= */
+
+/* =================================================
+   REVEAL
+================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:
+
+        opacity 1s ease,
+
+        transform 1s ease;
+
+}
+
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* =================================================
+   ABOUT
+================================================= */
 
 .about{
+
     display:grid;
+
     grid-template-columns:300px 1fr;
+
     gap:60px;
+
     align-items:center;
+
 }
+
 
 .profile{
+
     width:100%;
+
     border-radius:20px;
+
     border:1px solid #333;
+
     filter:grayscale(100%);
-    transition:.5s;
+
+    transition:.7s;
+
 }
+
 
 .profile:hover{
+
     filter:grayscale(0%);
+
     transform:scale(1.03);
+
 }
+
 
 .text p{
+
     color:#aaa;
+
     margin-bottom:20px;
+
 }
 
-/* ================= INFO CARDS ================= */
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.card{
-    background:#0a0a0a;
-    border:1px solid #222;
-    border-radius:20px;
-    padding:30px;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    border-color:#666;
-    box-shadow:0 15px 40px rgba(0,0,0,.5);
-}
-
-.card h3{
-    margin-bottom:15px;
-}
-
-.card p{
-    color:#999;
-}
-
-/* ================= CERTIFICATES ================= */
+/* =================================================
+   CERTIFICATE
+================================================= */
 
 .cert-grid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:30px;
+
 }
+
 
 .cert{
-    background:#0a0a0a;
+
+    background:#090909;
+
     border:1px solid #222;
+
     border-radius:20px;
+
     overflow:hidden;
+
     transition:.5s;
+
 }
+
 
 .cert:hover{
-    transform:translateY(-8px);
-    border-color:#777;
+
+    transform:translateY(-10px);
+
+    border-color:#666;
+
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.6);
+
 }
+
 
 .cert img{
+
     width:100%;
-    display:block;
+
     aspect-ratio:1.414/1;
+
     object-fit:cover;
-    background:#111;
-    transition:.5s;
+
+    display:block;
+
+    transition:.6s;
+
 }
+
 
 .cert:hover img{
-    transform:scale(1.02);
+
+    transform:scale(1.03);
+
 }
+
 
 .cert-content{
+
     padding:25px;
+
 }
+
 
 .cert-content h3{
-    margin-bottom:12px;
+
+    margin:12px 0;
+
 }
+
 
 .cert-content p{
-    color:#999;
+
+    color:#888;
+
     margin-bottom:12px;
+
 }
+
 
 .tag{
+
     display:inline-block;
+
+    padding:3px 12px;
+
     border:1px solid #444;
+
     border-radius:30px;
-    padding:4px 12px;
-    font-size:12px;
-    color:#aaa;
+
+    font-size:11px;
+
+    color:#777;
+
 }
 
-/* ================= ACTIVITIES ================= */
+
+/* =================================================
+   ACTIVITY
+================================================= */
 
 .activity-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+    repeat(3,1fr);
+
     gap:20px;
+
 }
+
 
 .activity{
+
+    background:#090909;
+
     border:1px solid #222;
+
     border-radius:18px;
+
     overflow:hidden;
-    background:#0a0a0a;
+
     transition:.5s;
+
 }
+
 
 .activity:hover{
+
     transform:translateY(-8px);
+
+    border-color:#666;
+
 }
+
 
 .activity img{
+
     width:100%;
+
     aspect-ratio:4/3;
+
     object-fit:cover;
+
     display:block;
-    transition:.5s;
+
+    transition:.6s;
+
 }
+
 
 .activity:hover img{
-    transform:scale(1.04);
+
+    transform:scale(1.05);
+
 }
+
 
 .activity-content{
+
     padding:20px;
+
 }
 
-.activity-content h3{
-    margin-bottom:10px;
-}
 
 .activity-content p{
-    color:#999;
+
+    color:#888;
+
 }
 
-/* ================= VIDEO ================= */
+
+/* =================================================
+   VIDEO
+================================================= */
 
 .video-box{
-    background:#0a0a0a;
+
+    background:#090909;
+
     border:1px solid #222;
-    padding:25px;
+
     border-radius:20px;
+
+    padding:25px;
+
     margin-bottom:30px;
+
+    transition:.5s;
+
 }
+
+
+.video-box:hover{
+
+    border-color:#666;
+
+}
+
 
 .video-box video{
+
     width:100%;
-    max-height:600px;
+
+    max-height:650px;
+
     border-radius:12px;
+
     background:#000;
+
 }
+
 
 .video-box h3{
+
     margin-top:20px;
+
 }
+
 
 .video-box p{
-    color:#999;
+
+    color:#888;
+
 }
 
-/* ================= UNIVERSITY ================= */
+
+/* =================================================
+   UNIVERSITY
+================================================= */
 
 .university{
+
+    background:#090909;
+
     border:1px solid #222;
-    background:#0a0a0a;
-    padding:35px;
+
     border-radius:20px;
+
+    padding:35px;
+
     margin-bottom:25px;
-    transition:.4s;
+
+    transition:.5s;
+
 }
+
 
 .university:hover{
+
+    transform:translateY(-7px);
+
     border-color:#666;
-    transform:translateY(-5px);
+
 }
 
-.university h3{
+
+.university > h3{
+
     font-size:25px;
-    margin-bottom:15px;
+
+    margin-bottom:10px;
+
 }
+
+
+.university > p{
+
+    color:#777;
+
+}
+
 
 .major{
-    border-left:2px solid #555;
+
+    border-left:2px solid #444;
+
     padding-left:20px;
-    margin:20px 0;
+
+    margin-top:25px;
+
 }
+
 
 .major h4{
+
     font-size:18px;
+
 }
+
 
 .major p{
-    color:#999;
+
+    color:#888;
+
 }
 
-/* ================= FUTURE ================= */
+
+/* =================================================
+   FUTURE
+================================================= */
 
 .future{
-    text-align:center;
+
     max-width:850px;
+
     margin:auto;
+
+    text-align:center;
+
 }
+
 
 .future p{
+
     color:#999;
+
     margin-bottom:20px;
+
 }
 
-/* ================= BUTTON ================= */
+
+/* =================================================
+   BUTTON
+================================================= */
 
 .btn{
+
     display:inline-block;
+
     margin-top:30px;
-    padding:13px 30px;
-    border:1px solid #fff;
-    color:white;
-    text-decoration:none;
+
+    padding:14px 32px;
+
+    border:1px solid #555;
+
     border-radius:50px;
+
+    color:#fff;
+
+    text-decoration:none;
+
     transition:.4s;
+
 }
+
 
 .btn:hover{
-    background:white;
-    color:black;
+
+    background:#fff;
+
+    color:#000;
+
+    transform:translateY(-5px);
+
 }
 
-/* ================= FOOTER ================= */
+
+/* =================================================
+   TOP BUTTON
+================================================= */
+
+.top{
+
+    position:fixed;
+
+    bottom:25px;
+
+    right:25px;
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:50%;
+
+    border:1px solid #444;
+
+    background:#080808;
+
+    color:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-decoration:none;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s;
+
+    z-index:1000;
+
+}
+
+
+.top.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+.top:hover{
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+
+/* =================================================
+   FOOTER
+================================================= */
 
 footer{
+
     border-top:1px solid #222;
+
     text-align:center;
+
     padding:70px 20px;
+
     color:#555;
+
 }
 
-/* ================= MOBILE ================= */
+
+/* =================================================
+   MOBILE
+================================================= */
 
 @media(max-width:800px){
 
     .nav{
+
         display:none;
+
     }
+
 
     .about{
+
         grid-template-columns:1fr;
+
     }
+
 
     .profile{
-        max-width:300px;
+
+        max-width:280px;
+
         margin:auto;
+
     }
 
-    .cards{
-        grid-template-columns:1fr;
-    }
 
     .cert-grid{
+
         grid-template-columns:1fr;
+
     }
+
 
     .activity-grid{
+
         grid-template-columns:1fr;
+
     }
+
 
     section{
+
         padding:80px 0;
+
     }
+
 
     .hero h1{
-        font-size:48px;
+
+        font-size:52px;
+
     }
 
+
     .section-title h2{
+
         font-size:34px;
+
     }
 
 }
@@ -467,38 +1055,81 @@ footer{
 <body>
 
 
-<!-- ================= NAVIGATION ================= -->
+<!-- BACKGROUND -->
+
+<div class="glow glow1"></div>
+
+<div class="glow glow2"></div>
+
+<div class="particle p1"></div>
+
+<div class="particle p2"></div>
+
+<div class="particle p3"></div>
+
+<div class="particle p4"></div>
+
+<div class="particle p5"></div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress" id="progress"></div>
+
+
+<!-- NAV -->
 
 <nav class="nav">
 
 <a href="#about">ABOUT</a>
+
 <a href="#interest">INTEREST</a>
+
 <a href="#certificates">CERTIFICATES</a>
+
 <a href="#activities">ACTIVITIES</a>
+
 <a href="#video">VIDEO</a>
+
 <a href="#university">UNIVERSITY</a>
+
 <a href="#future">FUTURE</a>
 
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- =================================================
+     HERO
+================================================= -->
 
 <header class="hero">
 
 <div class="hero-inner">
 
-<small>PORTFOLIO COLLECTION</small>
+<small>
+PORTFOLIO COLLECTION
+</small>
+
 
 <h1>
-NATTHAPHAK<br>
+
+NATTHAPHAK
+
+<br>
+
 <span>BOONYAMA</span>
+
 </h1>
 
-<div class="line"></div>
+
+<div class="hero-line"></div>
+
 
 <p>
-Computer • Technology • Photography • Film • Digital Media
+
+แฟ้มสะสมงานที่รวบรวมประสบการณ์
+กิจกรรม และผลงานของผม
+
 </p>
 
 </div>
@@ -506,11 +1137,13 @@ Computer • Technology • Photography • Film • Digital Media
 </header>
 
 
-<!-- ================= ABOUT ================= -->
+<!-- =================================================
+     ABOUT
+================================================= -->
 
 <section id="about">
 
-<div class="section-title">
+<div class="section-title reveal">
 
 <small>01 — ABOUT ME</small>
 
@@ -519,19 +1152,23 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<div class="about">
+<div class="about reveal">
 
-<img src="images/profile.jpg"
-     class="profile"
-     alt="Natthaphak">
+
+<img
+src="images/profile.jpg"
+class="profile"
+alt="Profile">
 
 
 <div class="text">
 
 <p>
-สวัสดีครับ ผมชื่อ <strong>นายณัทธ์ฐภัค บุญยามา</strong>
+สวัสดีครับ ผมชื่อ
+<strong>นายณัทธ์ฐภัค บุญยามา</strong>
 อายุ 18 ปี ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
 </p>
+
 
 <p>
 ผมเป็นคนที่มีความสนใจด้านเทคโนโลยีและคอมพิวเตอร์
@@ -539,20 +1176,26 @@ Computer • Technology • Photography • Film • Digital Media
 และการแก้ปัญหาด้วยเทคโนโลยี
 </p>
 
+
 <p>
 ผมชอบการได้ทดลองสร้างสิ่งต่าง ๆ ด้วยตัวเอง
 เพราะในระหว่างการทำงานจะได้ฝึกทั้งการวางแผน
-การคิดวิเคราะห์ และการแก้ไขปัญหาที่เกิดขึ้น
+การคิดวิเคราะห์ และการแก้ไขปัญหา
 </p>
 
-<p>
-นอกจากด้านคอมพิวเตอร์แล้ว ผมยังสนใจด้านการถ่ายภาพ
-การตัดต่อภาพและวิดีโอ รวมถึงการทำภาพยนตร์และสื่อดิจิทัล
-</p>
 
 <p>
-ผมมองว่าความสนใจทั้งสองด้านสามารถนำมาผสมผสานกันได้
-และสามารถต่อยอดไปสู่การสร้างผลงานที่มีทั้งเทคโนโลยี
+นอกจากด้านคอมพิวเตอร์แล้ว
+ผมยังสนใจด้านการถ่ายภาพ
+การตัดต่อภาพและวิดีโอ
+รวมถึงการทำภาพยนตร์และสื่อดิจิทัล
+</p>
+
+
+<p>
+ความสนใจทั้งด้านเทคโนโลยีและงานสร้างสรรค์
+ทำให้ผมต้องการพัฒนาตัวเองให้มีทั้ง
+ทักษะด้านการคิด วิเคราะห์ การแก้ปัญหา
 และความคิดสร้างสรรค์
 </p>
 
@@ -563,26 +1206,27 @@ Computer • Technology • Photography • Film • Digital Media
 </section>
 
 
-<!-- ================= INTEREST ================= -->
+<!-- =================================================
+     INTEREST
+================================================= -->
 
 <section id="interest">
 
-<div class="section-title">
+<div class="section-title reveal">
 
 <small>02 — MY INTEREST</small>
 
 <h2>สิ่งที่ผมสนใจ</h2>
 
-<p>
-ความสนใจที่ผมต้องการพัฒนาต่อในระดับมหาวิทยาลัย
-</p>
-
 </div>
 
 
-<div class="cards">
+<div class="activity-grid">
 
-<div class="card">
+
+<div class="activity reveal">
+
+<div class="activity-content">
 
 <h3>💻 Computer & Programming</h3>
 
@@ -595,82 +1239,62 @@ Computer • Technology • Photography • Film • Digital Media
 
 </div>
 
+</div>
 
-<div class="card">
+
+<div class="activity reveal">
+
+<div class="activity-content">
 
 <h3>📷 Photography</h3>
 
 <p>
 การถ่ายภาพทำให้ผมได้ฝึกเรื่ององค์ประกอบ
 มุมมอง แสง และการสื่อสารความรู้สึก
-ผ่านภาพเพียงภาพเดียว
+ผ่านภาพ
 </p>
 
 </div>
 
+</div>
 
-<div class="card">
+
+<div class="activity reveal">
+
+<div class="activity-content">
 
 <h3>🎬 Film & Digital Media</h3>
 
 <p>
 ผมสนใจการเล่าเรื่องผ่านภาพและวิดีโอ
 ตั้งแต่การคิดแนวคิด การถ่ายทำ
-ไปจนถึงการตัดต่อและนำเสนอผลงาน
+ไปจนถึงการตัดต่อ
 </p>
 
 </div>
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- ================= WHY ================= -->
-
-<section>
-
-<div class="section-title">
-
-<small>03 — MY DIRECTION</small>
-
-<h2>ทำไมผมถึงสนใจด้านเหล่านี้?</h2>
-
-</div>
-
-
-<div class="future">
-
-<p>
-ผมมองว่าคอมพิวเตอร์และงานสร้างสรรค์สามารถทำงานร่วมกันได้
-เทคโนโลยีช่วยให้เราสร้างสิ่งใหม่ ๆ ได้
-ในขณะที่ภาพและวิดีโอช่วยให้เราสื่อสารแนวคิดเหล่านั้นออกมาได้อย่างน่าสนใจ
-</p>
-
-<p>
-ดังนั้นผมจึงต้องการพัฒนาทั้งการคิดวิเคราะห์
-การแก้ปัญหา ความคิดสร้างสรรค์ และการสื่อสาร
-เพื่อให้สามารถนำความรู้หลายด้านมาสร้างผลงานของตัวเองได้
-</p>
-
-</div>
-
-</section>
-
-
-<!-- ================= CERTIFICATES ================= -->
+<!-- =================================================
+     CERTIFICATES
+================================================= -->
 
 <section id="certificates">
 
-<div class="section-title">
+<div class="section-title reveal">
 
-<small>04 — CERTIFICATES</small>
+<small>03 — CERTIFICATES</small>
 
 <h2>เกียรติบัตร</h2>
 
 <p>
-เกียรติบัตรทั้ง 16 ใบที่สะท้อนถึงการเรียนรู้
-การเข้าร่วมกิจกรรม และการพัฒนาตนเอง
+รวมเกียรติบัตรทั้งหมด 16 ใบ
 </p>
 
 </div>
@@ -679,26 +1303,31 @@ Computer • Technology • Photography • Film • Digital Media
 <div class="cert-grid">
 
 
-<!-- 01 -->
+<!-- CERTIFICATE 01 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate1.jpg" alt="Certificate 1">
+<img src="images/certificate1.jpg"
+     alt="Certificate 1">
 
 <div class="cert-content">
 
-<span class="tag">CERTIFICATE 01</span>
+<span class="tag">
+CERTIFICATE 01
+</span>
 
-<h3>เกียรติบัตรใบที่ 1</h3>
+<h3>
+เกียรติบัตรใบที่ 1
+</h3>
+
+<!-- ✏️ แก้ข้อความตรงนี้ -->
 
 <p>
-รายละเอียดกิจกรรมสามารถใส่ข้อมูลจริงของเกียรติบัตรใบนี้ได้
-พร้อมอธิบายสิ่งที่ผมได้เรียนรู้จากการเข้าร่วมกิจกรรม
+ใส่ชื่อกิจกรรม / ชื่อรางวัล / รายละเอียดของเกียรติบัตร
 </p>
 
 <p>
-ประสบการณ์นี้ช่วยให้ผมได้ฝึกการเรียนรู้และพัฒนาตัวเอง
-ซึ่งสามารถนำไปต่อยอดกับการเรียนในระดับมหาวิทยาลัย
+ใส่สิ่งที่ได้เรียนรู้ และความเกี่ยวข้องกับตัวเองหรือสาขาที่ต้องการเรียน
 </p>
 
 </div>
@@ -706,11 +1335,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 02 -->
+<!-- CERTIFICATE 02 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate2.jpg" alt="Certificate 2">
+<img src="images/certificate2.jpg"
+     alt="Certificate 2">
 
 <div class="cert-content">
 
@@ -719,13 +1349,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 2</h3>
 
 <p>
-กิจกรรมนี้เป็นอีกหนึ่งประสบการณ์ที่ช่วยให้ผมได้เรียนรู้
-และฝึกทักษะจากการลงมือทำจริง
+ใส่ชื่อกิจกรรม / ชื่อรางวัล / รายละเอียดของเกียรติบัตร
 </p>
 
 <p>
-สิ่งที่ได้รับจากกิจกรรมสามารถนำไปพัฒนาต่อยอด
-ด้านการเรียนและการทำงานในอนาคต
+ใส่สิ่งที่ได้เรียนรู้ และความเกี่ยวข้องกับตัวเองหรือสาขาที่ต้องการเรียน
 </p>
 
 </div>
@@ -733,11 +1361,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 03 -->
+<!-- CERTIFICATE 03 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate3.jpg" alt="Certificate 3">
+<img src="images/certificate3.jpg"
+     alt="Certificate 3">
 
 <div class="cert-content">
 
@@ -746,8 +1375,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 3</h3>
 
 <p>
-กิจกรรมนี้ช่วยให้ผมได้เปิดประสบการณ์ใหม่
-และเรียนรู้ทักษะที่แตกต่างจากการเรียนในห้องเรียน
+ใส่รายละเอียดของเกียรติบัตรใบที่ 3
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -755,11 +1387,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 04 -->
+<!-- CERTIFICATE 04 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate4.jpg" alt="Certificate 4">
+<img src="images/certificate4.jpg"
+     alt="Certificate 4">
 
 <div class="cert-content">
 
@@ -768,8 +1401,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 4</h3>
 
 <p>
-ประสบการณ์จากกิจกรรมนี้ช่วยฝึกความรับผิดชอบ
-และการเรียนรู้จากสถานการณ์จริง
+ใส่รายละเอียดของเกียรติบัตรใบที่ 4
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -777,11 +1413,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 05 -->
+<!-- CERTIFICATE 05 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate5.jpg" alt="Certificate 5">
+<img src="images/certificate5.jpg"
+     alt="Certificate 5">
 
 <div class="cert-content">
 
@@ -790,8 +1427,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 5</h3>
 
 <p>
-กิจกรรมนี้ช่วยพัฒนาทักษะและประสบการณ์
-ที่สามารถนำไปใช้ในการเรียนต่อได้
+ใส่รายละเอียดของเกียรติบัตรใบที่ 5
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -799,11 +1439,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 06 -->
+<!-- CERTIFICATE 06 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate6.jpg" alt="Certificate 6">
+<img src="images/certificate6.jpg"
+     alt="Certificate 6">
 
 <div class="cert-content">
 
@@ -812,8 +1453,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 6</h3>
 
 <p>
-การเข้าร่วมกิจกรรมทำให้ผมได้ฝึกการทำงาน
-และเรียนรู้จากประสบการณ์จริง
+ใส่รายละเอียดของเกียรติบัตรใบที่ 6
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -821,11 +1465,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 07 -->
+<!-- CERTIFICATE 07 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate7.jpg" alt="Certificate 7">
+<img src="images/certificate7.jpg"
+     alt="Certificate 7">
 
 <div class="cert-content">
 
@@ -834,8 +1479,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 7</h3>
 
 <p>
-กิจกรรมนี้เป็นอีกหนึ่งประสบการณ์ที่ช่วยพัฒนาตัวเอง
-และเพิ่มความมั่นใจในการเรียนรู้สิ่งใหม่
+ใส่รายละเอียดของเกียรติบัตรใบที่ 7
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -843,11 +1491,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 08 -->
+<!-- CERTIFICATE 08 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate8.jpg" alt="Certificate 8">
+<img src="images/certificate8.jpg"
+     alt="Certificate 8">
 
 <div class="cert-content">
 
@@ -856,8 +1505,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 8</h3>
 
 <p>
-สิ่งที่ได้จากกิจกรรมนี้สามารถนำมาปรับใช้
-กับการเรียนและการทำงานร่วมกับผู้อื่น
+ใส่รายละเอียดของเกียรติบัตรใบที่ 8
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -865,11 +1517,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 09 -->
+<!-- CERTIFICATE 09 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate9.jpg" alt="Certificate 9">
+<img src="images/certificate9.jpg"
+     alt="Certificate 9">
 
 <div class="cert-content">
 
@@ -878,8 +1531,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 9</h3>
 
 <p>
-ประสบการณ์นี้ช่วยให้ผมได้เรียนรู้
-และเห็นความสำคัญของการพัฒนาทักษะอย่างต่อเนื่อง
+ใส่รายละเอียดของเกียรติบัตรใบที่ 9
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -887,11 +1543,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 10 -->
+<!-- CERTIFICATE 10 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate10.jpg" alt="Certificate 10">
+<img src="images/certificate10.jpg"
+     alt="Certificate 10">
 
 <div class="cert-content">
 
@@ -900,8 +1557,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 10</h3>
 
 <p>
-กิจกรรมนี้ช่วยเปิดมุมมองใหม่
-และทำให้ผมได้เรียนรู้จากการลงมือปฏิบัติจริง
+ใส่รายละเอียดของเกียรติบัตรใบที่ 10
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -909,11 +1569,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 11 -->
+<!-- CERTIFICATE 11 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate11.jpg" alt="Certificate 11">
+<img src="images/certificate11.jpg"
+     alt="Certificate 11">
 
 <div class="cert-content">
 
@@ -922,8 +1583,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 11</h3>
 
 <p>
-ประสบการณ์นี้ช่วยพัฒนาความสามารถ
-และทำให้ผมรู้จักการเรียนรู้ด้วยตัวเองมากขึ้น
+ใส่รายละเอียดของเกียรติบัตรใบที่ 11
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -931,11 +1595,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 12 -->
+<!-- CERTIFICATE 12 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate12.jpg" alt="Certificate 12">
+<img src="images/certificate12.jpg"
+     alt="Certificate 12">
 
 <div class="cert-content">
 
@@ -944,8 +1609,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 12</h3>
 
 <p>
-กิจกรรมนี้เป็นประสบการณ์ที่ช่วยให้ผมได้ฝึกทักษะ
-และนำความรู้ไปประยุกต์ใช้
+ใส่รายละเอียดของเกียรติบัตรใบที่ 12
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -953,11 +1621,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 13 -->
+<!-- CERTIFICATE 13 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate13.jpg" alt="Certificate 13">
+<img src="images/certificate13.jpg"
+     alt="Certificate 13">
 
 <div class="cert-content">
 
@@ -966,8 +1635,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 13</h3>
 
 <p>
-ประสบการณ์ใหม่ที่ช่วยให้ผมได้พัฒนาตนเอง
-และเรียนรู้สิ่งที่ไม่เคยทำมาก่อน
+ใส่รายละเอียดของเกียรติบัตรใบที่ 13
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -975,11 +1647,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 14 -->
+<!-- CERTIFICATE 14 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate14.jpg" alt="Certificate 14">
+<img src="images/certificate14.jpg"
+     alt="Certificate 14">
 
 <div class="cert-content">
 
@@ -988,8 +1661,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 14</h3>
 
 <p>
-กิจกรรมนี้ช่วยเพิ่มประสบการณ์
-และเป็นส่วนหนึ่งของการเตรียมตัวสำหรับการเรียนต่อ
+ใส่รายละเอียดของเกียรติบัตรใบที่ 14
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -997,11 +1673,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 15 -->
+<!-- CERTIFICATE 15 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate15.jpg" alt="Certificate 15">
+<img src="images/certificate15.jpg"
+     alt="Certificate 15">
 
 <div class="cert-content">
 
@@ -1010,8 +1687,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 15</h3>
 
 <p>
-กิจกรรมนี้ช่วยให้ผมได้เรียนรู้
-และพัฒนาทักษะที่สามารถนำไปต่อยอดในอนาคต
+ใส่รายละเอียดของเกียรติบัตรใบที่ 15
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -1019,11 +1699,12 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<!-- 16 -->
+<!-- CERTIFICATE 16 -->
 
-<div class="cert">
+<div class="cert reveal">
 
-<img src="images/certificate16.jpg" alt="Certificate 16">
+<img src="images/certificate16.jpg"
+     alt="Certificate 16">
 
 <div class="cert-content">
 
@@ -1032,8 +1713,11 @@ Computer • Technology • Photography • Film • Digital Media
 <h3>เกียรติบัตรใบที่ 16</h3>
 
 <p>
-อีกหนึ่งประสบการณ์สำคัญที่ช่วยสะท้อน
-ความตั้งใจในการเรียนรู้และพัฒนาตัวเอง
+ใส่รายละเอียดของเกียรติบัตรใบที่ 16
+</p>
+
+<p>
+ใส่สิ่งที่ได้เรียนรู้จากกิจกรรม
 </p>
 
 </div>
@@ -1046,18 +1730,20 @@ Computer • Technology • Photography • Film • Digital Media
 </section>
 
 
-<!-- ================= ACTIVITIES ================= -->
+<!-- =================================================
+     ACTIVITIES
+================================================= -->
 
 <section id="activities">
 
-<div class="section-title">
+<div class="section-title reveal">
 
-<small>05 — ACTIVITIES</small>
+<small>04 — ACTIVITIES</small>
 
 <h2>กิจกรรม</h2>
 
 <p>
-ภาพกิจกรรมที่แสดงถึงการลงมือทำและประสบการณ์จริง
+รวมภาพกิจกรรม 6 ภาพ
 </p>
 
 </div>
@@ -1066,17 +1752,17 @@ Computer • Technology • Photography • Film • Digital Media
 <div class="activity-grid">
 
 
-<div class="activity">
+<div class="activity reveal">
 
-<img src="images/activity1.jpg" alt="Activity 1">
+<img src="images/activity1.jpg"
+     alt="Activity 1">
 
 <div class="activity-content">
 
 <h3>กิจกรรมที่ 1</h3>
 
 <p>
-รายละเอียดกิจกรรมและบทบาทของผม
-สามารถใส่เพิ่มเติมจากกิจกรรมจริงได้
+ใส่รายละเอียดกิจกรรมและบทบาทของผม
 </p>
 
 </div>
@@ -1084,17 +1770,17 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<div class="activity">
+<div class="activity reveal">
 
-<img src="images/activity2.jpg" alt="Activity 2">
+<img src="images/activity2.jpg"
+     alt="Activity 2">
 
 <div class="activity-content">
 
 <h3>กิจกรรมที่ 2</h3>
 
 <p>
-กิจกรรมนี้ทำให้ผมได้ฝึกการทำงาน
-และเรียนรู้จากประสบการณ์จริง
+ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
 </p>
 
 </div>
@@ -1102,17 +1788,17 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<div class="activity">
+<div class="activity reveal">
 
-<img src="images/activity3.jpg" alt="Activity 3">
+<img src="images/activity3.jpg"
+     alt="Activity 3">
 
 <div class="activity-content">
 
 <h3>กิจกรรมที่ 3</h3>
 
 <p>
-ประสบการณ์นี้ช่วยพัฒนาทักษะ
-และทำให้ผมได้เรียนรู้การทำงานร่วมกับผู้อื่น
+ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
 </p>
 
 </div>
@@ -1120,17 +1806,17 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<div class="activity">
+<div class="activity reveal">
 
-<img src="images/activity4.jpg" alt="Activity 4">
+<img src="images/activity4.jpg"
+     alt="Activity 4">
 
 <div class="activity-content">
 
 <h3>กิจกรรมที่ 4</h3>
 
 <p>
-กิจกรรมที่ช่วยเปิดประสบการณ์ใหม่
-และฝึกทักษะจากการลงมือทำจริง
+ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
 </p>
 
 </div>
@@ -1138,17 +1824,17 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<div class="activity">
+<div class="activity reveal">
 
-<img src="images/activity5.jpg" alt="Activity 5">
+<img src="images/activity5.jpg"
+     alt="Activity 5">
 
 <div class="activity-content">
 
 <h3>กิจกรรมที่ 5</h3>
 
 <p>
-ประสบการณ์ที่ช่วยพัฒนาความรับผิดชอบ
-และการทำงานเป็นทีม
+ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
 </p>
 
 </div>
@@ -1156,17 +1842,17 @@ Computer • Technology • Photography • Film • Digital Media
 </div>
 
 
-<div class="activity">
+<div class="activity reveal">
 
-<img src="images/activity6.jpg" alt="Activity 6">
+<img src="images/activity6.jpg"
+     alt="Activity 6">
 
 <div class="activity-content">
 
 <h3>กิจกรรมที่ 6</h3>
 
 <p>
-อีกหนึ่งกิจกรรมที่ช่วยให้ผมได้เรียนรู้
-และนำประสบการณ์ไปต่อยอดในอนาคต
+ใส่รายละเอียดกิจกรรมและสิ่งที่ได้เรียนรู้
 </p>
 
 </div>
@@ -1179,54 +1865,65 @@ Computer • Technology • Photography • Film • Digital Media
 </section>
 
 
-<!-- ================= VIDEO ================= -->
+<!-- =================================================
+     VIDEO
+================================================= -->
 
 <section id="video">
 
-<div class="section-title">
+<div class="section-title reveal">
 
-<small>06 — VIDEO</small>
+<small>05 — VIDEO</small>
 
 <h2>ผลงานวิดีโอ</h2>
 
 <p>
-พื้นที่สำหรับนำเสนอผลงานด้านการถ่ายทำและตัดต่อ
+ผลงานด้านการถ่ายทำและตัดต่อ
 </p>
 
 </div>
 
 
-<div class="video-box">
+<div class="video-box reveal">
+
 
 <video controls playsinline preload="metadata">
 
-<source src="videos/video1.mp4" type="video/mp4">
+<source
+src="videos/video1.mp4"
+type="video/mp4">
 
-เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+เบราว์เซอร์ของคุณไม่รองรับวิดีโอ
 
 </video>
 
-<h3>ผลงานวิดีโอชิ้นที่ 1</h3>
+
+<h3>
+ผลงานวิดีโอชิ้นที่ 1
+</h3>
+
 
 <p>
-สามารถอธิบายบทบาทของผม เช่น ผู้ถ่ายทำ
-ผู้ตัดต่อ ผู้เขียนบท หรือผู้จัดทำผลงาน
-รวมถึงสิ่งที่ได้เรียนรู้จากการทำงานชิ้นนี้
+ใส่ชื่อผลงาน บทบาทของผม
+เช่น ถ่ายทำ ตัดต่อ เขียนบท
+หรือดูแลส่วนใดของผลงาน
 </p>
 
-</div>
 
+</div>
 
 </section>
 
 
-<!-- ================= UNIVERSITY ================= -->
+<!-- =================================================
+     UNIVERSITY
+================================================= -->
 
 <section id="university">
 
-<div class="section-title">
+<div class="section-title reveal">
 
-<small>07 — UNIVERSITY</small>
+<small>06 — UNIVERSITY</small>
 
 <h2>มหาวิทยาลัยและสาขาที่สนใจ</h2>
 
@@ -1235,23 +1932,27 @@ Computer • Technology • Photography • Film • Digital Media
 
 <!-- KMITL -->
 
-<div class="university">
+<div class="university reveal">
 
-<h3>🎓 สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</h3>
+<h3>
+🎓 สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง
+</h3>
 
-<p style="color:#888;">
+<p>
 คณะวิศวกรรมศาสตร์
 </p>
 
 
 <div class="major">
 
-<h4>Computer Engineering</h4>
+<h4>
+Computer Engineering
+</h4>
 
 <p>
 ผมสนใจสาขานี้เพราะต้องการพัฒนาความรู้ด้านคอมพิวเตอร์
-การเขียนโปรแกรม ระบบคอมพิวเตอร์ และเทคโนโลยี
-เพื่อนำไปสร้างระบบหรือซอฟต์แวร์ที่สามารถใช้งานได้จริง
+การเขียนโปรแกรม ระบบคอมพิวเตอร์
+และการสร้างซอฟต์แวร์ที่สามารถนำไปใช้งานจริง
 </p>
 
 </div>
@@ -1259,11 +1960,13 @@ Computer • Technology • Photography • Film • Digital Media
 
 <div class="major">
 
-<h4>Information Engineering</h4>
+<h4>
+Information Engineering
+</h4>
 
 <p>
-ผมสนใจด้านการจัดการข้อมูล ระบบสารสนเทศ
-และการนำเทคโนโลยีมาใช้ในการแก้ปัญหา
+ผมสนใจการจัดการข้อมูล ระบบสารสนเทศ
+และการนำเทคโนโลยีมาใช้แก้ปัญหา
 ซึ่งสอดคล้องกับความสนใจด้านคอมพิวเตอร์ของผม
 </p>
 
@@ -1272,12 +1975,14 @@ Computer • Technology • Photography • Film • Digital Media
 
 <div class="major">
 
-<h4>Robotics and Automation Engineering</h4>
+<h4>
+Robotics and Automation Engineering
+</h4>
 
 <p>
-สาขานี้ทำให้ผมได้เรียนรู้การผสมผสานระหว่าง
-คอมพิวเตอร์ ระบบควบคุม และเทคโนโลยีอัตโนมัติ
-ซึ่งเป็นอีกด้านที่ผมสนใจและต้องการทดลองเรียนรู้เพิ่มเติม
+ผมสนใจการผสมผสานระหว่างคอมพิวเตอร์
+ระบบควบคุม และเทคโนโลยีอัตโนมัติ
+ซึ่งเป็นอีกด้านที่ผมต้องการเรียนรู้เพิ่มเติม
 </p>
 
 </div>
@@ -1287,14 +1992,18 @@ Computer • Technology • Photography • Film • Digital Media
 
 <!-- BUU -->
 
-<div class="university">
+<div class="university reveal">
 
-<h3>🎓 มหาวิทยาลัยบูรพา</h3>
+<h3>
+🎓 มหาวิทยาลัยบูรพา
+</h3>
 
 
 <div class="major">
 
-<h4>วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ</h4>
+<h4>
+วิศวกรรมหุ่นยนต์และระบบอัตโนมัติ
+</h4>
 
 <p>
 ผมสนใจเพราะเป็นสาขาที่เกี่ยวข้องกับเทคโนโลยี
@@ -1307,12 +2016,15 @@ Computer • Technology • Photography • Film • Digital Media
 
 <div class="major">
 
-<h4>ภาพยนตร์และดิจิทัลมีเดีย</h4>
+<h4>
+ภาพยนตร์และดิจิทัลมีเดีย
+</h4>
 
 <p>
 ผมสนใจสาขานี้จากความชอบด้านการถ่ายภาพ
 การทำวิดีโอ การตัดต่อ และการเล่าเรื่อง
-เพราะต้องการพัฒนาความสามารถด้านสื่อให้เป็นทักษะที่จริงจังมากขึ้น
+และต้องการพัฒนาความสามารถด้านสื่อ
+ให้เป็นทักษะที่จริงจังมากขึ้น
 </p>
 
 </div>
@@ -1322,20 +2034,22 @@ Computer • Technology • Photography • Film • Digital Media
 </section>
 
 
-<!-- ================= FUTURE ================= -->
+<!-- =================================================
+     FUTURE
+================================================= -->
 
 <section id="future">
 
-<div class="section-title">
+<div class="section-title reveal">
 
-<small>08 — MY FUTURE</small>
+<small>07 — MY FUTURE</small>
 
 <h2>เป้าหมายในอนาคต</h2>
 
 </div>
 
 
-<div class="future">
+<div class="future reveal">
 
 <p>
 ในอนาคตผมต้องการศึกษาต่อในสาขาที่สามารถนำความสนใจ
@@ -1343,33 +2057,43 @@ Computer • Technology • Photography • Film • Digital Media
 มาต่อยอดให้เกิดเป็นความสามารถที่ใช้ได้จริง
 </p>
 
+
 <p>
 ผมต้องการพัฒนาตัวเองให้สามารถสร้างผลงานได้ตั้งแต่
 การคิดแนวทาง การออกแบบ การเขียนโปรแกรม
 การสร้างระบบ ไปจนถึงการนำเสนอผลงานผ่านภาพและวิดีโอ
 </p>
 
-<p>
-ประสบการณ์จากกิจกรรม เกียรติบัตร และผลงานต่าง ๆ
-จึงเป็นจุดเริ่มต้นที่ทำให้ผมได้เรียนรู้ว่า
-ตัวเองชอบอะไร มีความถนัดด้านไหน
-และต้องพัฒนาตัวเองในด้านใดต่อไป
-</p>
 
 <p>
-ผมเชื่อว่าการเรียนรู้ไม่ได้จบอยู่แค่ในห้องเรียน
-แต่เกิดขึ้นจากการลงมือทำ ทดลอง และเรียนรู้จากข้อผิดพลาด
-และผมต้องการนำแนวคิดนี้ไปใช้ในการเรียนระดับมหาวิทยาลัยต่อไป
+ประสบการณ์จากกิจกรรม เกียรติบัตร และผลงานต่าง ๆ
+เป็นจุดเริ่มต้นที่ทำให้ผมได้เรียนรู้ว่า
+ตัวเองสนใจอะไร และต้องพัฒนาตัวเองด้านใดต่อไป
+</p>
+
+
+<p>
+ผมเชื่อว่าการเรียนรู้ไม่ได้เกิดขึ้นเพียงในห้องเรียน
+แต่เกิดจากการลงมือทำ ทดลอง และเรียนรู้จากข้อผิดพลาด
 </p>
 
 
 <a href="index.html" class="btn">
+
 ← กลับหน้าแรก
+
 </a>
 
 </div>
 
 </section>
+
+
+<!-- TOP -->
+
+<a href="#" class="top" id="top">
+↑
+</a>
 
 
 <footer>
@@ -1385,5 +2109,94 @@ Personal Portfolio
 </footer>
 
 
+<script>
+
+/* =================================================
+   SCROLL PROGRESS
+================================================= */
+
+window.addEventListener("scroll",function(){
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const percent =
+        (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress")
+        .style.width = percent + "%";
+
+});
+
+
+/* =================================================
+   REVEAL ANIMATION
+================================================= */
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver(
+
+(entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.12
+}
+
+);
+
+
+reveals.forEach(el=>{
+
+    observer.observe(el);
+
+});
+
+
+/* =================================================
+   BACK TO TOP
+================================================= */
+
+const topButton =
+document.getElementById("top");
+
+
+window.addEventListener("scroll",function(){
+
+    if(window.scrollY > 600){
+
+        topButton.classList.add("show");
+
+    }else{
+
+        topButton.classList.remove("show");
+
+    }
+
+});
+
+</script>
+
+
 </body>
+
 </html>
