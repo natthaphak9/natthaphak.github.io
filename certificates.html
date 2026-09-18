@@ -1,1 +1,1134 @@
+<!DOCTYPE html>
+<html lang="th">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portfolio</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#050505;
+    color:#fff;
+    font-family:Arial, Tahoma, sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.035);
+    filter:blur(100px);
+    top:-200px;
+    left:-150px;
+    z-index:-2;
+    animation:floatGlow 8s ease-in-out infinite alternate;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:450px;
+    height:450px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.025);
+    filter:blur(100px);
+    right:-150px;
+    bottom:-150px;
+    z-index:-2;
+    animation:floatGlow 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatGlow{
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(60px,40px);
+    }
+}
+
+/* =========================
+   TOP NAV
+========================= */
+
+.nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(5,5,5,0.75);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.nav-logo{
+    font-size:18px;
+    font-weight:bold;
+    letter-spacing:4px;
+}
+
+.nav a{
+    color:#aaa;
+    text-decoration:none;
+    margin-left:25px;
+    transition:0.3s;
+}
+
+.nav a:hover{
+    color:#fff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:120px 20px 80px;
+    position:relative;
+}
+
+.small-title{
+    color:#888;
+    font-size:14px;
+    letter-spacing:6px;
+    margin-bottom:20px;
+    animation:fadeDown 1s ease forwards;
+}
+
+.hero h1{
+    font-size:clamp(70px,15vw,190px);
+    line-height:0.85;
+    letter-spacing:-8px;
+    font-weight:900;
+    animation:heroIn 1.2s ease forwards;
+}
+
+.hero p{
+    margin-top:35px;
+    color:#999;
+    font-size:17px;
+    letter-spacing:2px;
+    animation:fadeUp 1.2s ease 0.3s both;
+}
+
+@keyframes heroIn{
+    from{
+        opacity:0;
+        transform:translateY(60px) scale(.9);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:120px 0;
+}
+
+.section-number{
+    color:#666;
+    font-size:14px;
+    letter-spacing:4px;
+    margin-bottom:15px;
+}
+
+.section-title{
+    font-size:clamp(40px,7vw,80px);
+    margin-bottom:50px;
+    letter-spacing:-3px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.07),
+        rgba(255,255,255,0.025)
+    );
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:22px;
+    padding:20px;
+    overflow:hidden;
+    transition:
+        transform .5s ease,
+        border-color .5s ease,
+        box-shadow .5s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(255,255,255,0.35);
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.card img{
+    width:100%;
+    display:block;
+    border-radius:14px;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+
+.card:hover img{
+    transform:scale(1.035);
+}
+
+.card-content{
+    padding:25px 8px 10px;
+}
+
+.card h3{
+    font-size:23px;
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#999;
+    line-height:1.8;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.video-box{
+    width:100%;
+    background:#0b0b0b;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:24px;
+    padding:15px;
+    overflow:hidden;
+}
+
+.video-box video{
+    width:100%;
+    display:block;
+    border-radius:16px;
+    background:#000;
+}
+
+.video-text{
+    padding:25px 10px 10px;
+}
+
+.video-text h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.video-text p{
+    color:#999;
+    line-height:1.8;
+}
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+    padding:100px 20px 60px;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer h2{
+    font-size:clamp(55px,12vw,140px);
+    letter-spacing:-6px;
+    margin-bottom:35px;
+}
+
+.back-btn{
+    display:inline-block;
+    padding:16px 32px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50px;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-4px);
+}
+
+/* =========================
+   SCROLL BAR
+========================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    width:0%;
+    background:#fff;
+    z-index:2000;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .nav{
+        padding:18px 20px;
+    }
+
+    .nav-logo{
+        font-size:14px;
+        letter-spacing:3px;
+    }
+
+    .nav a{
+        display:none;
+    }
+
+    .hero{
+        padding-top:100px;
+    }
+
+    .hero h1{
+        font-size:21vw;
+        letter-spacing:-4px;
+    }
+
+    .hero p{
+        font-size:13px;
+    }
+
+    section{
+        width:92%;
+        padding:80px 0;
+    }
+
+    .section-title{
+        font-size:50px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .card{
+        border-radius:18px;
+    }
+
+    .card h3{
+        font-size:20px;
+    }
+
+    .footer h2{
+        font-size:22vw;
+        letter-spacing:-4px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav class="nav">
+
+    <div class="nav-logo">
+        PORTFOLIO
+    </div>
+
+    <div>
+        <a href="#certificates">Certificates</a>
+        <a href="#activities">Activities</a>
+        <a href="#video">Video</a>
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<header class="hero">
+
+    <div class="small-title">
+        COLLECTION / 2026
+    </div>
+
+    <h1>
+        PORTFOLIO
+    </h1>
+
+    <p>
+        CERTIFICATES • ACTIVITIES • VIDEO WORKS
+    </p>
+
+</header>
+
+
+<!-- =========================
+     CERTIFICATES
+========================= -->
+
+<section id="certificates">
+
+    <div class="section-number reveal">
+        01 / CERTIFICATES
+    </div>
+
+    <h2 class="section-title reveal">
+        Certificates
+    </h2>
+
+
+    <div class="grid">
+
+
+        <!-- CERTIFICATE 1 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate1.jpg"
+                 alt="Certificate 1">
+
+            <div class="card-content">
+
+                <h3>
+                    ค่ายพัฒนาความเป็นเลิศผู้เรียนด้านRoboticและAl
+                </h3>
+
+                <p>
+                    ✏️ได้ผ่านการอบรมเชิงปฏิบัติการพื้นฐานการควบคุมอัตโนมัติด้วย Programmable Logic Controller 
+                    นักเรียนแผนการเรียนวิทยาศาสตร์-คณิตศาสตร์
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 2 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate2.jpg"
+                 alt="Certificate 2">
+
+            <div class="card-content">
+
+                <h3>
+                    Animation Contest 2024(E.TECH)
+                </h3>
+
+                <p>
+                    ✏️ การแข่งขัน Animation Contest 2024 ระดับมัธยมศึกษาตอนปลาย(E.TECH)
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 3 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate3.jpg"
+                 alt="Certificate 3">
+
+            <div class="card-content">
+
+                <h3>
+                    การแข่งขันBe Fast E-Searching (E.TECH)
+                </h3>
+
+                <p>
+                    ✏️การแข่งขันBe Fast E-Searching ระดับมัธยมศึกษาตอนปลาย (E.TECH)
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 4 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate4.jpg"
+                 alt="Certificate 4">
+
+            <div class="card-content">
+
+                <h3>
+                    อบรมพัฒนานักเรียนแกนนำงานจราจรและรักษาความปลอดภัย
+                </h3>
+
+                <p>
+                    ✏️ได้ผ่านการอบรมพัฒนานักเรียนแกนนำงานจราจรและรักษาความปลอดภัย ณ ห้องประชุมเกียรติคุณ โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์” จังหวัดชลบุรี
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 5 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate5.jpg"
+                 alt="Certificate 5">
+
+            <div class="card-content">
+
+                <h3>
+                    เข้าร่วมอบรมค่ายพัฒนาคุณธรรม
+                </h3>
+
+                <p>
+                    ✏️ เข้าร่วมอบรมค่ายพัฒนาคุณธรรม จริยธรรมนักเรียน ประจำปีการศึกษา ๒๕๖๗ร
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 6 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate6.jpg"
+                 alt="Certificate 6">
+
+            <div class="card-content">
+
+                <h3>
+                    กิจกรรม การประกวดภาพยนตร์สั้น ระดับชั้น ม.๔ - ม.๖
+                </h3>
+
+                <p>
+                    ✏️ได้รับรางวัลระดับเหรียญทองแดงกิจกรรม การประกวดภาพยนตร์สั้น 
+                    ระดับชั้น ม.๔ - ม.๖งานศิลปหัตถกรรมนักเรียน ครั้งที่ ๗๓ ปีการศึกษา ๒๕๖๘ระดับสำนักงานเขตพื้นที่การศึกษา
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 7 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate7.jpg"
+                 alt="Certificate 7">
+
+            <div class="card-content">
+
+                <h3>
+                    ได้เข้าร่วมโครงการอบรม “วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต“
+                </h3>
+
+                <p>
+                    ✏️ได้เข้าร่วมโครงการอบรม “วัยรุ่นยุคใหม่ ใส่ใจสุขภาพจิต”
+                    ปีการศึกษา ๒๕๖๗ วันที่ ๓๐ สิงหาคม พ.ศ.๒๕๖๗ ณ โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 8 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate8.jpg"
+                 alt="Certificate 8">
+
+            <div class="card-content">
+
+                <h3>
+                    การแข่งขันประกวดภาพถ่าย
+                </h3>
+
+                <p>
+                    ✏️ได้รับรางวัลชนะเลิศ” การแข่งขันประกวดภาพถ่ายภายใต้หัวข้อ FOCUS บ้านบึง
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 9 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate9.jpg"
+                 alt="Certificate 9">
+
+            <div class="card-content">
+
+                <h3>
+                    ได้เข้าร่วมงาน INTANIA OPEN HOUSE 2026
+                </h3>
+
+                <p>
+                    ✏️ได้เข้าร่วมงาน INTANIA OPEN HOUSE 2026 และทํากิจกรรม 
+                    หาความรู้อย่างเหมาะสม ณ คณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 10 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate10.jpg"
+                 alt="Certificate 10">
+
+            <div class="card-content">
+
+                <h3>
+                    กิจกรรมสื่อสร้างสรรค์ ภาพยนตร์สั้นต่อต้านการทุจริต ระดับช่วงชั้น ม.๔ - ๖
+                </h3>
+
+                <p>
+                    ✏️ ได้รับรางวัลรองชนะเลิศอันดับ1 กิจกรรมสื่อสร้างสรรค์ 
+                    ภาพยนตร์สั้นต่อต้านการทุจริต ระดับช่วงชั้น ม . ๔ - ๖
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 11 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate11.jpg"
+                 alt="Certificate 11">
+
+            <div class="card-content">
+
+                <h3>
+                    ได้“ผ่าน”การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรมเชิงปฏิบัติการ
+                </h3>
+
+                <p>
+                    ✏️ได้ “ผ่าน” การเข้าร่วมพัฒนาทักษะวิชาการ
+                    และกิจกรรมเชิงปฏิบัติการในกลุ่มคณะ “วิทยาศาสตร์”ภายใต้ "
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 12 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate12.jpg"
+                 alt="Certificate 12">
+
+            <div class="card-content">
+
+                <h3>
+                    เป็นวิทยากรจัดแสดงนิทรรศการวิทยาศาสตร์และเทคโนโลยี
+                </h3>
+
+                <p>
+                    ✏️ ป็นวิทยากรจัดแสดงนิทรรศการวิทยาศาสตร์และเทคโนโลยี 
+                    เนื่องในงานวันวิทยาศาสตร์แห่งชาติ ประจำปีการศึกษา ๒๕๖๙I
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 13 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate13.jpg"
+                 alt="Certificate 13">
+
+            <div class="card-content">
+
+                <h3>
+                    เข้าร่วมมหกรรมการศึกษาวิชาการ 
+                    พัฒนาทักษะวิชาการและกิจกรรมเชิงปฏิบัติการ
+                </h3>
+
+                <p>
+                    ✏️ ได้“ผ่าน”การเข้าร่วมมหกรรมการศึกษาวิชาการ 
+                    พัฒนาทักษะวิชาการและกิจกรรมเชิงปฏิบัติการภายใต้ 
+                    “THAILAND UNIVERSITY EXPO 2024
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 14 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate14.jpg"
+                 alt="Certificate 14">
+
+            <div class="card-content">
+
+                <h3>
+                    การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรมเชิงปฏิบัติการ
+                </h3>
+
+                <p>
+                    ✏️ ได้ “ผ่าน” การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรม
+                       เชิงปฏิบัติการในกลุ่มคณะ “วิศวกรรมศาสตร์"
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 15 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate15.jpg"
+                 alt="Certificate 15">
+
+            <div class="card-content">
+
+                <h3>
+                     การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรมเชิงปฏิบัติการ
+                </h3>
+
+                <p>
+                    ✏️ ได้“ผ่าน”การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรม
+                    เชิงปฏิบัติการในกลุ่มคณะ“นิเทศศาสตร์ สื่อสารมวลชล
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- CERTIFICATE 16 -->
+
+        <div class="card reveal">
+
+            <img src="images/certificate16.jpg"
+                 alt="Certificate 16">
+
+            <div class="card-content">
+
+                <h3>
+                    การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรมเชิงปฏิบัติการ
+                </h3>
+
+                <p>
+                    ✏️ได้ "ผ่าน" การเข้าร่วมพัฒนาทักษะวิชาการและกิจกรรม
+                    เชิงปฏิบัติการในกลุ่มคณะ “เทคโนโลยีสารสนเทศ นวัตกรรม"
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ACTIVITIES
+========================= -->
+
+<section id="activities">
+
+    <div class="section-number reveal">
+        02 / ACTIVITIES
+    </div>
+
+    <h2 class="section-title reveal">
+        Activities
+    </h2>
+
+
+    <div class="grid">
+
+
+        <!-- ACTIVITY 1 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity1.jpg"
+                 alt="Activity 1">
+
+            <div class="card-content">
+
+                <h3>
+                    ตัวอย่างภาพกิจกรรมที่ 1
+                </h3>
+
+                <p>
+                    ✏️“ภาพได้รับรางวัลชนะเลิศ”การแข่งขันประกวดภาพถ่ายภายใต้หัวข้อ FOCUS บ้านบึง
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 2 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity2.jpg"
+                 alt="Activity 2">
+
+            <div class="card-content">
+
+                <h3>
+                    ตัวอย่างภาพกิจกรรมที่ 2
+                </h3>
+
+                <p>
+                    ✏️ ภาพรับเกียรติบัตรการประกวดภาพยนตร์สั้นม.ปลาย
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 3 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity3.jpg"
+                 alt="Activity 3">
+
+            <div class="card-content">
+
+                <h3>
+                    ตัวอย่างภาพกิจกรรมที่ 3
+                </h3>
+
+                <p>
+                    ✏️ภาพถ่ายจากการประกวดภาพยนตร์สั้นม.ปลายระดับเขตพื้นที่การศึกษา
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 4 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity4.jpg"
+                 alt="Activity 4">
+
+            <div class="card-content">
+
+                <h3>
+                    ตัวอย่างภาพกิจกรรมที่ 4
+                </h3>
+
+                <p>
+                    ✏️ได้เข้าร่วมการแข่งขัน Animation Contest 2024 ระดับมัธยมศึกษาตอนปลาย
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 5 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity5.jpg"
+                 alt="Activity 5">
+
+            <div class="card-content">
+
+                <h3>
+                    ตัวอย่างภาพกิจกรรมที่ 5
+                </h3>
+
+                <p>
+                    ✏️  ภาพถ่ายการเข้าร่วมกิจกรรมในงานมหกรรมการศึกษา
+                        วิชาการ “THAILAND UNIVERSITY EXPO 
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIVITY 6 -->
+
+        <div class="card reveal">
+
+            <img src="images/activity6.jpg"
+                 alt="Activity 6">
+
+            <div class="card-content">
+
+                <h3>
+                    ตัวอย่างภาพกิจกรรมที่ 6
+                </h3>
+
+                <p>
+                    ✏️ภาพการรับเกียรติบัตรตัวแทนนักเรียน
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<section id="video">
+
+    <div class="section-number reveal">
+        03 / VIDEO WORK
+    </div>
+
+    <h2 class="section-title reveal">
+        Video
+    </h2>
+
+
+    <div class="video-box reveal">
+
+        <!-- สำคัญ: วิดีโออยู่ใน images -->
+
+        <video
+            controls
+            playsinline
+            preload="metadata">
+
+            <source
+                src="images/video1.mp4"
+                type="video/mp4">
+
+            เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+
+        </video>
+
+
+        <div class="video-text">
+
+            <h3>
+                ผลงานด้านการตัดต่อและถ่ายทำวิดีโอ
+            </h3>
+
+            <p>
+                ✏️ตัวอย่างคริปที่ใช้ในการส่งแข่งภาพยนต์สั้น
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer class="footer">
+
+    <div class="reveal">
+
+        <h2>
+            thank you
+        </h2>
+
+        <a href="index.html" class="back-btn">
+            ← BACK TO HOME
+        </a>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* Scroll reveal */
+
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(
+    (entries) => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("show");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:0.12
+    }
+);
+
+reveals.forEach(el => observer.observe(el));
+
+
+/* Scroll progress */
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress =
+        (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress").style.width =
+        progress + "%";
+
+});
+
+</script>
+
+
+</body>
+</html>
