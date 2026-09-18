@@ -22,10 +22,13 @@ html{
 body{
     background:#050505;
     color:#fff;
-    font-family:Arial,Tahoma,sans-serif;
+    font-family:Arial, Tahoma, sans-serif;
     overflow-x:hidden;
-    line-height:1.8;
 }
+
+/* =========================
+   BACKGROUND
+========================= */
 
 body::before{
     content:"";
@@ -33,7 +36,7 @@ body::before{
     width:500px;
     height:500px;
     border-radius:50%;
-    background:rgba(255,255,255,.035);
+    background:rgba(255,255,255,0.035);
     filter:blur(100px);
     top:-200px;
     left:-150px;
@@ -47,7 +50,7 @@ body::after{
     width:450px;
     height:450px;
     border-radius:50%;
-    background:rgba(255,255,255,.025);
+    background:rgba(255,255,255,0.025);
     filter:blur(100px);
     right:-150px;
     bottom:-150px;
@@ -56,12 +59,17 @@ body::after{
 }
 
 @keyframes floatGlow{
-    from{transform:translate(0,0);}
-    to{transform:translate(60px,40px);}
+    from{
+        transform:translate(0,0);
+    }
+    to{
+        transform:translate(60px,40px);
+    }
 }
 
-
-/* NAV */
+/* =========================
+   NAVIGATION
+========================= */
 
 .nav{
     position:fixed;
@@ -73,9 +81,9 @@ body::after{
     justify-content:space-between;
     align-items:center;
     z-index:1000;
-    background:rgba(5,5,5,.78);
+    background:rgba(5,5,5,0.78);
     backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .nav-logo{
@@ -86,21 +94,24 @@ body::after{
 
 .nav-links{
     display:flex;
-    gap:25px;
+    align-items:center;
+    gap:24px;
 }
 
 .nav a{
     color:#aaa;
     text-decoration:none;
     transition:.3s;
+    font-size:14px;
 }
 
 .nav a:hover{
     color:#fff;
 }
 
-
-/* HERO */
+/* =========================
+   HERO
+========================= */
 
 .hero{
     min-height:100vh;
@@ -110,6 +121,7 @@ body::after{
     align-items:center;
     text-align:center;
     padding:120px 20px 80px;
+    position:relative;
 }
 
 .small-title{
@@ -117,7 +129,7 @@ body::after{
     font-size:14px;
     letter-spacing:6px;
     margin-bottom:20px;
-    animation:fadeDown 1s ease;
+    animation:fadeDown 1s ease forwards;
 }
 
 .hero h1{
@@ -125,7 +137,7 @@ body::after{
     line-height:.85;
     letter-spacing:-8px;
     font-weight:900;
-    animation:heroIn 1.2s ease;
+    animation:heroIn 1.2s ease forwards;
 }
 
 .hero p{
@@ -138,27 +150,39 @@ body::after{
 
 .hero-buttons{
     display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
     gap:15px;
     margin-top:45px;
+    animation:fadeUp 1.2s ease .5s both;
 }
 
-.btn{
+.hero-btn{
     display:inline-block;
     padding:15px 28px;
-    border:1px solid #444;
+    border:1px solid rgba(255,255,255,.25);
     border-radius:50px;
     color:#fff;
     text-decoration:none;
-    transition:.4s;
+    transition:.35s;
 }
 
-.btn:hover{
+.hero-btn:hover{
     background:#fff;
     color:#000;
     transform:translateY(-5px);
 }
+
+.hero-btn.main{
+    background:#fff;
+    color:#000;
+}
+
+.hero-btn.main:hover{
+    background:#ddd;
+}
+
+/* =========================
+   ANIMATION
+========================= */
 
 @keyframes heroIn{
     from{
@@ -193,14 +217,55 @@ body::after{
     }
 }
 
+/* =========================
+   INTRO
+========================= */
 
-/* SECTION */
-
-section{
+.intro{
     width:90%;
     max-width:1100px;
     margin:auto;
     padding:120px 0;
+}
+
+.intro-box{
+    border:1px solid rgba(255,255,255,.1);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.02)
+    );
+    border-radius:30px;
+    padding:55px;
+}
+
+.intro-number{
+    color:#666;
+    letter-spacing:4px;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.intro h2{
+    font-size:clamp(42px,7vw,75px);
+    margin-bottom:25px;
+}
+
+.intro p{
+    color:#aaa;
+    line-height:2;
+    font-size:17px;
+}
+
+/* =========================
+   PORTFOLIO MENU
+========================= */
+
+.menu-section{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:100px 0 150px;
 }
 
 .section-number{
@@ -211,67 +276,92 @@ section{
 }
 
 .section-title{
-    font-size:clamp(40px,7vw,80px);
+    font-size:clamp(45px,7vw,80px);
     margin-bottom:50px;
     letter-spacing:-3px;
 }
 
-
-/* CARDS */
-
-.grid{
+.menu-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:25px;
 }
 
-.card{
+.menu-card{
+    position:relative;
+    min-height:260px;
+    padding:35px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:25px;
     background:linear-gradient(
         145deg,
         rgba(255,255,255,.07),
-        rgba(255,255,255,.025)
+        rgba(255,255,255,.02)
     );
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:22px;
-    padding:30px;
+    text-decoration:none;
+    color:#fff;
+    overflow:hidden;
     transition:.5s;
 }
 
-.card:hover{
+.menu-card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    right:-70px;
+    bottom:-70px;
+    transition:.5s;
+}
+
+.menu-card:hover{
     transform:translateY(-10px);
-    border-color:rgba(255,255,255,.35);
-    box-shadow:0 20px 60px rgba(0,0,0,.5);
+    border-color:rgba(255,255,255,.4);
+    box-shadow:0 25px 70px rgba(0,0,0,.5);
 }
 
-.card h3{
-    font-size:25px;
-    margin-bottom:12px;
+.menu-card:hover::before{
+    transform:scale(1.5);
 }
 
-.card p{
+.menu-number{
+    color:#666;
+    font-size:13px;
+    letter-spacing:3px;
+    margin-bottom:30px;
+}
+
+.menu-card h3{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.menu-card p{
     color:#999;
+    line-height:1.7;
 }
 
-
-/* REVEAL */
-
-.reveal{
-    opacity:0;
-    transform:translateY(50px);
-    transition:opacity 1s ease,transform 1s ease;
+.menu-arrow{
+    position:absolute;
+    right:30px;
+    top:30px;
+    font-size:25px;
+    transition:.4s;
 }
 
-.reveal.show{
-    opacity:1;
-    transform:translateY(0);
+.menu-card:hover .menu-arrow{
+    transform:translate(8px,-8px);
 }
 
-
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
     text-align:center;
-    padding:120px 20px 70px;
+    padding:100px 20px 60px;
     border-top:1px solid rgba(255,255,255,.08);
 }
 
@@ -281,8 +371,75 @@ section{
     margin-bottom:35px;
 }
 
+.footer p{
+    color:#777;
+    margin-bottom:30px;
+}
 
-/* MOBILE */
+.back-btn{
+    display:inline-block;
+    padding:16px 32px;
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:50px;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#fff;
+    color:#000;
+    transform:translateY(-4px);
+}
+
+/* =========================
+   SCROLL BAR
+========================= */
+
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    width:0%;
+    background:#fff;
+    z-index:2000;
+}
+
+/* =========================
+   REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(50px);
+    transition:opacity 1s ease, transform 1s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+    .nav-links{
+        gap:12px;
+    }
+
+    .nav a{
+        font-size:12px;
+    }
+
+    .menu-grid{
+        grid-template-columns:1fr;
+    }
+
+}
 
 @media(max-width:700px){
 
@@ -290,8 +447,17 @@ section{
         padding:18px 20px;
     }
 
+    .nav-logo{
+        font-size:14px;
+        letter-spacing:3px;
+    }
+
     .nav-links{
         display:none;
+    }
+
+    .hero{
+        padding-top:100px;
     }
 
     .hero h1{
@@ -300,20 +466,54 @@ section{
     }
 
     .hero p{
-        font-size:13px;
+        font-size:12px;
     }
 
-    section{
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+        max-width:280px;
+    }
+
+    .hero-btn{
+        width:100%;
+    }
+
+    .intro{
         width:92%;
         padding:80px 0;
     }
 
-    .grid{
-        grid-template-columns:1fr;
+    .intro-box{
+        padding:30px;
+        border-radius:22px;
     }
 
-    .card{
-        border-radius:18px;
+    .intro p{
+        font-size:15px;
+    }
+
+    .menu-section{
+        width:92%;
+        padding:80px 0 100px;
+    }
+
+    .section-title{
+        font-size:50px;
+    }
+
+    .menu-card{
+        min-height:220px;
+        padding:28px;
+    }
+
+    .menu-card h3{
+        font-size:27px;
+    }
+
+    .footer h2{
+        font-size:22vw;
+        letter-spacing:-4px;
     }
 
 }
@@ -324,8 +524,12 @@ section{
 
 <body>
 
+<div class="progress" id="progress"></div>
 
-<!-- NAVIGATION -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav class="nav">
 
@@ -335,26 +539,42 @@ section{
 
     <div class="nav-links">
 
-        <a href="portfolio.html">หน้าหลัก</a>
+        <a href="portfolio.html">
+            หน้าหลัก
+        </a>
 
-        <a href="about.html">แนะนำตัว</a>
+        <a href="about.html">
+            แนะนำตัว
+        </a>
 
-        <a href="certificates.html">เกียรติบัตร</a>
+        <a href="certificates.html">
+            เกียรติบัตร
+        </a>
 
-        <a href="activities.html">กิจกรรม</a>
+        <a href="activities.html">
+            กิจกรรม
+        </a>
 
-        <a href="awards.html">รางวัล</a>
+        <a href="awards.html">
+            รางวัล
+        </a>
 
-        <a href="video.html">วิดีโอ</a>
+        <a href="video.html">
+            วิดีโอ
+        </a>
 
-        <a href="future.html">เป้าหมาย</a>
+        <a href="future.html">
+            เป้าหมาย
+        </a>
 
     </div>
 
 </nav>
 
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
 <header class="hero">
 
@@ -367,22 +587,17 @@ section{
     </h1>
 
     <p>
-        CERTIFICATES • ACTIVITIES • AWARDS • VIDEO
+        NATTHAPHAK BOONYAMA
     </p>
-
 
     <div class="hero-buttons">
 
-        <a href="about.html" class="btn">
-            แนะนำตัว →
+        <a href="about.html" class="hero-btn main">
+            เข้าสู่พอร์ตโฟลิโอ
         </a>
 
-        <a href="certificates.html" class="btn">
-            เกียรติบัตร →
-        </a>
-
-        <a href="activities.html" class="btn">
-            กิจกรรม →
+        <a href="certificates.html" class="hero-btn">
+            ดูผลงาน
         </a>
 
     </div>
@@ -390,193 +605,31 @@ section{
 </header>
 
 
-<!-- CONTENT -->
+<!-- =========================
+     INTRO
+========================= -->
 
-<section>
+<section class="intro">
 
-    <div class="section-number reveal">
-        01 / EXPLORE
-    </div>
+    <div class="intro-box reveal">
 
-    <h2 class="section-title reveal">
-        Explore My Portfolio
-    </h2>
-
-
-    <div class="grid">
-
-
-        <div class="card reveal">
-
-            <h3>
-                👤 แนะนำตัว
-            </h3>
-
-            <p>
-                ทำความรู้จักตัวตน ความสนใจ
-                ทักษะ และสิ่งที่ผมต้องการพัฒนาต่อไป
-            </p>
-
-            <br>
-
-            <a href="about.html" class="btn">
-                ดูแนะนำตัว →
-            </a>
-
+        <div class="intro-number">
+            01 / ABOUT ME
         </div>
-
-
-        <div class="card reveal">
-
-            <h3>
-                📜 Certificates
-            </h3>
-
-            <p>
-                รวมเกียรติบัตรและประสบการณ์
-                จากการเข้าร่วมกิจกรรมต่าง ๆ
-            </p>
-
-            <br>
-
-            <a href="certificates.html" class="btn">
-                ดูเกียรติบัตร →
-            </a>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <h3>
-                🎯 Activities
-            </h3>
-
-            <p>
-                รวมภาพกิจกรรมและประสบการณ์
-                ที่ได้ลงมือทำจริง
-            </p>
-
-            <br>
-
-            <a href="activities.html" class="btn">
-                ดูกิจกรรม →
-            </a>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <h3>
-                🏆 Awards
-            </h3>
-
-            <p>
-                รวมผลงานและรางวัลที่ได้รับ
-                จากการแข่งขันและกิจกรรมต่าง ๆ
-            </p>
-
-            <br>
-
-            <a href="awards.html" class="btn">
-                ดูรางวัล →
-            </a>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <h3>
-                🎬 Video Works
-            </h3>
-
-            <p>
-                ผลงานด้านการถ่ายทำ ตัดต่อ
-                และภาพยนตร์สั้น
-            </p>
-
-            <br>
-
-            <a href="video.html" class="btn">
-                ดูวิดีโอ →
-            </a>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <h3>
-                🚀 Future
-            </h3>
-
-            <p>
-                เป้าหมายในการศึกษาต่อ
-                และสิ่งที่ต้องการพัฒนาตัวเองในอนาคต
-            </p>
-
-            <br>
-
-            <a href="future.html" class="btn">
-                ดูเป้าหมาย →
-            </a>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<footer class="footer">
-
-    <div class="reveal">
 
         <h2>
-            THANK YOU
+            About Me
         </h2>
 
-        <a href="index.html" class="btn">
-            ← BACK TO HOME
-        </a>
+        <p>
+            สวัสดีครับ ผมชื่อ นายณัทธ์ฐภัค บุญยามา อายุ 18 ปี
+            ปัจจุบันกำลังศึกษาอยู่ในระดับชั้นมัธยมศึกษาปีที่ 6
+            แผนการเรียนวิทยาการคอมพิวเตอร์และวิศวกรรม
+        </p>
 
-    </div>
+        <br>
 
-</footer>
-
-
-<script>
-
-const reveals =
-document.querySelectorAll(".reveal");
-
-const observer =
-new IntersectionObserver(
-    entries => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.classList.add("show");
-
-            }
-
-        });
-
-    },
-    {
-        threshold:.12
-    }
-);
-
-reveals.forEach(el => observer.observe(el));
-
-</script>
-
-
-</body>
-</html>
+        <p>
+            ผมเป็นคนที่มีความสนใจในด้านเทคโนโลยีและคอมพิวเตอร์
+            ชอบเรียนรู้และทดลองทำสิ่งใหม่ ๆ โดยเฉพาะการเขียนโปรแกรม
+   
